@@ -3,8 +3,8 @@ using System.Collections;
 
 public class BreakController : MonoBehaviour
 {
-	public float FractureSize = 2.0f;
-	public float FractureForce = 20.0f;
+	public float FractureSize = 1.0f;
+	public float FractureForce = 5.0f;
 	public float MinLifeTime = 2.0f;
 	public float MaxLifeTime = 5.0f;
 	public float DelayStart = 10;
@@ -15,7 +15,6 @@ public class BreakController : MonoBehaviour
 
 	float fDelayStart = float.MaxValue;
 	float fLifeTime = float.MaxValue;
-	float fBreakTime = float.MaxValue;
 	protected Vector3 m_tVelocity;
 
 	bool bInitialized = false;
@@ -35,7 +34,6 @@ public class BreakController : MonoBehaviour
 		gameObject.layer = 0;
 		bBreak = false;
 		fLifeTime = float.MaxValue;
-		fBreakTime = float.MaxValue;
 		BoxCollider[] tColliders = gameObject.GetComponents<BoxCollider>();
 		foreach (BoxCollider tColl in tColliders) {
 			tCollider = tColl;
@@ -85,7 +83,6 @@ public class BreakController : MonoBehaviour
 //							transform.localPosition += tPosChange;
 							transform.localScale = tS;
 							bBreak = false;
-							fBreakTime = float.MaxValue;
 							fLifeTime = float.MaxValue;
 							Rigidbody tRBody = gameObject.GetComponent<Rigidbody>();
 							tRBody.mass /= iNeededObjects + 1;

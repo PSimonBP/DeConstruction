@@ -10,7 +10,6 @@ public class ComplexBreakController : MonoBehaviour {
 	public Vector3 InitialAngularVelocity = Vector3.zero;
 
 	float fLifeTime = float.MaxValue;
-	float fBreakTime = float.MaxValue;
 	protected Vector3 m_tVelocity;
 
 	bool bInitialized = false;
@@ -30,7 +29,6 @@ public class ComplexBreakController : MonoBehaviour {
 		gameObject.layer = 0;
 		bBreak = false;
 		fLifeTime = float.MaxValue;
-		fBreakTime = float.MaxValue;
 		bInitialized = true;
 	}
 
@@ -71,7 +69,6 @@ public class ComplexBreakController : MonoBehaviour {
 							transform.Translate(tPosChange / 2);
 							transform.localScale = tS;
 							bBreak = false;
-							fBreakTime = float.MaxValue;
 							fLifeTime = float.MaxValue;
 							Rigidbody tRBody = gameObject.GetComponent<Rigidbody>();
 							tRBody.mass /= iNeededObjects + 1;
@@ -102,9 +99,8 @@ public class ComplexBreakController : MonoBehaviour {
 							}
 						}
 					}
-			return true;
 		}
-		return false;
+		return true;
 	}
 
 	public void SetBreak(Collider tCol = null)
