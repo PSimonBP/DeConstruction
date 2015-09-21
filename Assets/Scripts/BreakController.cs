@@ -3,10 +3,10 @@ using System.Collections;
 
 public class BreakController : MonoBehaviour
 {
-	public float FractureSize = 1.0f;
-	public float FractureForce = 5.0f;
-	public float MinLifeTime = 2.0f;
-	public float MaxLifeTime = 5.0f;
+	public float FractureSize = 0.5f;
+	public float FractureForce = 2.0f;
+	public float MinLifeTime = 0.2f;
+	public float MaxLifeTime = 2.0f;
 	public float DelayStart = 10;
 	public Vector3 InitialVelocity = Vector3.zero;
 	public Vector3 InitialAngularVelocity = Vector3.zero;
@@ -62,13 +62,10 @@ public class BreakController : MonoBehaviour
 			if (transform.localScale.z * 2 >= transform.localScale.x)	iBreakZ = (int)Mathf.Max(iBreakZ, transform.localScale.x / transform.localScale.z);
 			if (transform.localScale.z * 2 >= transform.localScale.y)	iBreakZ = (int)Mathf.Max(iBreakZ, transform.localScale.y / transform.localScale.z);
 		}
-		iBreakX = (int)iBreakX;
-		iBreakY = (int)iBreakY;
-		iBreakZ = (int)iBreakZ;
-		iNeededObjects *= (int)iBreakX;
-		iNeededObjects *= (int)iBreakY;
-		iNeededObjects *= (int)iBreakZ;
-		iNeededObjects -= 1;
+
+		iBreakX = (int)iBreakX;	iBreakY = (int)iBreakY;	iBreakZ = (int)iBreakZ;
+		iNeededObjects *= (int)iBreakX;	iNeededObjects *= (int)iBreakY;	iNeededObjects *= (int)iBreakZ;	iNeededObjects -= 1;
+
 		if (iNeededObjects <= BoxPool.Instance.GetFreePoolSize()) {
 			for (float x = 0; x < iBreakX; ++x)
 				for (float y = 0; y < iBreakY; ++y)
@@ -76,11 +73,8 @@ public class BreakController : MonoBehaviour
 						if (x == 0 && y == 0 && z == 0) {
 							Vector3 tS = new Vector3(transform.localScale.x / iBreakX, transform.localScale.y / iBreakY, transform.localScale.z / iBreakZ);
 							Vector3 tPosChange = tS / 2;
-							if (iBreakX == 1)	tPosChange.x = 0;
-							if (iBreakY == 1)	tPosChange.y = 0;
-							if (iBreakZ == 1)	tPosChange.z = 0;
+							if (iBreakX == 1) tPosChange.x = 0;	if (iBreakY == 1) tPosChange.y = 0;	if (iBreakZ == 1) tPosChange.z = 0;
 							transform.Translate(tPosChange);
-//							transform.localPosition += tPosChange;
 							transform.localScale = tS;
 							bBreak = false;
 							fLifeTime = float.MaxValue;
