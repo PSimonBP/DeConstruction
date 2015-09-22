@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 54dde2f9c06060e4297225e584923765
+guid: a94c9a7eb94ceec4a8d67a1890e22e51
 TextureImporter:
   fileIDToRecycleName:
     21300000: ResetButton
@@ -36,7 +36,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
@@ -52,4 +51,3 @@ TextureImporter:
   spritePackingTag: 
   userData: 
   assetBundleName: 
-  assetBundleVariant: 
