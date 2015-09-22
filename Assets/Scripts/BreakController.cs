@@ -3,10 +3,10 @@ using System.Collections;
 
 public class BreakController : MonoBehaviour
 {
-	public float FractureSize = 0.5f;
-	public float FractureForce = 2.0f;
-	public float MinLifeTime = 0.2f;
-	public float MaxLifeTime = 2.0f;
+	public float FractureSize = 0.2f;
+	public float FractureForce = 1.0f;
+	public float MinLifeTime = 1.0f;
+	public float MaxLifeTime = 3.0f;
 	public float DelayStart = 10;
 	public Vector3 InitialVelocity = Vector3.zero;
 	public Vector3 InitialAngularVelocity = Vector3.zero;
@@ -92,9 +92,9 @@ public class BreakController : MonoBehaviour
 								tContr.FractureSize = FractureSize;
 								tContr.MinLifeTime = MinLifeTime;
 								tContr.MaxLifeTime = MaxLifeTime;
-								tContr.transform.parent = transform.parent;
+								//tContr.transform.parent = transform.parent;
 								tContr.transform.localScale = transform.localScale;
-								tContr.transform.localRotation = transform.localRotation;
+								tContr.transform.rotation = transform.rotation;
 								tContr.transform.position = transform.position;
 								Vector3 tShift = new Vector3(x * transform.localScale.x, y * transform.localScale.y, z * transform.localScale.z);
 								tContr.transform.Translate(-tShift);

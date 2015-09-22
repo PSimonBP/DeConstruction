@@ -47,7 +47,6 @@ public class BoxPool : MonoBehaviour {
 	public int GetFreePoolSize() {
 //		ContainerObject.name = "BoxPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
 		return ObjectLimit - m_iUsedObjectCount;
-		//return m_tPooledObjects.Count;
 	}
 
 	public GameObject GetObject() {
@@ -59,7 +58,7 @@ public class BoxPool : MonoBehaviour {
 
 		GameObject pooledObject = m_tPooledObjects[0];
 		m_tPooledObjects.RemoveAt(0);
-		pooledObject.transform.parent = ContainerObject.transform;
+//		pooledObject.transform.parent = ContainerObject.transform;
 		pooledObject.SetActive(true);
 		++m_iUsedObjectCount;
 //		ContainerObject.name = "BoxPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
@@ -69,9 +68,10 @@ public class BoxPool : MonoBehaviour {
 	public void PoolObject (GameObject tObject) {
 		--m_iUsedObjectCount;
 //		ContainerObject.name = "BoxPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
-		if (!tObject.GetComponent<Rigidbody>().isKinematic)
-			tObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-		tObject.transform.parent = ContainerObject.transform;
+		Rigidbody tBody = tObject.GetComponent<Rigidbody>();
+		if (tBody && !tBody.isKinematic)
+				tBody.velocity = Vector3.zero;
+//		tObject.transform.parent = ContainerObject.transform;
 		tObject.SetActive(false);
 		m_tPooledObjects.Add(tObject);
 	}	
