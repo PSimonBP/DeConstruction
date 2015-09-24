@@ -68,7 +68,7 @@ public class BoxPool : MonoBehaviour {
 	public void PoolObject (GameObject tObject) {
 		--m_iUsedObjectCount;
 //		ContainerObject.name = "BoxPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
-		Rigidbody tBody = tObject.GetComponent<Rigidbody>();
+		Rigidbody2D tBody = tObject.GetComponent<Rigidbody2D>();
 		if (tBody && !tBody.isKinematic)
 				tBody.velocity = Vector3.zero;
 //		tObject.transform.parent = ContainerObject.transform;
