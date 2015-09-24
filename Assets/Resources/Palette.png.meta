@@ -1,0 +1,2872 @@
+fileFormatVersion: 2
+guid: 04c98a720cadff04885d62c6737b40dc
+timeCreated: 1443108039
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Palette_0
+    21300002: Palette_1
+    21300004: Palette_2
+    21300006: Palette_3
+    21300008: Palette_4
+    21300010: Palette_5
+    21300012: Palette_6
+    21300014: Palette_7
+    21300016: Palette_8
+    21300018: Palette_9
+    21300020: Palette_10
+    21300022: Palette_11
+    21300024: Palette_12
+    21300026: Palette_13
+    21300028: Palette_14
+    21300030: Palette_15
+    21300032: Palette_16
+    21300034: Palette_17
+    21300036: Palette_18
+    21300038: Palette_19
+    21300040: Palette_20
+    21300042: Palette_21
+    21300044: Palette_22
+    21300046: Palette_23
+    21300048: Palette_24
+    21300050: Palette_25
+    21300052: Palette_26
+    21300054: Palette_27
+    21300056: Palette_28
+    21300058: Palette_29
+    21300060: Palette_30
+    21300062: Palette_31
+    21300064: Palette_32
+    21300066: Palette_33
+    21300068: Palette_34
+    21300070: Palette_35
+    21300072: Palette_36
+    21300074: Palette_37
+    21300076: Palette_38
+    21300078: Palette_39
+    21300080: Palette_40
+    21300082: Palette_41
+    21300084: Palette_42
+    21300086: Palette_43
+    21300088: Palette_44
+    21300090: Palette_45
+    21300092: Palette_46
+    21300094: Palette_47
+    21300096: Palette_48
+    21300098: Palette_49
+    21300100: Palette_50
+    21300102: Palette_51
+    21300104: Palette_52
+    21300106: Palette_53
+    21300108: Palette_54
+    21300110: Palette_55
+    21300112: Palette_56
+    21300114: Palette_57
+    21300116: Palette_58
+    21300118: Palette_59
+    21300120: Palette_60
+    21300122: Palette_61
+    21300124: Palette_62
+    21300126: Palette_63
+    21300128: Palette_64
+    21300130: Palette_65
+    21300132: Palette_66
+    21300134: Palette_67
+    21300136: Palette_68
+    21300138: Palette_69
+    21300140: Palette_70
+    21300142: Palette_71
+    21300144: Palette_72
+    21300146: Palette_73
+    21300148: Palette_74
+    21300150: Palette_75
+    21300152: Palette_76
+    21300154: Palette_77
+    21300156: Palette_78
+    21300158: Palette_79
+    21300160: Palette_80
+    21300162: Palette_81
+    21300164: Palette_82
+    21300166: Palette_83
+    21300168: Palette_84
+    21300170: Palette_85
+    21300172: Palette_86
+    21300174: Palette_87
+    21300176: Palette_88
+    21300178: Palette_89
+    21300180: Palette_90
+    21300182: Palette_91
+    21300184: Palette_92
+    21300186: Palette_93
+    21300188: Palette_94
+    21300190: Palette_95
+    21300192: Palette_96
+    21300194: Palette_97
+    21300196: Palette_98
+    21300198: Palette_99
+    21300200: Palette_100
+    21300202: Palette_101
+    21300204: Palette_102
+    21300206: Palette_103
+    21300208: Palette_104
+    21300210: Palette_105
+    21300212: Palette_106
+    21300214: Palette_107
+    21300216: Palette_108
+    21300218: Palette_109
+    21300220: Palette_110
+    21300222: Palette_111
+    21300224: Palette_112
+    21300226: Palette_113
+    21300228: Palette_114
+    21300230: Palette_115
+    21300232: Palette_116
+    21300234: Palette_117
+    21300236: Palette_118
+    21300238: Palette_119
+    21300240: Palette_120
+    21300242: Palette_121
+    21300244: Palette_122
+    21300246: Palette_123
+    21300248: Palette_124
+    21300250: Palette_125
+    21300252: Palette_126
+    21300254: Palette_127
+    21300256: Palette_128
+    21300258: Palette_129
+    21300260: Palette_130
+    21300262: Palette_131
+    21300264: Palette_132
+    21300266: Palette_133
+    21300268: Palette_134
+    21300270: Palette_135
+    21300272: Palette_136
+    21300274: Palette_137
+    21300276: Palette_138
+    21300278: Palette_139
+    21300280: Palette_140
+    21300282: Palette_141
+    21300284: Palette_142
+    21300286: Palette_143
+    21300288: Palette_144
+    21300290: Palette_145
+    21300292: Palette_146
+    21300294: Palette_147
+    21300296: Palette_148
+    21300298: Palette_149
+    21300300: Palette_150
+    21300302: Palette_151
+    21300304: Palette_152
+    21300306: Palette_153
+    21300308: Palette_154
+    21300310: Palette_155
+    21300312: Palette_156
+    21300314: Palette_157
+    21300316: Palette_158
+    21300318: Palette_159
+    21300320: Palette_160
+    21300322: Palette_161
+    21300324: Palette_162
+    21300326: Palette_163
+    21300328: Palette_164
+    21300330: Palette_165
+    21300332: Palette_166
+    21300334: Palette_167
+    21300336: Palette_168
+    21300338: Palette_169
+    21300340: Palette_170
+    21300342: Palette_171
+    21300344: Palette_172
+    21300346: Palette_173
+    21300348: Palette_174
+    21300350: Palette_175
+    21300352: Palette_176
+    21300354: Palette_177
+    21300356: Palette_178
+    21300358: Palette_179
+    21300360: Palette_180
+    21300362: Palette_181
+    21300364: Palette_182
+    21300366: Palette_183
+    21300368: Palette_184
+    21300370: Palette_185
+    21300372: Palette_186
+    21300374: Palette_187
+    21300376: Palette_188
+    21300378: Palette_189
+    21300380: Palette_190
+    21300382: Palette_191
+    21300384: Palette_192
+    21300386: Palette_193
+    21300388: Palette_194
+    21300390: Palette_195
+    21300392: Palette_196
+    21300394: Palette_197
+    21300396: Palette_198
+    21300398: Palette_199
+    21300400: Palette_200
+    21300402: Palette_201
+    21300404: Palette_202
+    21300406: Palette_203
+    21300408: Palette_204
+    21300410: Palette_205
+    21300412: Palette_206
+    21300414: Palette_207
+    21300416: Palette_208
+    21300418: Palette_209
+    21300420: Palette_210
+    21300422: Palette_211
+    21300424: Palette_212
+    21300426: Palette_213
+    21300428: Palette_214
+    21300430: Palette_215
+    21300432: Palette_216
+    21300434: Palette_217
+    21300436: Palette_218
+    21300438: Palette_219
+    21300440: Palette_220
+    21300442: Palette_221
+    21300444: Palette_222
+    21300446: Palette_223
+    21300448: Palette_224
+    21300450: Palette_225
+    21300452: Palette_226
+    21300454: Palette_227
+    21300456: Palette_228
+    21300458: Palette_229
+    21300460: Palette_230
+    21300462: Palette_231
+    21300464: Palette_232
+    21300466: Palette_233
+    21300468: Palette_234
+    21300470: Palette_235
+    21300472: Palette_236
+    21300474: Palette_237
+    21300476: Palette_238
+    21300478: Palette_239
+    21300480: Palette_240
+    21300482: Palette_241
+    21300484: Palette_242
+    21300486: Palette_243
+    21300488: Palette_244
+    21300490: Palette_245
+    21300492: Palette_246
+    21300494: Palette_247
+    21300496: Palette_248
+    21300498: Palette_249
+    21300500: Palette_250
+    21300502: Palette_251
+    21300504: Palette_252
+    21300506: Palette_253
+    21300508: Palette_254
+    21300510: Palette_255
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Palette_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_4
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_5
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_6
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_7
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_9
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_10
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_11
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_12
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_13
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_14
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_15
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 246.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_16
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_18
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_19
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_20
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_21
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_22
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_23
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_24
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_25
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_26
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_27
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_28
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_29
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_30
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_31
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 230.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_32
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_33
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_34
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_35
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_36
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_37
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_38
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_39
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_40
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_41
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_42
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_43
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_44
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_45
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_46
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_47
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 214.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_48
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_49
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_50
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_51
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_52
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_53
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_54
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_55
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_56
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_57
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_58
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_59
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_60
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_61
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_62
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_63
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 198.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_64
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_65
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_66
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_67
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_68
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_69
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_70
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_71
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_72
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_73
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_74
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_75
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_76
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_77
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_78
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_79
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 182.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_80
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_81
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_82
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_83
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_84
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_85
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_86
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_87
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_88
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_89
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_90
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_91
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_92
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_93
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_94
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_95
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 166.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_96
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_97
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_98
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_99
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_100
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_101
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_102
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_103
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_104
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_105
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_106
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_107
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_108
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_109
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_110
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_111
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 150.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_112
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_113
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_114
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_115
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_116
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_117
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_118
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_119
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_120
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_121
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_122
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_123
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_124
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_125
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_126
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_127
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 134.46666
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_128
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_129
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_130
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_131
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_132
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_133
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_134
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_135
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_136
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_137
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_138
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_139
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_140
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_141
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_142
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_143
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 118.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_144
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_145
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_146
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_147
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_148
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_149
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_150
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_151
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_152
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_153
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_154
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_155
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_156
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_157
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_158
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_159
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 102.466667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_160
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_161
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_162
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_163
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_164
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_165
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_166
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_167
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_168
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_169
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_170
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_171
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_172
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_173
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_174
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_175
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 86.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_176
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_177
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_178
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_179
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_180
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_181
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_182
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_183
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_184
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_185
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_186
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_187
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_188
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_189
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_190
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_191
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 70.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_192
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_193
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_194
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_195
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_196
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_197
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_198
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_199
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_200
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_201
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_202
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_203
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_204
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_205
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_206
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_207
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 54.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_208
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_209
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_210
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_211
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_212
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_213
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_214
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_215
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_216
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_217
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_218
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_219
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_220
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_221
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_222
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_223
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 38.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_224
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_225
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_226
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_227
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_228
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_229
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_230
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_231
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_232
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_233
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_234
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_235
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_236
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_237
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_238
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_239
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 22.4666672
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_240
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_241
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_242
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_243
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_244
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_245
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_246
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_247
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_248
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_249
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_250
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_251
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_252
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_253
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_254
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Palette_255
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 6.4666667
+        width: 1.5333333
+        height: 1.5333333
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
