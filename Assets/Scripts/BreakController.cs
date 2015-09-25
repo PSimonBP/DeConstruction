@@ -75,7 +75,7 @@ public class BreakController : MonoBehaviour
 							tRBody.WakeUp();
 							tCollider.enabled = true;
 							if (!CanBreak())
-								gameObject.layer = 8;
+								gameObject.AddComponent<DebrisController>().Init();
 						} else {
 							var tObj = BoxPool.Instance.GetObject();
 							if (tObj != null) {
@@ -97,9 +97,9 @@ public class BreakController : MonoBehaviour
 								tRBody.velocity = m_tVelocity;// GetComponent<Rigidbody>().velocity;
 								tRBody.angularVelocity = GetComponent<Rigidbody2D>().angularVelocity;
 								tRBody.WakeUp();
-								if (!CanBreak())
-									tContr.gameObject.layer = 8;
-								if (tCol != null) {
+								if (!tContr.CanBreak()) {
+									tContr.gameObject.AddComponent<DebrisController>().Init();
+								} else if (tCol != null) {
 									Vector3 tBodyPoint = tContr.tCollider.bounds.ClosestPoint(tCol.bounds.center);
 									Vector3 tColliderPoint = tCol.bounds.ClosestPoint(tBodyPoint);
 									if (Vector3.Distance(tBodyPoint, tColliderPoint) < FractureSize / 2.0f) {
@@ -131,9 +131,8 @@ public class BreakController : MonoBehaviour
 			}
 		} else {
 			bBreak = false;
-			gameObject.layer = 8;
-//			fLifeTime = Mathf.Min(fLifeTime, Random.Range(MinLifeTime, MaxLifeTime));
 			gameObject.GetComponent<Rigidbody2D>().WakeUp();
+			gameObject.AddComponent<DebrisController>().Init();
 		}
 	}
 
@@ -154,13 +153,6 @@ public class BreakController : MonoBehaviour
 			GetComponent<Rigidbody2D>().WakeUp();
 			GetComponent<Rigidbody2D>().velocity = InitialVelocity;
 			GetComponent<Rigidbody2D>().angularVelocity = InitialAngularVelocity;
-		}
-
-		if (gameObject.layer == 8) {
-			if (gameObject.GetComponent<Rigidbody2D>().IsSleeping())
-				Deactivate();
-			else
-				fLifeTime = Mathf.Min(fLifeTime, Random.Range(MinLifeTime, MaxLifeTime));
 		}
 	}
 
@@ -194,10 +186,10 @@ public class BreakController : MonoBehaviour
 //			rigidbody.velocity = m_tVelocity;
 	}
 
-	bool CanBreak() { return CanBreakX() || CanBreakY(); }
+	protected bool CanBreak() { return CanBreakX() || CanBreakY(); }
 	bool CanBreakX() { return gameObject.transform.localScale.x >= FractureSize; }
 	bool CanBreakY() { return gameObject.transform.localScale.y >= FractureSize; }
 	float KineticEnergy() { return 0.5f * GetComponent<Rigidbody2D>().mass * GetComponent<Rigidbody2D>().velocity.sqrMagnitude; }
 	float LastKineticEnergy() { return 0.5f * GetComponent<Rigidbody2D>().mass * m_tVelocity.sqrMagnitude; }
-	void Deactivate() { BoxPool.Instance.PoolObject(gameObject); }
+	public void Deactivate() { BoxPool.Instance.PoolObject(gameObject); }
 }
