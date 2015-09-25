@@ -46,7 +46,6 @@ public class BreakController : MonoBehaviour
 		int iNeededObjects = 1;
 		float iBreakX = 1;
 		float iBreakY = 1;
-		float iBreakZ = 1;
 		if (CanBreakX()) {
 			iBreakX = 2;
 			if (transform.localScale.x * 2 >= transform.localScale.y)	iBreakX = (int)Mathf.Max(iBreakX, transform.localScale.y / transform.localScale.x);
@@ -56,17 +55,16 @@ public class BreakController : MonoBehaviour
 			if (transform.localScale.y * 2 >= transform.localScale.x)	iBreakY = (int)Mathf.Max(iBreakY, transform.localScale.x / transform.localScale.y);
 		}
 
-		iBreakX = (int)iBreakX;	iBreakY = (int)iBreakY;	iBreakZ = (int)iBreakZ;
-		iNeededObjects *= (int)iBreakX;	iNeededObjects *= (int)iBreakY;	iNeededObjects *= (int)iBreakZ;	iNeededObjects -= 1;
+		iBreakX = (int)iBreakX;	iBreakY = (int)iBreakY;
+		iNeededObjects *= (int)iBreakX;	iNeededObjects *= (int)iBreakY;	iNeededObjects -= 1;
 
 		if (iNeededObjects <= BoxPool.Instance.GetFreePoolSize()) {
 			for (float x = 0; x < iBreakX; ++x)
-				for (float y = 0; y < iBreakY; ++y)
-					for (float z = 0; z < iBreakZ; ++z) {
-						if (x == 0 && y == 0 && z == 0) {
-							Vector3 tS = new Vector3(transform.localScale.x / iBreakX, transform.localScale.y / iBreakY, transform.localScale.z / iBreakZ);
+				for (float y = 0; y < iBreakY; ++y) {
+						if (x == 0 && y == 0) {
+							Vector3 tS = new Vector3(transform.localScale.x / iBreakX, transform.localScale.y / iBreakY, 0);
 							Vector3 tPosChange = tS / 2;
-							if (iBreakX == 1) tPosChange.x = 0;	if (iBreakY == 1) tPosChange.y = 0;	if (iBreakZ == 1) tPosChange.z = 0;
+							if (iBreakX == 1) tPosChange.x = 0;	if (iBreakY == 1) tPosChange.y = 0;
 							transform.Translate(tPosChange);
 							transform.localScale = tS;
 							bBreak = false;
@@ -85,11 +83,11 @@ public class BreakController : MonoBehaviour
 								tContr.FractureSize = FractureSize;
 								tContr.MinLifeTime = MinLifeTime;
 								tContr.MaxLifeTime = MaxLifeTime;
-								//tContr.transform.parent = transform.parent;
+								tContr.transform.parent = transform.parent;
 								tContr.transform.localScale = transform.localScale;
 								tContr.transform.rotation = transform.rotation;
 								tContr.transform.position = transform.position;
-								Vector3 tShift = new Vector3(x * transform.localScale.x, y * transform.localScale.y, z * transform.localScale.z);
+								Vector3 tShift = new Vector3(x * transform.localScale.x, y * transform.localScale.y, 0);
 								tContr.transform.Translate(-tShift);
 								tContr.Init();
 //								tContr.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
@@ -101,23 +99,23 @@ public class BreakController : MonoBehaviour
 								tRBody.WakeUp();
 								if (!CanBreak())
 									tContr.gameObject.layer = 8;
-//								if (tCol != null) {
-//									Vector3 tBodyPoint = tContr.tCollider.ClosestPointOnBounds(tCol.bounds.center);
-//									Vector3 tColliderPoint = tCol.ClosestPointOnBounds(tBodyPoint);
-//									if (Vector3.Distance(tBodyPoint, tColliderPoint) < FractureSize / 2.0f) {
-//										tContr.SetBreak(tCol);
-//									}
-//								}
+								if (tCol != null) {
+									Vector3 tBodyPoint = tContr.tCollider.bounds.ClosestPoint(tCol.bounds.center);
+									Vector3 tColliderPoint = tCol.bounds.ClosestPoint(tBodyPoint);
+									if (Vector3.Distance(tBodyPoint, tColliderPoint) < FractureSize / 2.0f) {
+										tContr.SetBreak(tCol);
+									}
+								}
 							}
 						}
 					}
-//			if (tCol != null) {
-//				Vector3 tBodyPoint = tCollider.ClosestPointOnBounds(tCol.bounds.center);
-//				Vector3 tColliderPoint = tCol.ClosestPointOnBounds(tBodyPoint);
-//				if (Vector3.Distance(tBodyPoint, tColliderPoint) < FractureSize / 2.0f) {
-//					SetBreak(tCol);
-//				}
-//			}
+			if (tCol != null) {
+				Vector3 tBodyPoint = tCollider.bounds.ClosestPoint(tCol.bounds.center);
+				Vector3 tColliderPoint = tCol.bounds.ClosestPoint(tBodyPoint);
+				if (Vector3.Distance(tBodyPoint, tColliderPoint) < FractureSize / 2.0f) {
+					SetBreak(tCol);
+				}
+			}
 			return true;
 		}
 		return false;
