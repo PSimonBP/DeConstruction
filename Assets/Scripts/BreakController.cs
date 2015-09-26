@@ -5,8 +5,6 @@ public class BreakController : MonoBehaviour
 {
 	public float FractureSize = 0.1f;
 	public float FractureForce = 1.0f;
-	public float MinLifeTime = 1.0f;
-	public float MaxLifeTime = 3.0f;
 	public float DelayStart = 10;
 	public Vector3 InitialVelocity = Vector3.zero;
 	public float InitialAngularVelocity = 0;
@@ -14,7 +12,6 @@ public class BreakController : MonoBehaviour
 	BoxCollider2D tCollider = null;
 
 	float fDelayStart = float.MaxValue;
-	float fLifeTime = float.MaxValue;
 	protected Vector3 m_tVelocity;
 
 	bool bInitialized = false;
@@ -33,7 +30,6 @@ public class BreakController : MonoBehaviour
 	{
 		gameObject.layer = 0;
 		bBreak = false;
-		fLifeTime = float.MaxValue;
 		BoxCollider2D[] tColliders = gameObject.GetComponents<BoxCollider2D>();
 		foreach (BoxCollider2D tColl in tColliders) {
 			tCollider = tColl;
@@ -48,11 +44,11 @@ public class BreakController : MonoBehaviour
 		float iBreakY = 1;
 		if (CanBreakX()) {
 			iBreakX = 2;
-			if (transform.localScale.x * 2 >= transform.localScale.y)	iBreakX = (int)Mathf.Max(iBreakX, transform.localScale.y / transform.localScale.x);
+			if (transform.localScale.x * 2 > transform.localScale.y)	iBreakX = (int)Mathf.Max(iBreakX, transform.localScale.y / transform.localScale.x);
 		}
 		if (CanBreakY()) {
 			iBreakY = 2;
-			if (transform.localScale.y * 2 >= transform.localScale.x)	iBreakY = (int)Mathf.Max(iBreakY, transform.localScale.x / transform.localScale.y);
+			if (transform.localScale.y * 2 > transform.localScale.x)	iBreakY = (int)Mathf.Max(iBreakY, transform.localScale.x / transform.localScale.y);
 		}
 
 		iBreakX = (int)iBreakX;	iBreakY = (int)iBreakY;
@@ -68,21 +64,18 @@ public class BreakController : MonoBehaviour
 							transform.Translate(tPosChange);
 							transform.localScale = tS;
 							bBreak = false;
-							fLifeTime = float.MaxValue;
 							Rigidbody2D tRBody = gameObject.GetComponent<Rigidbody2D>();
 							tRBody.mass /= iNeededObjects + 1;
 							tRBody.velocity = m_tVelocity;
 							tRBody.WakeUp();
 							tCollider.enabled = true;
-							if (!CanBreak())
+							if (!CanBreak() && gameObject.GetComponent<DebrisController>() == null)
 								gameObject.AddComponent<DebrisController>().Init();
 						} else {
 							var tObj = BoxPool.Instance.GetObject();
 							if (tObj != null) {
 								BreakController tContr = tObj.GetComponent<BreakController>();
 								tContr.FractureSize = FractureSize;
-								tContr.MinLifeTime = MinLifeTime;
-								tContr.MaxLifeTime = MaxLifeTime;
 								tContr.transform.parent = transform.parent;
 								tContr.transform.localScale = transform.localScale;
 								tContr.transform.rotation = transform.rotation;
@@ -97,7 +90,7 @@ public class BreakController : MonoBehaviour
 								tRBody.velocity = m_tVelocity;// GetComponent<Rigidbody>().velocity;
 								tRBody.angularVelocity = GetComponent<Rigidbody2D>().angularVelocity;
 								tRBody.WakeUp();
-								if (!tContr.CanBreak()) {
+								if (!tContr.CanBreak() && tContr.gameObject.GetComponent<DebrisController>() == null) {
 									tContr.gameObject.AddComponent<DebrisController>().Init();
 								} else if (tCol != null) {
 									Vector3 tBodyPoint = tContr.tCollider.bounds.ClosestPoint(tCol.bounds.center);
@@ -132,7 +125,6 @@ public class BreakController : MonoBehaviour
 		} else {
 			bBreak = false;
 			gameObject.GetComponent<Rigidbody2D>().WakeUp();
-			gameObject.AddComponent<DebrisController>().Init();
 		}
 	}
 
@@ -146,20 +138,11 @@ public class BreakController : MonoBehaviour
 		if (fDelayStart > 0 && fDelayStart != float.MaxValue)
 			fDelayStart -= Time.deltaTime;
 
-		if (fLifeTime > 0 && fLifeTime != float.MaxValue)
-			fLifeTime -= Time.deltaTime;
-
 		if (fDelayStart <= 0) {
 			GetComponent<Rigidbody2D>().WakeUp();
 			GetComponent<Rigidbody2D>().velocity = InitialVelocity;
 			GetComponent<Rigidbody2D>().angularVelocity = InitialAngularVelocity;
 		}
-	}
-
-	void LateUpdate()
-	{
-		if (fLifeTime <= 0)
-			Deactivate();
 	}
 
 	void FixedUpdate()
@@ -187,8 +170,8 @@ public class BreakController : MonoBehaviour
 	}
 
 	protected bool CanBreak() { return CanBreakX() || CanBreakY(); }
-	bool CanBreakX() { return gameObject.transform.localScale.x >= FractureSize; }
-	bool CanBreakY() { return gameObject.transform.localScale.y >= FractureSize; }
+	bool CanBreakX() { return gameObject.transform.localScale.x > FractureSize; }
+	bool CanBreakY() { return gameObject.transform.localScale.y > FractureSize; }
 	float KineticEnergy() { return 0.5f * GetComponent<Rigidbody2D>().mass * GetComponent<Rigidbody2D>().velocity.sqrMagnitude; }
 	float LastKineticEnergy() { return 0.5f * GetComponent<Rigidbody2D>().mass * m_tVelocity.sqrMagnitude; }
 	public void Deactivate() { BoxPool.Instance.PoolObject(gameObject); }

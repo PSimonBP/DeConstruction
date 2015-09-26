@@ -13,7 +13,9 @@ public class DebrisController : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (gameObject.GetComponent<Rigidbody2D>().IsSleeping())
+		if (gameObject.GetComponent<Rigidbody2D>().IsSleeping()) {
 			gameObject.GetComponent<BreakController>().Deactivate();
+			Destroy(gameObject.GetComponent<DebrisController>());
+		}
 	}
 }
