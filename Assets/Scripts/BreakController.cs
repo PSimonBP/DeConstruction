@@ -25,7 +25,7 @@ public class BreakController : MonoBehaviour
 
 	void Init()
 	{
-		gameObject.layer = 0;
+//		gameObject.layer = 0;
 		tRigidBody = gameObject.GetComponent<Rigidbody2D>();
 		tCollider = gameObject.GetComponent<BoxCollider2D>();
 		bInitialized = true;
