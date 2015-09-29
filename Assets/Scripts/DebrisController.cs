@@ -9,6 +9,7 @@ public class DebrisController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gameObject.layer = 8;
 		tRigidBody = gameObject.GetComponent<Rigidbody2D>();
 	}
 	

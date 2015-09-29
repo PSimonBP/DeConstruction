@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class BoxPool : MonoBehaviour {
-	static BoxPool				_instance = null;
+public class WaterPool : MonoBehaviour {
+	static WaterPool				_instance = null;
 	protected static GameObject	ContainerObject;
-	public GameObject			BoxPrefab;
-	public static BoxPool		Instance {
+	public GameObject			WaterPrefab;
+	public static WaterPool		Instance {
 		get {
 			return _instance;
 		}
@@ -24,28 +24,37 @@ public class BoxPool : MonoBehaviour {
 		ContainerObject = this.gameObject;
 		_instance = this;
 		m_tPooledObjects = new List<GameObject>();
-		BreakController[] tObjList = FindObjectsOfType<BreakController>();
+		WaterController[] tObjList = FindObjectsOfType<WaterController>();
 		m_iObjectCount = tObjList.Length;
 		m_iUsedObjectCount = tObjList.Length;
 		IncreaseBufferSize (DefaultBufferSize);
-//		ContainerObject.name = "BoxPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
+//		ContainerObject.name = "WaterPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
 	}
 
+	void Update() {
+		if (Random.Range(0, 10) > 6) {
+			var tDrop = WaterPool.Instance.GetObject();
+			if (tDrop != null) {
+				tDrop.GetComponent<WaterController>().gameObject.transform.position = gameObject.transform.position;
+			}
+		}
+	}
+	
 	void IncreaseBufferSize(int iSize) {
 		for ( int n=0; n<iSize; n++) {
 			if (m_iObjectCount >= ObjectLimit)
 				return;
 			++m_iObjectCount;
 			++m_iUsedObjectCount;
-			GameObject tObj = Instantiate(BoxPrefab) as GameObject;
+			GameObject tObj = Instantiate(WaterPrefab) as GameObject;
 			tObj.transform.parent = ContainerObject.transform;
-			tObj.name = "Box";
+			tObj.name = "Water";
 			PoolObject(tObj);
 		}
 	}
 
 	public int GetFreePoolSize() {
-//		ContainerObject.name = "BoxPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
+//		ContainerObject.name = "WaterPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
 		return ObjectLimit - m_iUsedObjectCount;
 	}
 
@@ -61,13 +70,13 @@ public class BoxPool : MonoBehaviour {
 		pooledObject.transform.parent = ContainerObject.transform;
 		pooledObject.SetActive(true);
 		++m_iUsedObjectCount;
-//		ContainerObject.name = "BoxPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
+//		ContainerObject.name = "WaterPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
 		return pooledObject;
 	}
 	
 	public void PoolObject (GameObject tObject) {
 		--m_iUsedObjectCount;
-//		ContainerObject.name = "BoxPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
+//		ContainerObject.name = "WaterPool - " + m_iObjectCount + " - " + m_iUsedObjectCount;
 		Rigidbody2D tBody = tObject.GetComponent<Rigidbody2D>();
 		if (tBody && !tBody.isKinematic)
 				tBody.velocity = Vector3.zero;

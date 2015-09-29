@@ -3,17 +3,14 @@ using System.Collections;
 
 public class BreakController : MonoBehaviour
 {
-	public float FractureSize = 0.1f;
-	public float FractureForce = 1.0f;
-	public float DelayStart = 10;
-	public Vector3 InitialVelocity = Vector3.zero;
+	public float	FractureSize = 0.1f;
+	public float	FractureForce = 1.0f;
+	public float	DelayStart = 10;
+	public Vector3	InitialVelocity = Vector3.zero;
 	public float InitialAngularVelocity = 0;
-
 	float fDelayStart = float.MaxValue;
 	protected Vector3 m_tVelocity;
-
 	bool bInitialized = false;
-
 	protected Rigidbody2D	tRigidBody = null;
 	protected BoxCollider2D	tCollider = null;
 
