@@ -61,7 +61,7 @@ public class BreakController : MonoBehaviour
 							tRigidBody.velocity = m_tVelocity;
 							tRigidBody.WakeUp();
 							tCollider.enabled = true;
-							//FractureForce /= 2;
+//							FractureForce /= 2;
 							if (!CanBreak() && gameObject.GetComponent<DebrisController>() == null)
 								gameObject.AddComponent<DebrisController>().Init(this);
 						} else {
