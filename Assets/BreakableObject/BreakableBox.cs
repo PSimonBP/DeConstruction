@@ -3,27 +3,42 @@ using System.Collections;
 
 public class BreakableBox : MonoBehaviour
 {
-	public float	FractureSize = 0.1f;
-	public float	FractureForce = 1.0f;
-	protected Vector3 m_tVelocity;
-	protected Rigidbody2D	tRigidBody = null;
-	protected BoxCollider2D	tCollider = null;
+    public float Density = 10.0f;
+    public float FractureSize = 0.2f;
+    public float FractureForce = 1.0f;
+    private Vector3 m_tVelocity;
+    private float m_tAngVelocity;
+    protected Rigidbody2D m_tRigidBody = null;
+    protected BoxCollider2D m_tCollider = null;
+    private DebrisController m_tDebris = null;
 
-	void Start()
+    public void SetupObject(Vector3 tPosition, Quaternion tRotation, Vector3 tTranslate, Vector3 tScale, float fMass, Vector3 tVel, float fAngVel)
 	{
-		Init();
+        Init();
+        transform.position = tPosition;
+        transform.rotation = tRotation;
+        transform.Translate(tTranslate);
+		transform.localScale = tScale;
+		m_tRigidBody.mass = fMass;
+		m_tRigidBody.velocity = tVel;
+		m_tRigidBody.angularVelocity = fAngVel;
+		m_tRigidBody.WakeUp();
+		m_tCollider.enabled = true;
+		if (!CanBreakX() && !CanBreakY())
+		   	SetDebris();
 	}
 
-	void Init()
+	public void SetDebris()
 	{
-//		gameObject.layer = 0;
-		tRigidBody = gameObject.GetComponent<Rigidbody2D>();
-		tCollider = gameObject.GetComponent<BoxCollider2D>();
+		if (m_tDebris == null)
+			m_tDebris = gameObject.AddComponent<DebrisController>();
 	}
 
-	public bool Break(Collider2D tCol = null)
+	public void Break(Collider2D tCol = null)
 	{
-		int iNeededObjects = 1;
+		if (m_tDebris != null)
+            return;
+        int iNeededObjects = 1;
 		float iBreakX = 1;
 		float iBreakY = 1;
 		if (CanBreakX()) {
@@ -45,100 +60,56 @@ public class BreakableBox : MonoBehaviour
 							Vector3 tS = new Vector3(transform.localScale.x / iBreakX, transform.localScale.y / iBreakY, 0);
 							Vector3 tPosChange = tS / 2;
 							if (iBreakX == 1) tPosChange.x = 0;	if (iBreakY == 1) tPosChange.y = 0;
-							transform.Translate(tPosChange);
-							transform.localScale = tS;
-							tRigidBody.mass /= iNeededObjects + 1;
-							tRigidBody.velocity = m_tVelocity;
-							tRigidBody.WakeUp();
-							tCollider.enabled = true;
+	                        SetupObject(transform.position, transform.rotation, tPosChange, tS, m_tRigidBody.mass / iNeededObjects + 1, m_tVelocity, m_tAngVelocity);
 							FractureForce /= 1.5f;
-							if (!CanBreak() && gameObject.GetComponent<DebrisController>() == null)
-								gameObject.AddComponent<DebrisController>().Init(this);
-						} else {
-							var tObj = BoxPool.Instance.GetObject();
-							if (tObj != null) {
-								BreakableBox tContr = tObj.GetComponent<BreakableBox>();
+                    } else {
+							BreakableBox tContr = BoxPool.Instance.GetObject();
+							if (tContr != null) {
 								tContr.FractureSize = FractureSize;
-								tContr.transform.parent = transform.parent;
-								tContr.transform.localScale = transform.localScale;
-								tContr.transform.rotation = transform.rotation;
-								tContr.transform.position = transform.position;
+                            	tContr.transform.parent = transform.parent;
 								Vector3 tShift = new Vector3(x * transform.localScale.x, y * transform.localScale.y, 0);
-								tContr.transform.Translate(-tShift);
-								tContr.Init();
-								tContr.FractureForce = FractureForce;
-								tContr.tRigidBody.mass = tRigidBody.mass;
-								tContr.tRigidBody.velocity = m_tVelocity;// GetComponent<Rigidbody>().velocity;
-								tContr.tRigidBody.angularVelocity = tRigidBody.angularVelocity;
-								tContr.tRigidBody.WakeUp();
-								if (!tContr.CanBreak() && tContr.gameObject.GetComponent<DebrisController>() == null) {
-									tContr.gameObject.AddComponent<DebrisController>().Init(tContr);
-								} else if (tCol != null) {
-									Vector3 tBodyPoint = tContr.tCollider.bounds.ClosestPoint(tCol.bounds.center);
-									Vector3 tColliderPoint = tCol.bounds.ClosestPoint(tBodyPoint);
-									if (Vector3.Distance(tBodyPoint, tColliderPoint) < FractureSize / 2.0f) {
-										tContr.SetBreak(tCol);
-									}
-								}
+	                            tContr.SetupObject(transform.position, transform.rotation, -tShift, transform.localScale, m_tRigidBody.mass, m_tVelocity, m_tAngVelocity);
+	                            tContr.FractureForce = FractureForce;
+								if (tCol != null)
+									tContr.BreakAt(tCol);
 							}
 						}
 					}
-			if (tCol != null) {
-				Vector3 tBodyPoint = tCollider.bounds.ClosestPoint(tCol.bounds.center);
-				Vector3 tColliderPoint = tCol.bounds.ClosestPoint(tBodyPoint);
-				if (Vector3.Distance(tBodyPoint, tColliderPoint) < FractureSize / 2.0f) {
-					SetBreak(tCol);
-				}
-			}
-			return true;
+			if (tCol != null)
+                BreakAt(tCol);
 		}
-		return false;
 	}
 
-	public void SetBreak(Collider2D tCol = null)
+	protected void BreakAt(Collider2D tCol)
 	{
-		if (CanBreak()) {
+		Vector3 tBodyPoint = m_tCollider.bounds.ClosestPoint(tCol.bounds.center);
+		Vector3 tColliderPoint = tCol.bounds.ClosestPoint(tBodyPoint);
+		if (Vector3.Distance(tBodyPoint, tColliderPoint) < FractureSize / 2.0f)
 			Break(tCol);
-		} else {
-			tRigidBody.WakeUp();
-		}
-	}
-
-	public void Wakeup()
-	{
-		tRigidBody.WakeUp();
-	}
-
-// 	void Update()
-// 	{
-// 	}
-
-	void FixedUpdate()
-	{
-		m_tVelocity = tRigidBody.velocity;
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		BreakableBox tOtherBody = col.gameObject.GetComponent<BreakableBox>();
-		float fKineticSelf = LastKineticEnergy();
-		float fKineticOther = (tOtherBody != null) ? tOtherBody.LastKineticEnergy() : 0;
+		float fKineticSelf = KineticEnergy();
+		float fKineticOther = (tOtherBody != null) ? tOtherBody.KineticEnergy() : 0;
 		float fDamage = col.relativeVelocity.sqrMagnitude * (fKineticOther - fKineticSelf) / 100.0f;
-		if (Mathf.Abs(fDamage) >= FractureForce) {
-			if (col.transform.parent != transform.parent) {
-				SetBreak(col.collider);
-			} else {
-				SetBreak();
-			}
-		}
-		if (fKineticOther < fKineticSelf && tOtherBody != null)
-			tRigidBody.velocity = m_tVelocity;
+		if (Mathf.Abs(fDamage) >= FractureForce)
+			Break(col.collider);
 	}
 
-	protected bool CanBreak() { return CanBreakX() || CanBreakY(); }
-	bool CanBreakX() { return gameObject.transform.localScale.x > FractureSize; }
-	bool CanBreakY() { return gameObject.transform.localScale.y > FractureSize; }
-	float KineticEnergy() { return 0.5f * tRigidBody.mass * tRigidBody.velocity.sqrMagnitude; }
-	float LastKineticEnergy() { return 0.5f * tRigidBody.mass * m_tVelocity.sqrMagnitude; }
-	public void Deactivate() { BoxPool.Instance.PoolObject(gameObject); }
+    void Start()				{ Init(); m_tRigidBody.mass = transform.localScale.x * transform.localScale.y * Density; }
+    public void Wakeup()		{ m_tRigidBody.WakeUp(); }
+    void Init()					{ m_tRigidBody = gameObject.GetComponent<Rigidbody2D>();	m_tCollider = gameObject.GetComponent<BoxCollider2D>(); }
+    void FixedUpdate()			{ m_tVelocity = m_tRigidBody.velocity; m_tAngVelocity = m_tRigidBody.angularVelocity; }
+	bool CanBreakX()			{ return transform.localScale.x > FractureSize; }
+	bool CanBreakY()			{ return transform.localScale.y > FractureSize; }
+	float KineticEnergy()		{ return m_tRigidBody.mass * m_tVelocity.sqrMagnitude; }
+	public void Deactivate()
+	{
+		if (m_tRigidBody && !m_tRigidBody.isKinematic)
+				m_tRigidBody.velocity = Vector3.zero;
+        m_tDebris = null;
+        BoxPool.Instance.PoolObject(this);
+	}
 }

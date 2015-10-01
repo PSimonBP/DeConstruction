@@ -15,7 +15,7 @@ public class BoxEditor : Editor
 		if (GUILayout.Button("Break box")) {
 			foreach (var target in targets) {
 				BreakableBox tBox = (BreakableBox)target;
-				tBox.SetBreak();
+				tBox.Break();
 			}
 		}
 	}
