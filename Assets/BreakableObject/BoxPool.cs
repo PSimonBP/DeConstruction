@@ -24,7 +24,7 @@ public class BoxPool : MonoBehaviour {
 		ContainerObject = this.gameObject;
 		_instance = this;
 		m_tPooledObjects = new List<GameObject>();
-		BreakController[] tObjList = FindObjectsOfType<BreakController>();
+		BreakableBox[] tObjList = FindObjectsOfType<BreakableBox>();
 		m_iObjectCount = tObjList.Length;
 		m_iUsedObjectCount = tObjList.Length;
 		IncreaseBufferSize (DefaultBufferSize);

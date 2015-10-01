@@ -4,7 +4,7 @@ using System.Collections;
 public class DebrisController : MonoBehaviour {
 
 	private Rigidbody2D		tRigidBody = null;
-	private BreakController	tBreakController = null;
+	private BreakableBox tBreakableBox = null;
 	private float			fEndTime = 0;
 
 	// Use this for initialization
@@ -13,14 +13,14 @@ public class DebrisController : MonoBehaviour {
 		tRigidBody = gameObject.GetComponent<Rigidbody2D>();
 	}
 	
-	public void Init(BreakController tCtrl) {
-		tBreakController = tCtrl;
+	public void Init(BreakableBox tCtrl) {
+		tBreakableBox = tCtrl;
 		fEndTime = Time.time + Random.Range(0.5f, 2.0f);
 	}
 	// Update is called once per frame
 	void Update () {
 		if (fEndTime < Time.time || tRigidBody.IsSleeping()) {
-			tBreakController.Deactivate();
+			tBreakableBox.Deactivate();
 			Destroy(this);
 		}
 	}

@@ -10,8 +10,9 @@ public class WaterController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Random.Range(0, 100) > 90)
-//			tRigidBody.AddForce(new Vector2(Random.Range(-0.1f, 0.1f), 0), ForceMode2D.Impulse);
-			tRigidBody.AddTorque(Random.Range(-0.1f, 0.1f), ForceMode2D.Impulse);
+		if (Random.Range(0, 100) > 50) {
+			tRigidBody.AddForce(new Vector2(Random.Range(-tRigidBody.mass, tRigidBody.mass), 0), ForceMode2D.Impulse);
+			tRigidBody.AddTorque(Random.Range(-tRigidBody.mass, tRigidBody.mass), ForceMode2D.Impulse);
+		}
 	}
 }

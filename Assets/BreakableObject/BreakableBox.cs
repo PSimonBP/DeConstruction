@@ -1,26 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BreakController : MonoBehaviour
+public class BreakableBox : MonoBehaviour
 {
 	public float	FractureSize = 0.1f;
 	public float	FractureForce = 1.0f;
-	public float	DelayStart = 10;
-	public Vector3	InitialVelocity = Vector3.zero;
-	public float InitialAngularVelocity = 0;
-	float fDelayStart = float.MaxValue;
 	protected Vector3 m_tVelocity;
-	bool bInitialized = false;
 	protected Rigidbody2D	tRigidBody = null;
 	protected BoxCollider2D	tCollider = null;
 
 	void Start()
 	{
-		if (!bInitialized) {
-			Init();
-			if (InitialVelocity != Vector3.zero || InitialAngularVelocity != 0)
-				fDelayStart = DelayStart;
-		}
+		Init();
 	}
 
 	void Init()
@@ -28,7 +19,6 @@ public class BreakController : MonoBehaviour
 //		gameObject.layer = 0;
 		tRigidBody = gameObject.GetComponent<Rigidbody2D>();
 		tCollider = gameObject.GetComponent<BoxCollider2D>();
-		bInitialized = true;
 	}
 
 	public bool Break(Collider2D tCol = null)
@@ -61,13 +51,13 @@ public class BreakController : MonoBehaviour
 							tRigidBody.velocity = m_tVelocity;
 							tRigidBody.WakeUp();
 							tCollider.enabled = true;
-//							FractureForce /= 2;
+							FractureForce /= 1.5f;
 							if (!CanBreak() && gameObject.GetComponent<DebrisController>() == null)
 								gameObject.AddComponent<DebrisController>().Init(this);
 						} else {
 							var tObj = BoxPool.Instance.GetObject();
 							if (tObj != null) {
-								BreakController tContr = tObj.GetComponent<BreakController>();
+								BreakableBox tContr = tObj.GetComponent<BreakableBox>();
 								tContr.FractureSize = FractureSize;
 								tContr.transform.parent = transform.parent;
 								tContr.transform.localScale = transform.localScale;
@@ -119,17 +109,9 @@ public class BreakController : MonoBehaviour
 		tRigidBody.WakeUp();
 	}
 
-	void Update()
-	{
-		if (fDelayStart > 0 && fDelayStart != float.MaxValue)
-			fDelayStart -= Time.deltaTime;
-
-		if (fDelayStart <= 0) {
-			tRigidBody.WakeUp();
-			tRigidBody.velocity = InitialVelocity;
-			tRigidBody.angularVelocity = InitialAngularVelocity;
-		}
-	}
+// 	void Update()
+// 	{
+// 	}
 
 	void FixedUpdate()
 	{
@@ -138,7 +120,7 @@ public class BreakController : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		BreakController tOtherBody = col.gameObject.GetComponent<BreakController>();
+		BreakableBox tOtherBody = col.gameObject.GetComponent<BreakableBox>();
 		float fKineticSelf = LastKineticEnergy();
 		float fKineticOther = (tOtherBody != null) ? tOtherBody.LastKineticEnergy() : 0;
 		float fDamage = col.relativeVelocity.sqrMagnitude * (fKineticOther - fKineticSelf) / 100.0f;
@@ -149,8 +131,8 @@ public class BreakController : MonoBehaviour
 				SetBreak();
 			}
 		}
-//		if (fKineticOther < fKineticSelf && tOtherBody != null)
-//			rigidbody.velocity = m_tVelocity;
+		if (fKineticOther < fKineticSelf && tOtherBody != null)
+			tRigidBody.velocity = m_tVelocity;
 	}
 
 	protected bool CanBreak() { return CanBreakX() || CanBreakY(); }

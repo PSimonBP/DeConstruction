@@ -4,18 +4,18 @@ using UnityEditor;
 using System.Collections;
 
 [CanEditMultipleObjects]
-[CustomEditor(typeof(RoomBuilder))]
-public class RoomBuilderUI : Editor
+[CustomEditor(typeof(BreakableBox))]
+public class BoxEditor : Editor
 {
 	public override void OnInspectorGUI()
 	{
 		// display the "original" inspector stuff
 		base.OnInspectorGUI();
 		// and add a button underneath
-		if (GUILayout.Button("Generate terrain")) {
+		if (GUILayout.Button("Break box")) {
 			foreach (var target in targets) {
-				RoomBuilder tGenerator = (RoomBuilder)target;
-				tGenerator.CreateRoom();
+				BreakableBox tBox = (BreakableBox)target;
+				tBox.SetBreak();
 			}
 		}
 	}
