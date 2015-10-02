@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class BreakableContainer : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+public class BreakableContainer : MonoBehaviour
+{
+	void Start()
+	{
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void Update()
+	{	
 	}
 }

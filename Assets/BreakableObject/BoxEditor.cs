@@ -1,7 +1,6 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(BreakableBox))]
@@ -13,8 +12,10 @@ public class BoxEditor : Editor
 		base.OnInspectorGUI();
 		// and add a button underneath
 		if (GUILayout.Button("Break box")) {
-			foreach (var target in targets) {
-				BreakableBox tBox = (BreakableBox)target;
+			Object target;
+			for (int i = 0; i < targets.Length; i++) {
+				target = targets[i];
+				var tBox = (BreakableBox)target;
 				tBox.Break();
 			}
 		}
