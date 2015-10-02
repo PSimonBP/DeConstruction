@@ -16,7 +16,7 @@ public class BoxEditor : Editor
 			for (int i = 0; i < targets.Length; i++) {
 				target = targets[i];
 				var tBox = (BreakableBox)target;
-				tBox.Break();
+				tBox.Break(null);
 			}
 		}
 	}

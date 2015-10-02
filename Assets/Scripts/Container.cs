@@ -36,7 +36,7 @@ public class Container : MonoBehaviour {
 		
 		GameObject pooledObject = m_tPooledObjects[0];
 		m_tPooledObjects.RemoveAt(0);
-		pooledObject.transform.parent = transform;
+		pooledObject.transform.parent = null;
 		pooledObject.SetActive(true);
 		++m_iUsedObjectCount;
 		return pooledObject;
