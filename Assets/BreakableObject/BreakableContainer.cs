@@ -61,7 +61,7 @@ public class BreakableContainer : MonoBehaviour
 			tBox.InBody = false;
 		}
 		m_tChilds [0].InBody = true;
-		m_tChilds [0].PingNeighbors (m_tChilds);
+		m_tChilds [0].PingNeighbors ();
 
 		List<BreakableBox> tOthers = new List<BreakableBox> ();
 		foreach (BreakableBox tBox in m_tChilds) {

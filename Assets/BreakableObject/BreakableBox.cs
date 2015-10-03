@@ -150,22 +150,47 @@ public class BreakableBox : MonoBehaviour
 		BoxPool.Instance.PoolObject (gameObject);
 	}
 
-	float CheckDistance (BreakableBox tBox)
+	void CheckRay (Vector2 tDir)
 	{
-		float fDist = float.MaxValue;
-//		Physics2D.Raycast()
-		return fDist;
-	}
-
-	public void PingNeighbors (List<BreakableBox> tOthers)
-	{
-		foreach (BreakableBox tBox in tOthers) {
-			if (tBox != this && !tBox.InBody) {
-				if (CheckDistance (tBox) < Container.FractureSize / 2.0f) {
+		Vector2 tRect = new Vector2 ((transform.localScale.x / 2) * tDir.x, (transform.localScale.y / 2) * tDir.y);
+		Vector3 tStart = m_tCollider.transform.TransformPoint (Vector3.zero) + new Vector3 (tRect.x, tRect.y, 0);
+		Debug.DrawRay (tStart, tDir, Color.green);
+		RaycastHit2D[] tHits = Physics2D.RaycastAll (tStart, tDir, Container.FractureSize / 2);
+		foreach (RaycastHit2D tHit in tHits) {			                                     
+			if (tHit.collider != m_tCollider) {
+				BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox> ();
+				if (tBox && tBox.Container == Container && !tBox.InBody) {
 					tBox.InBody = true;
-					tBox.PingNeighbors (tOthers);
+					tBox.PingNeighbors ();
 				}
 			}
 		}
+	}
+
+	public void PingNeighbors ()
+	{
+		CheckRay (Vector2.up);
+		CheckRay (Vector2.down);
+		CheckRay (Vector2.left);
+		CheckRay (Vector2.right);
+//		Debug.DrawRay (tOtherCenter, (tCenter - tOtherCenter), Color.green);
+//		RaycastHit2D tHit2 = Physics2D.Raycast (tOtherCenter, (tCenter - tOtherCenter));
+		
+//		if (tHit1.collider != m_tCollider)
+//			return false;
+//		if (tHit2.collider != tBox.m_tCollider)
+//			return false;
+//		fDist = Vector2.Distance (tHit1.point, tHit2.point);
+//		Debug.Log (fDist);
+//		return fDist < Container.FractureSize / 2.0f;
+
+//		foreach (BreakableBox tBox in tOthers) {
+//			if (tBox != this && !tBox.InBody) {
+//				if (CheckNeighbour (tBox)) {
+//					tBox.InBody = true;
+//					tBox.PingNeighbors (tOthers);
+//				}
+//			}
+//		}
 	}
 }
