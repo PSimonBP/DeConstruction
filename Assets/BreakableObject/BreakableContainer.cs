@@ -7,7 +7,7 @@ public class BreakableContainer : MonoBehaviour
 	public float FractureSize = 0.2f;
 	public float FractureForce = 1.0f;
 
-	Vector3 m_tVelocity;
+	Vector2 m_tVelocity;
 	float m_tAngVelocity;
 	Rigidbody2D m_tRigidBody;
 	bool m_bIntegrityCheck;
@@ -18,7 +18,7 @@ public class BreakableContainer : MonoBehaviour
 		}
 	}
 
-	public Vector3 Velocity {
+	public Vector2 Velocity {
 		get {
 			return m_tVelocity;
 		}
