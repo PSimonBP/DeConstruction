@@ -68,11 +68,9 @@ public class BreakableBox : MonoBehaviour
 						}
 						transform.localScale = tScale;
 						SetupObject (Container, transform, tPosChange);
-						m_fFractureForce /= 1.5f;
+//						m_fFractureForce /= 1.5f;
 						if (bCantBreak) {
 							SetDebris ();
-						} else {
-							BreakAt (tCol);
 						}
 					} else {
 						tContr = BoxPool.GetBox ();
@@ -82,17 +80,15 @@ public class BreakableBox : MonoBehaviour
 							tContr.m_fFractureForce = m_fFractureForce;
 							if (bCantBreak) {
 								tContr.SetDebris ();
-							} else {
+							} else if (tCol != null){
 								tContr.BreakAt (tCol);
 							}
-//							if (tCol != null)
-//								tContr.BreakAt(tCol);
 						}
 					}
 				}
 			}
-//			if (tCol != null)
-//				BreakAt(tCol);
+			if (!bCantBreak && tCol != null)
+				BreakAt(tCol);
 		}
 	}
 
@@ -109,31 +105,36 @@ public class BreakableBox : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
-		float fKineticSelf = Container.KineticEnergy ();
+		Vector2 tDeltaV = Container.RigidBody.velocity - Container.Velocity;
+		float fForce = Container.RigidBody.mass * tDeltaV.sqrMagnitude;
+		if (fForce < Mathf.Epsilon || fForce < m_fFractureForce)
+			return;
+		BreakAt(col);
+		return;
+
+		Debug.Log ("DeltaV: " + tDeltaV + " / EstimatedForce: " + fForce);
 		if (!col.rigidbody || col.rigidbody.isKinematic) {
 //			if (Container.RigidBody.velocity.sqrMagnitude < 0.1f)
 //				return;
-			float fDamage = col.relativeVelocity.sqrMagnitude * fKineticSelf;
-			Debug.Log ("Ground contact: " + Container.RigidBody.velocity + " - " + col.relativeVelocity + " - " + Container.Velocity + " - " + fDamage);
-			Break (col);
+//			float fDamage = col.relativeVelocity.sqrMagnitude * fKineticSelf;
+//			BreakAt (col);
 //			Debug.Break ();
 		} else {
+			float fKineticSelf = Container.KineticEnergy();
 			BreakableContainer tOtherBody = col.gameObject.GetComponent<BreakableContainer> ();
-			float fDamage;
 			if (tOtherBody) {
 				float fKineticOther = tOtherBody.KineticEnergy ();
+				float fDamage;
 				fDamage = col.relativeVelocity.sqrMagnitude * (fKineticOther - fKineticSelf) / 100.0f;
 				if (Mathf.Abs (fDamage) >= m_fFractureForce) {
-//					Break ();
-//					Container.CheckIntegrity ();
+					BreakAt (col);
 				}
 			} else {
-				fDamage = col.relativeVelocity.sqrMagnitude * fKineticSelf / 100.0f;
-				Debug.Log ("Other contact: " + fDamage);
-				if (Mathf.Abs (fDamage) >= m_fFractureForce) {
-//					Break ();
-//					Container.CheckIntegrity ();
-				}
+//				fDamage = col.relativeVelocity.sqrMagnitude * fKineticSelf / 100.0f;
+//				Debug.Log ("Other contact: " + fDamage);
+//				if (Mathf.Abs (fDamage) >= m_fFractureForce) {
+					BreakAt (col);
+//				}
 			}
 		}
 	}
@@ -141,6 +142,7 @@ public class BreakableBox : MonoBehaviour
 	public void Init (BreakableContainer tContainer)
 	{
 		Container = tContainer;
+		Container.AddChild(this);
 		transform.parent = Container.transform;
 		m_fFractureForce = Container.FractureForce;
 		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
@@ -176,14 +178,18 @@ public class BreakableBox : MonoBehaviour
 
 	void CheckRay (Vector2 tDir)
 	{
-		Vector2 tRect = new Vector2 ((transform.localScale.x / 2) * tDir.x, (transform.localScale.y / 2) * tDir.y);
-		Vector3 tStart = Container.transform.TransformDirection (m_tCollider.transform.TransformPoint (Vector3.zero) + new Vector3 (tRect.x, tRect.y, 0));
+		tDir = new Vector2((transform.localScale.x + (Container.FractureSize / 2.0f)) * tDir.x,
+		                   (transform.localScale.y + (Container.FractureSize / 2.0f)) * tDir.y);
+		tDir = transform.TransformDirection(tDir);
+		var tStart = new Vector2 (transform.position.x, transform.position.y);
+//		Debug.Log("Raycast from: " + tStart + " to: " + tDir);
 		Debug.DrawRay (tStart, tDir, Color.green);
-		RaycastHit2D[] tHits = Physics2D.RaycastAll (tStart, tDir, Container.FractureSize / 2);
+		RaycastHit2D[] tHits = Physics2D.RaycastAll (tStart, tDir, tDir.magnitude / 2);
 		foreach (RaycastHit2D tHit in tHits) {			                                     
 			if (tHit.collider != m_tCollider) {
 				BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox> ();
 				if (tBox && tBox.Container == Container && !tBox.InBody) {
+//					Debug.Log("Ray Hit");
 					tBox.InBody = true;
 					tBox.PingNeighbors ();
 				}
@@ -197,7 +203,8 @@ public class BreakableBox : MonoBehaviour
 		CheckRay (Vector2.down);
 		CheckRay (Vector2.left);
 		CheckRay (Vector2.right);
-//		Debug.DrawRay (tOtherCenter, (tCenter - tOtherCenter), Color.green);
+//		Debug.Break();
+		//		Debug.DrawRay (tOtherCenter, (tCenter - tOtherCenter), Color.green);
 //		RaycastHit2D tHit2 = Physics2D.Raycast (tOtherCenter, (tCenter - tOtherCenter));
 		
 //		if (tHit1.collider != m_tCollider)
