@@ -16,7 +16,7 @@ public class BreakableBox : MonoBehaviour
 		get;
 		set;
 	}
-	protected BoxCollider2D m_tCollider;
+	protected BoxCollider2D Collider;
 	float m_fFractureForce = 1.0f;
 	DebrisController m_tDebris;
 
@@ -95,7 +95,7 @@ public class BreakableBox : MonoBehaviour
 	protected void BreakAt (Collision2D tCol)
 	{
 		foreach (ContactPoint2D tPoint in tCol.contacts) {
-			Vector3 tBodyPoint = m_tCollider.bounds.ClosestPoint (tPoint.point);
+			Vector3 tBodyPoint = Collider.bounds.ClosestPoint (tPoint.point);
 			Vector3 tColliderPoint = tPoint.point;
 			if (Vector3.Distance (tBodyPoint, tColliderPoint) < Container.FractureSize / 2.0f) {
 				Break (tCol);
@@ -111,6 +111,7 @@ public class BreakableBox : MonoBehaviour
 			return;
 		BreakAt(col);
 		return;
+/*
 
 		Debug.Log ("DeltaV: " + tDeltaV + " / EstimatedForce: " + fForce);
 		if (!col.rigidbody || col.rigidbody.isKinematic) {
@@ -137,6 +138,7 @@ public class BreakableBox : MonoBehaviour
 //				}
 			}
 		}
+*/
 	}
 
 	public void Init (BreakableContainer tContainer)
@@ -146,7 +148,7 @@ public class BreakableBox : MonoBehaviour
 		transform.parent = Container.transform;
 		m_fFractureForce = Container.FractureForce;
 		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
-		m_tCollider = gameObject.GetComponent<BoxCollider2D> ();
+		Collider = gameObject.GetComponent<BoxCollider2D> ();
 	}
 
 	public void SetDebris ()
@@ -186,7 +188,7 @@ public class BreakableBox : MonoBehaviour
 		Debug.DrawRay (tStart, tDir, Color.green);
 		RaycastHit2D[] tHits = Physics2D.RaycastAll (tStart, tDir, tDir.magnitude / 2);
 		foreach (RaycastHit2D tHit in tHits) {			                                     
-			if (tHit.collider != m_tCollider) {
+			if (tHit.collider != Collider) {
 				BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox> ();
 				if (tBox && tBox.Container == Container && !tBox.InBody) {
 //					Debug.Log("Ray Hit");

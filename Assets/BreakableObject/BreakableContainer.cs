@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class BreakableContainer : MonoBehaviour
 {
-	public bool	 FastMoving;
 	public float Density = 10.0f;
 	public float FractureSize = 0.2f;
 	public float FractureForce = 1.0f;
@@ -107,14 +106,7 @@ public class BreakableContainer : MonoBehaviour
 		}
 		m_tRigidBody = gameObject.GetComponent<Rigidbody2D> ();
 		m_tRigidBody.mass = fMass;
-		if (FastMoving) {
-			m_tRigidBody.interpolation = RigidbodyInterpolation2D.Interpolate;
-			m_tRigidBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-		} else {
-			m_tRigidBody.interpolation = RigidbodyInterpolation2D.None;
-			m_tRigidBody.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
-		}
-				//		m_tCollider = gameObject.GetComponent<BoxCollider2D>();
+//		m_tCollider = gameObject.GetComponent<BoxCollider2D>();
 	}
 
 	void Update ()
@@ -123,7 +115,6 @@ public class BreakableContainer : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		m_bIntegrityCheck = true;
 		if (m_bIntegrityCheck) {
 			CheckIntegrity ();
 		}
@@ -144,7 +135,6 @@ public class BreakableContainer : MonoBehaviour
 		foreach (BreakableBox tBox in m_tChilds) {
 			tBox.Deactivate ();
 		}
-		FastMoving = false;
 		ContainerPool.Instance.PoolObject (gameObject);
 	}
 
