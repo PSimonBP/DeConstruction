@@ -5,45 +5,65 @@ public class BreakableBox : MonoBehaviour
 {
 	public BreakableContainer Container { get; set; }
 	public float Mass { get; set; }
-	public bool InBody { get; set; }
 	protected BoxCollider2D Collider;
+	public List<BreakableBox> Neighbours { get; set; }
+	public float Damage { get; set; }
+
 	DebrisController m_tDebris;
-	
-	public void SetupObject (BreakableContainer tContr, Transform tTransform, Vector3 tTranslate)
+
+	public void Init(BreakableContainer tContr, Transform tTransform = null, Vector3 tTranslate = new Vector3())
 	{
-		Init (tContr);
-		transform.localPosition = tTransform.localPosition;
-		transform.localRotation = tTransform.localRotation;
-		transform.Translate (tTranslate);
-		transform.localScale = tTransform.localScale;
+		Container = tContr;
+		Container.AddChild(this);
+		transform.parent = Container.transform;
+		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
+		Collider = gameObject.GetComponent<BoxCollider2D>();
+
+		if (tTransform != null) {
+			transform.localPosition = tTransform.localPosition;
+			transform.localRotation = tTransform.localRotation;
+			transform.Translate(tTranslate);
+			transform.localScale = tTransform.localScale;
+		}
 		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
 	}
 	
-	public void Break (Collision2D tCol = null)
+	public void Break()
 	{
-		int iNeededObjects = 1;
-		int iBreakX = 1;
-		int iBreakY = 1;
-		if (CanBreakX ()) {
-			iBreakX = 2;
-			if (transform.localScale.x * 2 > transform.localScale.y) {
-				iBreakX = (int)Mathf.Max (iBreakX, transform.localScale.y / transform.localScale.x);
-			}
+		if (m_tDebris) {
+			return;
 		}
-		if (CanBreakY ()) {
-			iBreakY = 2;
-			if (transform.localScale.y * 2 > transform.localScale.x) {
-				iBreakY = (int)Mathf.Max (iBreakY, transform.localScale.x / transform.localScale.y);
+		int iBreakX = (transform.localScale.x > Container.FractureSize) ? 2 : 1;
+		int iBreakY = (transform.localScale.y > Container.FractureSize) ? 2 : 1;
+		int iNeededObjects = iBreakX * iBreakY - 1;
+
+		if (iNeededObjects == 0) {
+			SetDebris();
+			Damage -= Container.FractureForce;
+			if (Damage < 0) {
+				Damage = 0;
+			} else {
+				var tBoxes = new List<BreakableBox>();
+				GetNeighbours(tBoxes);
+				if (tBoxes.Count > 0) {
+					Damage /= Mathf.Min(2, tBoxes.Count);
+					foreach (BreakableBox tBox in tBoxes) {
+						tBox.AddDamage(Damage);
+					}
+				}
+				Container.ChildsToRemove.Add(this);
 			}
+			return;
 		}
-		
-		iNeededObjects *= iBreakX;
-		iNeededObjects *= iBreakY;
-		iNeededObjects -= 1;
-		
-		if (iNeededObjects <= BoxPool.Instance.GetFreePoolSize ()) {
-			var tScale = new Vector3 (transform.localScale.x / iBreakX, transform.localScale.y / iBreakY, 0);
-			bool bCantBreak = tScale.x <= Container.FractureSize && tScale.y <= Container.FractureSize;
+
+		if (iNeededObjects <= BoxPool.Instance.GetFreePoolSize()) {
+			var tScale = new Vector3(transform.localScale.x / iBreakX, transform.localScale.y / iBreakY, 0);
+			Damage -= Container.FractureForce;
+			if (Damage < 0) {
+				Damage = 0;
+			} else {
+				Damage /= 4.0f;
+			}
 			BreakableBox tContr = null;
 			for (int x = 0; x < iBreakX; ++x) {
 				for (int y = 0; y < iBreakY; ++y) {
@@ -56,43 +76,43 @@ public class BreakableBox : MonoBehaviour
 							tPosChange.y = 0;
 						}
 						transform.localScale = tScale;
-						SetupObject (Container, transform, tPosChange);
-						if (bCantBreak) {
-							SetDebris ();
-						}
+						Init(Container, transform, tPosChange);
 					} else {
-						tContr = BoxPool.GetBox ();
+						tContr = BoxPool.GetBox();
 						if (tContr != null) {
 							tContr.transform.parent = transform.parent;
-							tContr.SetupObject (Container, transform, -(new Vector3 (x * transform.localScale.x, y * transform.localScale.y, 0)));
-							if (bCantBreak) {
-								tContr.SetDebris ();
-							} else if (tCol != null) {
-								tContr.BreakAt (tCol);
+							tContr.Init(Container, transform, -(new Vector3(x * transform.localScale.x, y * transform.localScale.y, 0)));
+							tContr.Damage = Damage;
+							if (tContr.Damage >= Container.FractureForce) {
+								tContr.Break();
 							}
 						}
 					}
 				}
 			}
-			if (!bCantBreak && tCol != null) {
-				BreakAt (tCol);
+			if (Damage >= Container.FractureForce) {
+				Break();
 			}
 		}
 	}
 	
-	protected void BreakAt (Collision2D tCol)
+	public void AddDamage(float fDamage)
 	{
-		foreach (ContactPoint2D tPoint in tCol.contacts) {
-			Vector3 tBodyPoint = Collider.bounds.ClosestPoint (tPoint.point);
-			Vector3 tColliderPoint = tPoint.point;
-			if (Vector3.Distance (tBodyPoint, tColliderPoint) < Container.FractureSize / 2.0f) {
-				Break (tCol);
-			}
+		if (m_tDebris != null) {
+			return;
 		}
+		Damage += fDamage;
+		if (Damage < Mathf.Epsilon || Damage < Container.FractureForce) {
+			return;
+		}
+		Break();
 	}
 
-	void OnCollisionEnter2D (Collision2D col)
+	void OnCollisionEnter2D(Collision2D col)
 	{
+		if (m_tDebris != null) {
+			return;
+		}
 		float fForce = 0;
 		if (!Container.Body.isKinematic) {
 			fForce += Container.Body.mass * (Container.Body.velocity - Container.Velocity).sqrMagnitude;
@@ -100,84 +120,65 @@ public class BreakableBox : MonoBehaviour
 		if (col.rigidbody && !col.rigidbody.isKinematic) {
 			fForce += col.relativeVelocity.sqrMagnitude * col.rigidbody.mass;
 		}
-		if (fForce < Mathf.Epsilon || fForce < Container.FractureForce) {
-			return;
-		}
-		BreakAt (col);
-		return;
+		AddDamage(fForce);
 	}
 	
-	public void Init (BreakableContainer tContainer)
-	{
-		Container = tContainer;
-		Container.AddChild (this);
-		transform.parent = Container.transform;
-		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
-		Collider = gameObject.GetComponent<BoxCollider2D> ();
-	}
-	
-	public void SetDebris ()
+	public void SetDebris()
 	{
 		if (m_tDebris == null) {
-			m_tDebris = gameObject.AddComponent<DebrisController> ();
-			var tList = new List<BreakableBox> ();
-			tList.Add (this);
-			Container.DetachBody (tList);
+			m_tDebris = gameObject.AddComponent<DebrisController>();
 		}
 	}
 	
-	public bool CanBreakX ()
+	public void Deactivate()
 	{
-		return transform.localScale.x > Container.FractureSize;
-	}
-	
-	public bool CanBreakY ()
-	{
-		return transform.localScale.y > Container.FractureSize;
-	}
-	
-	public void Deactivate ()
-	{
+		Damage = 0;
 		m_tDebris = null;
-		Container.RemoveChild (this);
-		BoxPool.Instance.PoolObject (gameObject);
+		Container.RemoveChild(this);
+		BoxPool.Instance.PoolObject(gameObject);
 	}
 	
-	List<BreakableBox> CheckRay (Vector2 tDir, List<BreakableBox> tBoxes, bool bShouldInBody)
+	List<BreakableBox> CheckRay(Vector2 tDir, List<BreakableBox> tBoxes)
 	{
-		// todo check every corner
-		tDir = new Vector2 ((transform.localScale.x + (Container.FractureSize)) * tDir.x,
+		tDir = new Vector2((transform.localScale.x + (Container.FractureSize)) * tDir.x,
 		                   (transform.localScale.y + (Container.FractureSize)) * tDir.y);
-		tDir = transform.TransformDirection (tDir);
-		var tStart = new Vector2 (transform.position.x, transform.position.y);
-//		Debug.DrawRay(tStart, tDir, Color.green);
-		RaycastHit2D[] tHits = Physics2D.RaycastAll (tStart, tDir, tDir.magnitude / 2);
+		tDir = transform.TransformDirection(tDir);
+		var tStart = new Vector2(transform.position.x, transform.position.y);
+		RaycastHit2D[] tHits = Physics2D.RaycastAll(tStart, tDir, tDir.magnitude / 2);
 		foreach (RaycastHit2D tHit in tHits) {			                                     
 			if (tHit.collider != Collider) {
-				BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox> ();
-				if (tBox && tBox.Container == Container && tBox.InBody == bShouldInBody) {
-					tBoxes.Add (tBox);
+				BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox>();
+				if (tBox && tBox.Container == Container) {
+					tBoxes.Add(tBox);
 				}
 			}
 		}
 		return tBoxes;
 	}
-	
-	public void PingNeighbors (bool bCheckOther = false)
+
+	void GetNeighbours(List<BreakableBox> tBoxes)
 	{
-		List<BreakableBox> tBoxes = new List<BreakableBox> ();
-		CheckRay (Vector2.up, tBoxes, bCheckOther);
-		CheckRay (Vector2.down, tBoxes, bCheckOther);
-		CheckRay (Vector2.left, tBoxes, bCheckOther);
-		CheckRay (Vector2.right, tBoxes, bCheckOther);
-		if (bCheckOther) {
-			if (tBoxes.Count > 0)
-				InBody = true;
-		} else {
-			foreach (BreakableBox tBox in tBoxes) {
-				tBox.InBody = true;
-				tBox.PingNeighbors ();
-			}
+		CheckRay(Vector2.up, tBoxes);
+		CheckRay(Vector2.down, tBoxes);
+		CheckRay(Vector2.left, tBoxes);
+		CheckRay(Vector2.right, tBoxes);
+	}
+
+	void CheckNeighbours(ICollection<BreakableBox> tBoxes)
+	{
+		var tBoxList = new List<BreakableBox>();
+		GetNeighbours(tBoxList);
+		foreach (BreakableBox tBox in tBoxList) {
+			tBoxes.Add(tBox);
+		}
+	}
+	
+	public void PingNeighbors()
+	{
+		var tBoxes = new List<BreakableBox>();
+		CheckNeighbours(tBoxes);
+		foreach (BreakableBox tBox in tBoxes) {
+			tBox.PingNeighbors();
 		}
 	}
 
