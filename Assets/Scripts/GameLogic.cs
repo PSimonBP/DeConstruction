@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class GameLogic : MonoBehaviour
@@ -19,14 +20,28 @@ public class GameLogic : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R) || (CrossPlatformInputManager.ButtonExists("SlowMotion") && CrossPlatformInputManager.GetButtonDown("Reset"))) {
 			Application.LoadLevel("MainScene");
 		}
+
+		BreakableBox tBox = null;
+		RaycastHit2D tHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+		if (tHit.collider != null) {
+			tBox = tHit.collider.GetComponent<BreakableBox>();
+		}
+
 		if (Input.GetMouseButton(0)) {
-			RaycastHit2D tHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-			if (tHit.collider != null) {
-				BreakableBox tBox = tHit.collider.GetComponent<BreakableBox>();
-				if (tBox) {
-					tBox.AddDamage(100000);
-//					tBox.Break();
-				}
+			if (tBox) {
+				tBox.AddDamage(100000);
+			}
+		}
+
+		var tBoxes = FindObjectsOfType<BreakableBox>();
+		foreach (BreakableBox tDebugBox in tBoxes) {
+			tDebugBox.DebugDraw = false;
+		}
+		if (tBox) {
+			var tBoxList = new List<BreakableBox>();
+			tBox.GetConnectedBoxes(tBoxList);
+			foreach (BreakableBox tRedBox in tBoxList) {
+				tRedBox.DebugDraw = true;
 			}
 		}
 	}
