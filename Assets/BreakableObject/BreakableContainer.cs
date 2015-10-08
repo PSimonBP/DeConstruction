@@ -3,111 +3,121 @@ using UnityEngine;
 
 public class BreakableContainer : MonoBehaviour
 {
-	public float Density = 10.0f;
+	public float Density = 1.0f;
 	public float FractureSize = 0.2f;
-	public float FractureForce = 1.0f;
+	public float FractureForce = 2.0f;
 	public Rigidbody2D Body { get; set; }
 	public Vector2 Velocity { get; set; }
 	public float AngVelocity { get; set; }
-	List<BreakableBox> childs = new List<BreakableBox>();
+	List<BreakableBox> childs = new List<BreakableBox> ();
 	public List<BreakableBox> Childs { get { return childs; } }
 
 	bool m_bIntegrityCheck;
 
-	public void AddChild(BreakableBox tBox)
+	public void AddChild (BreakableBox tBox)
 	{
-		if (!Childs.Contains(tBox)) {
-			Childs.Add(tBox);
+		if (!Childs.Contains (tBox)) {
+			Childs.Add (tBox);
 			m_bIntegrityCheck = true;
 		}
 	}
-	public void RemoveChild(BreakableBox tBox)
+	public void RemoveChild (BreakableBox tBox)
 	{
-		Childs.Remove(tBox);
+		Childs.Remove (tBox);
 		if (Childs.Count == 0)
-			Deactivate();
+			Deactivate ();
 		else
 			m_bIntegrityCheck = true;
 	}
 
-	public void CheckIntegrity()
+	public void CheckIntegrity ()
 	{
-		if (!m_bIntegrityCheck)
-			return;
 		m_bIntegrityCheck = false;
 		if (Childs.Count <= 1)
 			return;
-		foreach (BreakableBox tBox in Childs) {
+		for (int i = 0; i < Childs.Count; i++) {
+			BreakableBox tBox = Childs [i];
 			tBox.NeedRefreshNeighbours = true;
-			tBox.Neighbours.Clear();
+			tBox.Neighbours.Clear ();
 		}
-		foreach (BreakableBox tBox in Childs) {
-			tBox.RefreshNeighbours();
+		bool bKinenatic = false;
+		Body.isKinematic = bKinenatic;
+		for (int i = 0; i < Childs.Count; i++) {
+			Childs [i].RefreshNeighbours ();
+			bKinenatic |= childs [i].Kinematic;
 		}
+//		Body.isKinematic = bKinenatic;
 
-		var tConn = new List<BreakableBox>();
+		var tConn = new List<BreakableBox> ();
 		do {
-			tConn.Clear();
-			childs [0].GetConnectedBoxes(tConn);
+			tConn.Clear ();
+			childs [0].GetConnectedBoxes (tConn);
 			if (tConn.Count < childs.Count) {
 				m_bIntegrityCheck = true;
-				DetachBody(tConn);
+				DetachBody (tConn);
 			}
 		} while (tConn.Count < childs.Count);
 	}
 
-	void Start()
+	void Start ()
 	{
-		Init();
+		Init ();
 	}
 
-	public void Init()
+	void UpdateMass ()
 	{
-		childs = new List<BreakableBox>(GetComponentsInChildren<BreakableBox>());
-		Body = gameObject.GetComponent<Rigidbody2D>();
-		Body.velocity = Velocity;
-		Body.angularVelocity = AngVelocity;
-		m_bIntegrityCheck = true;
 		float fMass = 0;
-		foreach (BreakableBox tBox in Childs) {
-			tBox.Init(this);
-			fMass += tBox.Mass;
-		}
+		for (int i = 0; i < childs.Count; i++)
+			fMass += childs [i].Mass;
 		Body.mass = fMass;
 	}
 
-	void FixedUpdate()
+	public void Init ()
+	{
+		childs = new List<BreakableBox> (GetComponentsInChildren<BreakableBox> ());
+		Body = gameObject.GetComponent<Rigidbody2D> ();
+		Body.velocity = Velocity;
+		Body.angularVelocity = AngVelocity;
+		m_bIntegrityCheck = true;
+		for (int i = 0; i < childs.Count; i++)
+			childs [i].Init (this);
+		UpdateMass ();
+	}
+
+	void Update ()
+	{
+		if (m_bIntegrityCheck)
+			CheckIntegrity ();
+	}
+
+	void FixedUpdate ()
 	{
 		Velocity = Body.velocity;
 		AngVelocity = Body.angularVelocity;
-		if (m_bIntegrityCheck)
-			CheckIntegrity();
 	}
 
-	public void Deactivate()
+	public void Deactivate ()
 	{
 		if (Body && !Body.isKinematic)
 			Body.velocity = Vector3.zero;
-		foreach (BreakableBox tBox in Childs) {
-			tBox.Deactivate();
-		}
+		for (int i = 0; i < Childs.Count; i++)
+			Childs [i].Deactivate ();
 		Body.isKinematic = false;
-		ContainerPool.Instance.PoolObject(gameObject);
+		ContainerPool.Instance.PoolObject (gameObject);
 	}
 
-	public void DetachBox(BreakableBox tBox)
+	public void DetachBox (BreakableBox tBox)
 	{
-		var tList = new List<BreakableBox>();
-		tList.Add(tBox);
-		DetachBody(tList);
+		var tList = new List<BreakableBox> ();
+		tList.Add (tBox);
+		DetachBody (tList);
 	}
 
-	public void DetachBody(List<BreakableBox> tBoxes)
+	public void DetachBody (List<BreakableBox> tBoxes)
 	{
 		if (tBoxes.Count == 0)
 			return;
-		// todo check if kinematic, and attached to kinematic neighbour?
-		BreakableContainer tNewContr = ContainerPool.GetContainer();
+		BreakableContainer tNewContr = ContainerPool.GetContainer ();
 		tNewContr.FractureForce = FractureForce;
 		tNewContr.FractureSize = FractureSize;
 		tNewContr.Density = Density;
@@ -118,17 +128,13 @@ public class BreakableContainer : MonoBehaviour
 		tNewContr.Velocity = Body.velocity;
 		tNewContr.AngVelocity = Body.angularVelocity;
 
-		foreach (BreakableBox tBox in tBoxes) {
-			RemoveChild(tBox);
+		for (int i = 0; i < tBoxes.Count; i++) {
+			BreakableBox tBox = tBoxes [i];
+			RemoveChild (tBox);
 			tBox.transform.parent = tNewContr.transform;
 		}
-		tNewContr.Init();
-
-		float fMass = 0;
-		foreach (BreakableBox tBox in childs) {
-			fMass += tBox.Mass;
-		}
-		Body.mass = fMass;
+		tNewContr.Init ();
+		UpdateMass ();
 		m_bIntegrityCheck = true;
 	}
 }

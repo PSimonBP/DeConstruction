@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
 
-public class ContainerPool : Container {
+public class ContainerPool : Container
+{
 	static ContainerPool		_instance;
 	public static ContainerPool	Instance { get { return _instance; } }
 	
-	void Start() {
+	void Start ()
+	{
 		_instance = this;
-		Setup(typeof(BreakableContainer));
+		Setup (typeof(BreakableContainer));
 	}
 	
-	public static BreakableContainer GetContainer() {
-		GameObject tObj = Instance.GetObject();
+	public static BreakableContainer GetContainer ()
+	{
+		GameObject tObj = Instance.GetObject ();
 		if (tObj == null)
 			return null;
-		return tObj.GetComponent<BreakableContainer>();
+		return tObj.GetComponent<BreakableContainer> ();
 	}
 }
