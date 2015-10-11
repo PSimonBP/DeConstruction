@@ -13,7 +13,8 @@ public class WaterPool : Container
 
 	void Update ()
 	{
-		if (Random.Range (0, 10) > 3) {
+//		if (Random.Range (0, 10) > 3) 
+		{
 			GameObject tDrop = WaterPool.Instance.GetObject ();
 			if (tDrop != null) {
 				tDrop.transform.position = transform.position;
