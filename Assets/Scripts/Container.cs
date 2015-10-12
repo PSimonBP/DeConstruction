@@ -19,7 +19,6 @@ public class Container : MonoBehaviour {
 		if (m_iObjectCount >= ObjectLimit)
 			return false;
 		++m_iObjectCount;
-		++m_iUsedObjectCount;
 		GameObject tObj = Instantiate(Prefab);
 		tObj.transform.parent = transform;
 		PoolObject(tObj);
