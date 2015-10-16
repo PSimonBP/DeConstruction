@@ -27,7 +27,17 @@ public class GameLogic : MonoBehaviour
 			Application.LoadLevel ("MainScene");
 		}
 
-		if (Input.GetMouseButton (0)) {
+		if (Input.touchCount > 0) {
+			var tTouches = Input.touches;
+			for (int i = 0; i < Input.touchCount; i++) {
+				RaycastHit2D tHit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (tTouches [i].position), Vector2.zero);
+				if (tHit.collider != null) {
+					BreakableBox tBox = tHit.collider.GetComponent<BreakableBox> ();
+					if (tBox)
+						tBox.AddDamage (tBox.Container.FractureForce * 4);
+				}
+			}
+		} else if (Input.GetMouseButton (0)) {
 			RaycastHit2D tHit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
 			if (tHit.collider != null) {
 				BreakableBox tBox = tHit.collider.GetComponent<BreakableBox> ();
