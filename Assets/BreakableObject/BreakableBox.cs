@@ -22,7 +22,7 @@ public class BreakableBox : MonoBehaviour
 		Collider = gameObject.GetComponent<BoxCollider2D> ();
 		Container = tContr;
 		Container.AddChild (this);
-		transform.parent = Container.transform;
+		transform.SetParent (Container.transform);
 		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
 
 		if (tTransform != null) {
@@ -81,7 +81,7 @@ public class BreakableBox : MonoBehaviour
 					} else {
 						tContr = BoxPool.GetBox ();
 						if (tContr != null) {
-							tContr.transform.parent = transform.parent;
+							tContr.transform.SetParent (transform.parent);
 							tContr.Damage = Damage;
 							tContr.Init (Container, transform, -(new Vector3 (x * transform.localScale.x, y * transform.localScale.y, 0)));
 						}

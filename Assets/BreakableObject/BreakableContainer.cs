@@ -122,7 +122,7 @@ public class BreakableContainer : MonoBehaviour
 		tNewContr.FractureSize = FractureSize;
 		tNewContr.Density = Density;
 
-		tNewContr.transform.parent = transform.parent;
+		tNewContr.transform.SetParent (transform.parent);
 		tNewContr.transform.position = transform.position;
 		tNewContr.transform.rotation = transform.rotation;
 		tNewContr.Velocity = Body.velocity;
@@ -131,7 +131,7 @@ public class BreakableContainer : MonoBehaviour
 		for (int i = 0; i < tBoxes.Count; i++) {
 			BreakableBox tBox = tBoxes [i];
 			RemoveChild (tBox);
-			tBox.transform.parent = tNewContr.transform;
+			tBox.transform.SetParent (tNewContr.transform);
 		}
 		tNewContr.Init ();
 		UpdateMass ();
