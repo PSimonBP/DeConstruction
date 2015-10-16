@@ -7,11 +7,14 @@ public class GameLogic : MonoBehaviour
 	int m_iUpdateSteps;
 	int m_iDefaultPosIter;
 	int m_iDepaultVelIter;
+	Vector2 InitislGravity = Vector2.zero;
 
 	void Start ()
 	{
 		m_iDefaultPosIter = Physics2D.positionIterations;
 		m_iDepaultVelIter = Physics2D.velocityIterations;
+		InitislGravity = Physics2D.gravity;
+		Input.gyro.enabled = true;
 	}
 
 	
@@ -44,6 +47,11 @@ public class GameLogic : MonoBehaviour
 				if (tBox)
 					tBox.AddDamage (tBox.Container.FractureForce * 4);
 			}
+		}
+
+		if (Input.gyro.enabled) {
+			var tGrav = Input.gyro.gravity.normalized;
+			Physics2D.gravity = InitislGravity.magnitude * new Vector2 (tGrav.x, tGrav.y);
 		}
 
 /*		var tBoxes = FindObjectsOfType<BreakableBox>();
