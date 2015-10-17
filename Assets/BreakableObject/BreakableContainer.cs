@@ -91,8 +91,8 @@ public class BreakableContainer : MonoBehaviour
 	{
 		if (m_bIntegrityCheck) {
 			m_iIntegrityTimer += Time.deltaTime;
-			if (m_iIntegrityTimer >= 0.25f)
-				CheckIntegrity ();
+//			if (m_iIntegrityTimer >= 0.25f)
+			CheckIntegrity ();
 		} else {
 			m_iIntegrityTimer = 0;
 		}

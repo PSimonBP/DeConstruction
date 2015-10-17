@@ -101,7 +101,7 @@ public class BreakableBox : MonoBehaviour
 		if (m_tDebris != null)
 			return;
 		
-//		bool bApply = tAdded == null;
+		bool bApply = tAdded == null;
 		if (tAdded == null)
 			tAdded = new List<BreakableBox> ();
 		tAdded.Add (this);
@@ -123,13 +123,13 @@ public class BreakableBox : MonoBehaviour
 					tNewNeighbours [i].AddDamage ((fDamage * 0.1f) / tNewNeighbours.Count, tAdded);
 		}
 
-/*		if (bApply)
+		if (bApply)
 			for (int i = 0; i < tAdded.Count; i++)
 				tAdded [i].ApplyDamage ();
-*/
+
 	}
 
-	public void /*ApplyDamage*/ Update ()
+	public void ApplyDamage ()
 	{
 		if (Damage < Container.FractureForce)
 			return;
