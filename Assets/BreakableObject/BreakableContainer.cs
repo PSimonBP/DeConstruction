@@ -13,11 +13,13 @@ public class BreakableContainer : MonoBehaviour
 	public List<BreakableBox> Childs { get { return childs; } }
 
 	bool m_bIntegrityCheck;
+	float m_iIntegrityTimer;
 
 	public void AddChild (BreakableBox tBox)
 	{
 		if (!Childs.Contains (tBox)) {
 			Childs.Add (tBox);
+			tBox.transform.SetParent (transform);
 			m_bIntegrityCheck = true;
 		}
 	}
@@ -79,6 +81,7 @@ public class BreakableContainer : MonoBehaviour
 		Body.velocity = Velocity;
 		Body.angularVelocity = AngVelocity;
 		m_bIntegrityCheck = true;
+		m_iIntegrityTimer = 0;
 		for (int i = 0; i < childs.Count; i++)
 			childs [i].Init (this);
 		UpdateMass ();
@@ -86,8 +89,13 @@ public class BreakableContainer : MonoBehaviour
 
 	void Update ()
 	{
-		if (m_bIntegrityCheck)
-			CheckIntegrity ();
+		if (m_bIntegrityCheck) {
+			m_iIntegrityTimer += Time.deltaTime;
+			if (m_iIntegrityTimer >= 0.25f)
+				CheckIntegrity ();
+		} else {
+			m_iIntegrityTimer = 0;
+		}
 	}
 
 	void FixedUpdate ()

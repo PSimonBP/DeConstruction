@@ -22,7 +22,6 @@ public class BreakableBox : MonoBehaviour
 		Collider = gameObject.GetComponent<BoxCollider2D> ();
 		Container = tContr;
 		Container.AddChild (this);
-		transform.SetParent (Container.transform);
 		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
 
 		if (tTransform != null) {
@@ -81,7 +80,6 @@ public class BreakableBox : MonoBehaviour
 					} else {
 						tContr = BoxPool.GetBox ();
 						if (tContr != null) {
-							tContr.transform.SetParent (transform.parent);
 							tContr.Damage = Damage;
 							tContr.Init (Container, transform, -(new Vector3 (x * transform.localScale.x, y * transform.localScale.y, 0)));
 						}
@@ -102,7 +100,8 @@ public class BreakableBox : MonoBehaviour
 	{
 		if (m_tDebris != null)
 			return;
-		bool bApply = tAdded == null;
+		
+//		bool bApply = tAdded == null;
 		if (tAdded == null)
 			tAdded = new List<BreakableBox> ();
 		tAdded.Add (this);
@@ -124,12 +123,13 @@ public class BreakableBox : MonoBehaviour
 					tNewNeighbours [i].AddDamage ((fDamage * 0.1f) / tNewNeighbours.Count, tAdded);
 		}
 
-		if (bApply)
+/*		if (bApply)
 			for (int i = 0; i < tAdded.Count; i++)
 				tAdded [i].ApplyDamage ();
+*/
 	}
 
-	public void ApplyDamage ()
+	public void /*ApplyDamage*/ Update ()
 	{
 		if (Damage < Container.FractureForce)
 			return;
@@ -140,15 +140,14 @@ public class BreakableBox : MonoBehaviour
 	{
 		if (m_tDebris != null)
 			return;
+		if (col.transform.parent == transform.parent)
+			return;
 		float fForce = 0;
 		if (!Container.Body.isKinematic)
 			fForce += Container.Body.mass * (Container.Body.velocity - Container.Velocity).sqrMagnitude;
 		if (col.rigidbody && !col.rigidbody.isKinematic)
 			fForce += col.relativeVelocity.sqrMagnitude * col.rigidbody.mass;
-		var tBoxList = new List<BreakableBox> ();
-		AddDamage (fForce, tBoxList);
-		for (int i = 0; i < tBoxList.Count; i++)
-			tBoxList [i].ApplyDamage ();
+		AddDamage (fForce);
 	}
 	
 	public void SetDebris ()
