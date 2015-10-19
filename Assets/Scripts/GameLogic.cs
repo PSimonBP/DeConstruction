@@ -14,7 +14,7 @@ public class GameLogic : MonoBehaviour
 		m_iDefaultPosIter = Physics2D.positionIterations;
 		m_iDepaultVelIter = Physics2D.velocityIterations;
 		InitialGravity = Physics2D.gravity;
-		Input.gyro.enabled = true;
+//		Input.gyro.enabled = true;
 	}
 
 	
@@ -49,23 +49,21 @@ public class GameLogic : MonoBehaviour
 			}
 		}
 
-		if (Input.gyro.enabled) {
-			var tGrav = Input.gyro.gravity - Input.acceleration;
+/*		if (Input.gyro.enabled) {
+			var tGrav = Input.gyro.gravity - new Vector2(Input.acceleration.x, Input.acceleration.y);
 			Physics2D.gravity = InitialGravity.magnitude * new Vector2(tGrav.x, tGrav.y);
 		}
-
-/*		var tBoxes = FindObjectsOfType<BreakableBox>();
-		foreach (BreakableBox tDebugBox in tBoxes) {
-			tDebugBox.DebugDraw = false;
-		}
-		if (tBox) {
-			var tBoxList = new List<BreakableBox>();
-			tBox.GetConnectedBoxes(tBoxList);
-			foreach (BreakableBox tRedBox in tBoxList) {
-				tRedBox.DebugDraw = true;
-			}
-		}
 */
+		var tContainers = FindObjectsOfType<BreakableContainer>();
+		foreach (BreakableContainer tCont in tContainers) {
+			tCont.DebugDraw = false;
+		}
+		RaycastHit2D tRayHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+		if (tRayHit.collider != null) {
+			BreakableBox tBox = tRayHit.collider.GetComponent<BreakableBox>();
+			if (tBox)
+				tBox.Container.DebugDraw = true;
+		}
 	}
 
 	void FixedUpdate()
