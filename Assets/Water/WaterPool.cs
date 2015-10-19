@@ -6,23 +6,23 @@ public class WaterPool : Container
 	static WaterPool			_instance;
 	public static WaterPool		Instance { get { return _instance; } }
 
-	void Start()
+	void Start ()
 	{
 		_instance = this;
-		Setup(typeof(WaterController));
+		Setup (typeof(WaterController));
 	}
 
-	void Update()
+	void Update ()
 	{
 		GameObject tDrop = null;
-		int iCounter = 0;
-		do {
-			tDrop = WaterPool.Instance.GetObject();
-			if (tDrop != null) {
-				tDrop.transform.position = transform.position + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
-				tDrop.transform.SetParent(transform);
-			}
-			++ iCounter;
-		} while (tDrop != null && iCounter < 10);
+//		int iCounter = 0;
+//		do {
+		tDrop = WaterPool.Instance.GetObject ();
+		if (tDrop != null) {
+			tDrop.transform.position = transform.position + new Vector3 (Random.Range (-0.1f, 0.1f), Random.Range (-0.1f, 0.1f), 0);
+			tDrop.transform.SetParent (transform);
+		}
+//			++ iCounter;
+//		} while (tDrop != null && iCounter < 10);
 	}
 }
