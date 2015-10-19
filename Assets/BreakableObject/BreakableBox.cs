@@ -45,7 +45,7 @@ public class BreakableBox : MonoBehaviour
 			transform.localScale = tTransform.localScale;
 
 			if (Damage > Container.FractureForce) {
-				RefreshNeighbours();
+//				RefreshNeighbours();
 				if (transform.localScale.x <= Container.FractureSize && transform.localScale.y <= Container.FractureSize) {
 					Damage -= Container.FractureForce;
 					if (Damage < 0)
@@ -230,7 +230,7 @@ public class BreakableBox : MonoBehaviour
 				tBox.NeedRefreshNeighbours = true;
 				tBox.Neighbours.Add(this);
 			}
-			tBox.RefreshNeighbours();
+//			tBox.RefreshNeighbours();
 		}
 	}
 
@@ -239,6 +239,7 @@ public class BreakableBox : MonoBehaviour
 		if (tBoxes.Contains(this))
 			return;
 		tBoxes.Add(this);
+		RefreshNeighbours();
 		for (int i = 0; i < Neighbours.Count; i++)
 			Neighbours [i].GetConnectedBoxes(tBoxes);
 	}

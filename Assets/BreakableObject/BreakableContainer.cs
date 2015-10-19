@@ -87,18 +87,18 @@ public class BreakableContainer : MonoBehaviour
 		UpdateMass();
 	}
 
-/*	void Update()
+	void Update()
 	{
 		if (m_bIntegrityCheck)
 			CheckIntegrity();
 	}
-*/
+
 	void FixedUpdate()
 	{
 		Velocity = Body.velocity;
 		AngVelocity = Body.angularVelocity;
-		if (m_bIntegrityCheck)
-			CheckIntegrity();
+//		if (m_bIntegrityCheck)
+//			CheckIntegrity();
 	}
 
 	public void Deactivate()
