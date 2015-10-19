@@ -20,30 +20,46 @@ public class BreakableBox : MonoBehaviour
 
 	public void Update()
 	{
-		Temperature -= 0.5f;
-		if (Temperature >= 255) {
-			Temperature = 255;
-			if (transform.localScale.x <= Container.FractureSize && transform.localScale.y <= Container.FractureSize) {
-				SetDebris();
-			} else {
-				Break();
-			}
-			return;
-		} else if (Temperature < 0) {
-			Temperature = 0;
-		} else if (Temperature > 0 && neighbours.Count > 0) {
-			for (int i=0; i<neighbours.Count; ++i)
-				neighbours [i].Temperature += (Temperature * 0.1f) / neighbours.Count;
-			Temperature *= 0.9f;
-		}
 		if (Debris)
 			Sprite.color = Color.red;
 		else if (Container.DebugDraw) {
 			Sprite.color = Color.green;
 		} else {
-			float fColor = 1 - (Temperature / 255);
+			float fColor = 1 - (Temperature / Container.MaxHeat);
 			Sprite.color = new Color(1, fColor, fColor, 1);
 		}
+
+		Temperature -= 0.5f;
+		if (Temperature >= Container.MaxHeat) {
+			Temperature = Container.MaxHeat;
+			if (Container.MaxHeat > 0) {
+				if (transform.localScale.x <= Container.FractureSize && transform.localScale.y <= Container.FractureSize) {
+					SetDebris();
+				} else {
+					Break();
+				}
+			}
+			return;
+		} else if (Temperature < 0) {
+			Temperature = 0;
+		} else if (Temperature > 0 && neighbours.Count > 0) {
+			float fSumSize = 0;
+			for (int i=0; i<neighbours.Count; ++i)
+				fSumSize += neighbours [i].GetSize();
+			for (int i=0; i<neighbours.Count; ++i)
+				neighbours [i].Temperature += (Temperature * 0.1f) * (neighbours [i].GetSize() / fSumSize);
+			Temperature *= 0.9f;
+		}
+	}
+
+	float BreakCount(float a, float b)
+	{
+		return ((a - (a % b)) / b) + 1;
+	}
+
+	public float GetSize()
+	{
+		return BreakCount(transform.localScale.x, Container.FractureSize) * BreakCount(transform.localScale.y, Container.FractureSize);
 	}
 
 	public void Init(BreakableContainer tContr, Transform tTransform = null, Vector3 tTranslate = new Vector3())
@@ -145,9 +161,13 @@ public class BreakableBox : MonoBehaviour
 			Damage += fDamage;
 		else {
 			Damage += fDamage * 0.9f;
-			if (fDamage >= Container.FractureForce / 10)
+			if (fDamage >= Container.FractureForce / 10) {
+				float fSumSize = 0;
+				for (int i=0; i<tNewNeighbours.Count; ++i)
+					fSumSize += tNewNeighbours [i].GetSize();
 				for (int i = 0; i < tNewNeighbours.Count; i++)
-					tNewNeighbours [i].AddDamage((fDamage * 0.1f) / tNewNeighbours.Count, tAdded);
+					tNewNeighbours [i].AddDamage((fDamage * 0.1f) * (tNewNeighbours [i].GetSize() / fSumSize), tAdded);
+			}
 		}
 
 		if (bApply)
@@ -173,7 +193,7 @@ public class BreakableBox : MonoBehaviour
 			return;
 		var tWater = col.gameObject.GetComponent<WaterController>();
 		if (tWater) {
-			Temperature += 2;
+			Temperature += 5;
 			return;
 		}
 
@@ -192,7 +212,7 @@ public class BreakableBox : MonoBehaviour
 
 		var tWater = col.gameObject.GetComponent<WaterController>();
 		if (tWater) {
-			Temperature += 2;
+			Temperature += 5;
 		}
 	}
 

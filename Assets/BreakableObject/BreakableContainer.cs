@@ -6,6 +6,7 @@ public class BreakableContainer : MonoBehaviour
 	public float Density = 1.0f;
 	public float FractureSize = 0.2f;
 	public float FractureForce = 2.0f;
+	public float MaxHeat = 1000;
 	public Rigidbody2D Body { get; set; }
 	public Vector2 Velocity { get; set; }
 	public float AngVelocity { get; set; }
@@ -126,6 +127,8 @@ public class BreakableContainer : MonoBehaviour
 		tNewContr.FractureForce = FractureForce;
 		tNewContr.FractureSize = FractureSize;
 		tNewContr.Density = Density;
+		tNewContr.MaxHeat = MaxHeat;
+		tNewContr.DebugDraw = false;
 
 		tNewContr.transform.SetParent(transform.parent);
 		tNewContr.transform.position = transform.position;

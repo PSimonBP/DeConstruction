@@ -7,13 +7,13 @@ public class GameLogic : MonoBehaviour
 	int m_iUpdateSteps;
 	int m_iDefaultPosIter;
 	int m_iDepaultVelIter;
-	Vector2 InitialGravity = Vector2.zero;
+//	Vector2 InitialGravity = Vector2.zero;
 
 	void Start()
 	{
 		m_iDefaultPosIter = Physics2D.positionIterations;
 		m_iDepaultVelIter = Physics2D.velocityIterations;
-		InitialGravity = Physics2D.gravity;
+//		InitialGravity = Physics2D.gravity;
 //		Input.gyro.enabled = true;
 	}
 
