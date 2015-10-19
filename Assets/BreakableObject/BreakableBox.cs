@@ -10,6 +10,8 @@ public class BreakableBox : MonoBehaviour
 	public List<BreakableBox> Neighbours { get { return neighbours; } set { neighbours = value; } }
 	public bool NeedRefreshNeighbours { get; set; }
 	public float Damage { get; set; }
+	public float Temperature;
+	float fTempChange;
 	public bool Kinematic { get; set; }
 
 	DebrisController m_tDebris;
@@ -18,13 +20,29 @@ public class BreakableBox : MonoBehaviour
 
 	public void Update()
 	{
+		Temperature -= 0.5f;
+		if (Temperature >= 255) {
+			Temperature = 255;
+			if (transform.localScale.x <= Container.FractureSize && transform.localScale.y <= Container.FractureSize) {
+				SetDebris();
+			} else {
+				Break();
+			}
+			return;
+		} else if (Temperature < 0) {
+			Temperature = 0;
+		} else if (Temperature > 0 && neighbours.Count > 0) {
+			for (int i=0; i<neighbours.Count; ++i)
+				neighbours [i].Temperature += (Temperature * 0.1f) / neighbours.Count;
+			Temperature *= 0.9f;
+		}
 		if (Debris)
 			Sprite.color = Color.red;
 		else if (Container.DebugDraw) {
 			Sprite.color = Color.green;
 		} else {
-			float fColor = Mathf.Clamp(transform.localScale.x * transform.localScale.y * 5, 0.2f, 1);
-			Sprite.color = new Color(fColor, fColor, fColor, 1);
+			float fColor = 1 - (Temperature / 255);
+			Sprite.color = new Color(1, fColor, fColor, 1);
 		}
 	}
 
@@ -69,6 +87,7 @@ public class BreakableBox : MonoBehaviour
 			ResetNeighbours();
 			var tScale = new Vector3(transform.localScale.x / iBreakX, transform.localScale.y / iBreakY, 0);
 			Damage -= Container.FractureForce;
+			Temperature *= 0.8f;
 			if (Damage < 0)
 				Damage = 0;
 			else
@@ -88,6 +107,7 @@ public class BreakableBox : MonoBehaviour
 						tContr = BoxPool.GetBox();
 						if (tContr != null) {
 							tContr.Damage = Damage;
+							tContr.Temperature = Temperature;
 							tContr.Init(Container, transform, -(new Vector3(x * transform.localScale.x, y * transform.localScale.y, 0)));
 						}
 					}
@@ -147,8 +167,16 @@ public class BreakableBox : MonoBehaviour
 	{
 		if (m_tDebris != null)
 			return;
+		if (!col.enabled)
+			return;
 		if (col.transform.parent == transform.parent)
 			return;
+		var tWater = col.gameObject.GetComponent<WaterController>();
+		if (tWater) {
+			Temperature += 2;
+			return;
+		}
+
 		float fForce = 0;
 		if (!Container.Body.isKinematic)
 			fForce += Container.Body.mass * (Container.Body.velocity - Container.Velocity).sqrMagnitude;
@@ -156,7 +184,19 @@ public class BreakableBox : MonoBehaviour
 			fForce += col.relativeVelocity.sqrMagnitude * col.rigidbody.mass;
 		AddDamage(fForce);
 	}
-	
+
+	void OnCollisionStay2D(Collision2D col)
+	{
+		if (!col.enabled)
+			return;
+
+		var tWater = col.gameObject.GetComponent<WaterController>();
+		if (tWater) {
+			Temperature += 2;
+		}
+	}
+
+
 	public void SetDebris()
 	{
 		if (m_tDebris == null) {
@@ -172,6 +212,7 @@ public class BreakableBox : MonoBehaviour
 	{
 		ResetNeighbours();
 		Damage = 0;
+		Temperature = 0;
 		m_tDebris = null;
 		Container.RemoveChild(this);
 		BoxPool.Instance.PoolObject(gameObject);

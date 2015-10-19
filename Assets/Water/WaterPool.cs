@@ -15,12 +15,14 @@ public class WaterPool : Container
 	void Update()
 	{
 		GameObject tDrop = null;
+		int iCounter = 0;
 		do {
 			tDrop = WaterPool.Instance.GetObject();
 			if (tDrop != null) {
 				tDrop.transform.position = transform.position + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
 				tDrop.transform.SetParent(transform);
-			}			
-		} while (tDrop != null);
+			}
+			++ iCounter;
+		} while (tDrop != null && iCounter < 10);
 	}
 }
