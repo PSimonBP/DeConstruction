@@ -2,21 +2,21 @@
 
 public class WaterController : MonoBehaviour
 {
-	Rigidbody2D tRigidBody;
+//	Rigidbody2D tRigidBody;
 	float Life;
 	float MaxLife;
-	void Start ()
+	void Start()
 	{
-		tRigidBody = gameObject.GetComponent<Rigidbody2D> ();
+//		tRigidBody = gameObject.GetComponent<Rigidbody2D>();
 	}
 
-	void OnEnable ()
+	void OnEnable()
 	{
 		Life = 0;
-		MaxLife = WaterPool.Instance.LifeTime * (Random.Range (0.8f, 1.2f));
+		MaxLife = WaterPool.Instance.LifeTime * (Random.Range(0.8f, 1.2f));
 	}
 
-	void Update ()
+	void Update()
 	{
 /*		int iRnd = Random.Range(0, 100);
 		if (iRnd > 95)
@@ -39,7 +39,7 @@ public class WaterController : MonoBehaviour
 				ContainerPool.Instance.PoolObject(tCont.gameObject);
 			}
 */
-			WaterPool.Instance.PoolObject (gameObject);
+			WaterPool.Instance.PoolObject(gameObject);
 		}
 	}
 }
