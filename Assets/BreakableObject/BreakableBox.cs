@@ -84,7 +84,6 @@ public class BreakableBox : MonoBehaviour
 			transform.localScale = tTransform.localScale;
 
 			if (Damage > Container.FractureForce) {
-//				RefreshNeighbours();
 				if (transform.localScale.x <= Container.FractureSize && transform.localScale.y <= Container.FractureSize) {
 					Damage -= Container.FractureForce;
 					if (Damage < 0)
@@ -248,22 +247,21 @@ public class BreakableBox : MonoBehaviour
 		BoxPool.Instance.PoolObject(gameObject);
 	}
 	
-	List<BreakableBox> CheckRay(Vector2 tDir, List<BreakableBox> tBoxes)
+	List<BreakableBox> CheckRay(Vector2 tStart, Vector2 tDir, List<BreakableBox> tBoxes)
 	{
-		tDir = new Vector2((transform.localScale.x + (Container.FractureSize / 2)) * tDir.x,
-		                   (transform.localScale.y + (Container.FractureSize / 2)) * tDir.y);
+		tDir = new Vector2((Container.FractureSize / 4) * tDir.x,
+		                   (Container.FractureSize / 4) * tDir.y);
 		tDir = transform.TransformDirection(tDir);
-		var tStart = new Vector2(transform.position.x, transform.position.y);
-		RaycastHit2D[] tHits = Physics2D.RaycastAll(tStart, tDir, tDir.magnitude / 2);
-		for (int i = 0; i < tHits.Length; i++) {
-			if (tHits [i].collider != Collider) {
-				BreakableBox tBox = tHits [i].collider.gameObject.GetComponent<BreakableBox>();
-				if (tBox) {
-					if (tBox.Container == Container && !tBoxes.Contains(tBox))
-						tBoxes.Add(tBox);
-				} else if (tHits [i].rigidbody == null || tHits [i].rigidbody.isKinematic) {
-					Kinematic = true;
-				}
+//		Debug.DrawRay(tStart, tDir);
+//		Debug.Break();
+		RaycastHit2D tHit = Physics2D.Raycast(tStart, tDir, Container.FractureSize / 8);
+		if (tHit.collider != null && tHit.collider != Collider) {
+			BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox>();
+			if (tBox) {
+				if (tBox.Container == Container && !tBoxes.Contains(tBox))
+					tBoxes.Add(tBox);
+			} else if (tHit.rigidbody == null || tHit.rigidbody.isKinematic) {
+				Kinematic = true;
 			}
 		}
 		return tBoxes;
@@ -282,10 +280,12 @@ public class BreakableBox : MonoBehaviour
 
 	void FindNeighbours(List<BreakableBox> tBoxes)
 	{
-		CheckRay(Vector2.up, tBoxes);
-		CheckRay(Vector2.down, tBoxes);
-		CheckRay(Vector2.left, tBoxes);
-		CheckRay(Vector2.right, tBoxes);
+		float fGap = Container.FractureSize / 8;
+		var tStart = new Vector2(transform.position.x, transform.position.y);
+		CheckRay(new Vector2(tStart.x, tStart.y + (transform.localScale.y / 2) + fGap), Vector2.up, tBoxes);
+		CheckRay(new Vector2(tStart.x, tStart.y - (transform.localScale.y / 2) - fGap), Vector2.down, tBoxes);
+		CheckRay(new Vector2(tStart.x - (transform.localScale.x / 2) - fGap, tStart.y), Vector2.left, tBoxes);
+		CheckRay(new Vector2(tStart.x + (transform.localScale.x / 2) + fGap, tStart.y), Vector2.right, tBoxes);
 	}
 
 	public void RefreshNeighbours()
@@ -301,7 +301,6 @@ public class BreakableBox : MonoBehaviour
 				tBox.NeedRefreshNeighbours = true;
 				tBox.Neighbours.Add(this);
 			}
-//			tBox.RefreshNeighbours();
 		}
 	}
 

@@ -44,18 +44,6 @@ public class BreakableContainer : MonoBehaviour
 	{
 		m_bIntegrityCheck = false;
 		WaitForUpdate();
-/*		for (int i = 0; i < Childs.Count; i++) {
-			BreakableBox tBox = Childs [i];
-			tBox.NeedRefreshNeighbours = true;
-			tBox.Neighbours.Clear();
-		}
-		Body.isKinematic = bKinenatic;
-		for (int i = 0; i < Childs.Count; i++) {
-			Childs [i].RefreshNeighbours();
-			bKinenatic |= childs [i].Kinematic;
-		}
-		Body.isKinematic = bKinenatic;
-*/
 		var tConn = new List<BreakableBox>();
 		do {
 			tConn.Clear();
