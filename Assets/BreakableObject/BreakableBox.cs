@@ -252,9 +252,11 @@ public class BreakableBox : MonoBehaviour
 		tDir = new Vector2((Container.FractureSize / 4) * tDir.x,
 		                   (Container.FractureSize / 4) * tDir.y);
 		tDir = transform.TransformDirection(tDir);
-//		Debug.DrawRay(tStart, tDir);
+//		Debug.DrawRay(tStart, tDir, Color.yellow);
 //		Debug.Break();
-		RaycastHit2D tHit = Physics2D.Raycast(tStart, tDir, Container.FractureSize / 8);
+		var tMask = new LayerMask();
+		tMask = ~0;
+		RaycastHit2D tHit = Physics2D.Raycast(tStart, tDir, Mathf.Epsilon, tMask);
 		if (tHit.collider != null && tHit.collider != Collider) {
 			BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox>();
 			if (tBox) {
@@ -282,10 +284,14 @@ public class BreakableBox : MonoBehaviour
 	{
 		float fGap = Container.FractureSize / 8;
 		var tStart = new Vector2(transform.position.x, transform.position.y);
-		CheckRay(new Vector2(tStart.x, tStart.y + (transform.localScale.y / 2) + fGap), Vector2.up, tBoxes);
-		CheckRay(new Vector2(tStart.x, tStart.y - (transform.localScale.y / 2) - fGap), Vector2.down, tBoxes);
-		CheckRay(new Vector2(tStart.x - (transform.localScale.x / 2) - fGap, tStart.y), Vector2.left, tBoxes);
-		CheckRay(new Vector2(tStart.x + (transform.localScale.x / 2) + fGap, tStart.y), Vector2.right, tBoxes);
+		Vector2 tDir = transform.TransformDirection(new Vector3(0, (transform.localScale.y / 2) + fGap, 0));
+		CheckRay(tStart + tDir, Vector2.up, tBoxes);
+		tDir = transform.TransformDirection(new Vector3(0, (-transform.localScale.y / 2) - fGap, 0));
+		CheckRay(tStart + tDir, Vector2.down, tBoxes);
+		tDir = transform.TransformDirection(new Vector3((-transform.localScale.x / 2) - fGap, 0, 0));
+		CheckRay(tStart + tDir, Vector2.left, tBoxes);
+		tDir = transform.TransformDirection(new Vector3((transform.localScale.x / 2) + fGap, 0, 0));
+		CheckRay(tStart + tDir, Vector2.right, tBoxes);
 	}
 
 	public void RefreshNeighbours()
