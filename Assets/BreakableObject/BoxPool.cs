@@ -7,41 +7,52 @@ public class BoxPool : Container
 	public static BoxPool		Instance { get { return _instance; } }
 
 	float m_fDebrisSize { get; set; }
-	List<DebrisController> m_tDebrisList = new List<DebrisController>();
+	List<DebrisController> m_tDebrisList = new List<DebrisController> ();
 
 	public static List<DebrisController> DebrisList { get { return _instance.m_tDebrisList; } }
 	public static float DebrisSize { get { return _instance.m_fDebrisSize; } }
 
-	void Start()
+	bool bLowFrameRate;
+
+	void Start ()
 	{
+		bLowFrameRate = false;
 		m_fDebrisSize = 0.2f;
 		_instance = this;
-		Setup(typeof(BreakableBox));
+		Setup (typeof(BreakableBox));
 	}
 
-	public static BreakableBox GetBox()
+	public static BreakableBox GetBox ()
 	{
-		if (_instance.GetFreePoolSize() == 0 && DebrisList.Count > 0) {
-			DebrisList [0].Kill();
-			DebrisList.RemoveAt(0);
+		if (_instance.GetFreePoolSize () == 0 && DebrisList.Count > 0) {
+			DebrisList [0].Kill ();
+			DebrisList.RemoveAt (0);
 		}
-		GameObject tObj = Instance.GetObject();
+		GameObject tObj = Instance.GetObject ();
 		if (tObj == null)
 			return null;
-		_instance.CalcDebrisSize();
-		return tObj.GetComponent<BreakableBox>();
+		_instance.CalcDebrisSize ();
+		return tObj.GetComponent<BreakableBox> ();
 	}
 
-	public static void PoolBox(GameObject tBox)
+	public static void PoolBox (GameObject tBox)
 	{
-		_instance.PoolObject(tBox);
-		_instance.CalcDebrisSize();
+		_instance.PoolObject (tBox);
+		_instance.CalcDebrisSize ();
 	}
 
-	void CalcDebrisSize()
+/*	void Update ()
 	{
-		float fFillRatio = (float)_instance.GetFreePoolSize() / ObjectLimit;
-		if (fFillRatio <= 0.05f) {
+		bool bPrevFR = bLowFrameRate;
+		bLowFrameRate = 1 / Time.deltaTime <= 30;
+		if (bPrevFR != bLowFrameRate)
+			CalcDebrisSize ();
+	}
+*/
+	void CalcDebrisSize ()
+	{
+		float fFillRatio = (float)_instance.GetFreePoolSize () / ObjectLimit;
+		if (fFillRatio <= 0.05f || bLowFrameRate) {
 			m_fDebrisSize = 0.6f;
 		} else if (fFillRatio <= 0.1f) {
 			m_fDebrisSize = 0.5f;
