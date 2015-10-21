@@ -41,12 +41,14 @@ public class BoxPool : Container
 	void CalcDebrisSize()
 	{
 		float fFillRatio = (float)_instance.GetFreePoolSize() / ObjectLimit;
-		if (fFillRatio < 0.2f) {
-			float fRatio = fFillRatio * 5;
-			if (fRatio < Mathf.Epsilon)
-				fRatio = Mathf.Epsilon;
-//			Debug.Log(fRatio);
+		if (fFillRatio <= 0.05f) {
+			m_fDebrisSize = 0.6f;
+		} else if (fFillRatio <= 0.1f) {
+			m_fDebrisSize = 0.5f;
+		} else if (fFillRatio <= 0.15f) {
 			m_fDebrisSize = 0.4f;
+		} else if (fFillRatio <= 0.2f) {
+			m_fDebrisSize = 0.3f;
 		} else {		
 			m_fDebrisSize = 0.2f;
 		}

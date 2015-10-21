@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BreakableBox : MonoBehaviour
@@ -17,7 +18,7 @@ public class BreakableBox : MonoBehaviour
 
 	DebrisController m_tDebris;
 	public bool Debris { get { return m_tDebris != null; } }
-//	SpriteRenderer Sprite;
+	SpriteRenderer Sprite;
 
 	public void Update()
 	{
@@ -26,16 +27,6 @@ public class BreakableBox : MonoBehaviour
 
 		if (m_tDebris == null && transform.localScale.x <= BoxPool.DebrisSize && transform.localScale.y <= BoxPool.DebrisSize)
 			m_tDebris = gameObject.AddComponent<DebrisController>();
-
-//		if (Debris)
-//			Sprite.color = Color.red;
-/*		if (Container.DebugDraw) {
-			Sprite.color = Color.green;
-		} else {
-*/
-//		float fColor = 1 - (Temperature / Container.MaxHeat);
-//		Sprite.color = new Color(1, fColor, fColor, 1);
-//		}
 
 		Temperature *= 0.99f;
 		int iSize = GetSize();
@@ -54,13 +45,26 @@ public class BreakableBox : MonoBehaviour
 		if (Temperature < 0) {
 			Temperature = 0;
 		} else if (Temperature > 0 && neighbours.Count > 0) {
-/*			float fSumSize = 0;
-			for (int i=0; i<neighbours.Count; ++i)
-				fSumSize += neighbours [i].GetSize();
-			for (int i=0; i<neighbours.Count; ++i)
-				neighbours [i].Temperature += (Temperature * Container.HeatTransfer) * (neighbours [i].GetSize() / fSumSize);
-			Temperature *= 1 - Container.HeatTransfer;
-*/
+			float fSumSize = 0;
+			int iColderNeighbourCount = 0;
+			for (int i=0; i<neighbours.Count; ++i) {
+				if (neighbours [i].Temperature < Temperature) {
+					fSumSize += neighbours [i].GetSize();
+					iColderNeighbourCount++;
+				}
+			}
+			for (int i=0; i<neighbours.Count; ++i) {
+				if (neighbours [i].Temperature < Temperature) {
+					float fTempIncrease = (Temperature - neighbours [i].Temperature) * (neighbours [i].GetSize() / fSumSize) * 0.2f;
+					if (fTempIncrease > 20)
+						Debug.Log(fTempIncrease);
+					float fNewTemp = neighbours [i].Temperature + fTempIncrease;
+					if (fNewTemp < Container.MaxHeat * 0.5f)
+						neighbours [i].Temperature = fNewTemp;
+				}
+			}
+			if (iColderNeighbourCount != 0)
+				Temperature *= 0.8f;
 		}
 	}
 
@@ -78,7 +82,7 @@ public class BreakableBox : MonoBehaviour
 
 	public void Init(BreakableContainer tContr, Transform tTransform = null, Vector3 tTranslate = new Vector3())
 	{
-//		Sprite = GetComponent<SpriteRenderer>();
+		Sprite = GetComponent<SpriteRenderer>();
 		ResetNeighbours();
 		Kinematic = false;
 		Collider = gameObject.GetComponent<BoxCollider2D>();
@@ -134,6 +138,7 @@ public class BreakableBox : MonoBehaviour
 							tContr.Damage = Damage;
 							tContr.Temperature = Temperature;
 							tContr.Init(Container, transform, -(new Vector3(x * transform.localScale.x, y * transform.localScale.y, 0)));
+							tContr.Sprite.color = Sprite.color;
 						}
 					}
 				}
@@ -232,18 +237,27 @@ public class BreakableBox : MonoBehaviour
 		ResetNeighbours();
 		Container.DetachBox(this);
 	}
-	
+
+	IEnumerator WaitForUpdate()
+	{
+		yield return new WaitForFixedUpdate();
+	}
+
 	public void Deactivate()
 	{
+		WaitForUpdate();
 		ResetNeighbours();
 		if (Temperature >= Container.MaxHeat * 0.5f) {
-			GameObject tDrop = WaterPool.Instance.GetObject();
-			if (tDrop != null) {
-				tDrop.transform.position = transform.position;
-				tDrop.GetComponent<WaterController>().MaxLife = 0.5f;
-				tDrop.transform.SetParent(WaterPool.Instance.transform);
-			}		
+			for (int i=0; i<Container.FlameSpread; ++i) {
+				GameObject tDrop = WaterPool.Instance.GetObject();
+				if (tDrop != null) {
+					tDrop.transform.position = transform.position;
+					tDrop.GetComponent<WaterController>().MaxLife = 0.5f;
+					tDrop.transform.SetParent(WaterPool.Instance.transform);
+				}		
+			}
 		}
+		Sprite.color = Color.white;
 		Damage = 0;
 		Temperature = 0;
 		m_tDebris = null;
@@ -258,8 +272,7 @@ public class BreakableBox : MonoBehaviour
 		tDir = transform.TransformDirection(tDir);
 //		Debug.DrawRay(tStart, tDir, Color.yellow);
 //		Debug.Break();
-		var tMask = new LayerMask();
-		tMask = ~0;
+		LayerMask tMask = ~0;
 		RaycastHit2D tHit = Physics2D.Raycast(tStart, tDir, Mathf.Epsilon, tMask);
 		if (tHit.collider != null && tHit.collider != Collider) {
 			BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox>();

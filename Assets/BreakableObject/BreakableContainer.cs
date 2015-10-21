@@ -7,7 +7,7 @@ public class BreakableContainer : MonoBehaviour
 	public float Density = 1.0f;
 	public float FractureForce = 2.0f;
 	public float MaxHeat = 1000;
-	public float HeatTransfer = 0.2f;
+	public int FlameSpread = 1;
 	public Rigidbody2D Body { get; set; }
 	public Vector2 Velocity { get; set; }
 	public float AngVelocity { get; set; }
@@ -122,6 +122,7 @@ public class BreakableContainer : MonoBehaviour
 
 	public void DetachBox(BreakableBox tBox)
 	{
+		WaitForUpdate();
 		var tList = new List<BreakableBox>();
 		tList.Add(tBox);
 		DetachBody(tList);
