@@ -32,7 +32,7 @@ public class BreakableBox : MonoBehaviour
 		Sprite.color = new Color(1, fColor, fColor, 1);
 //		}
 
-		Temperature -= 0.1f;
+		Temperature *= 0.99f;
 		int iSize = GetSize();
 		if (Temperature >= Container.MaxHeat / iSize) {
 			Temperature = Container.MaxHeat / iSize;

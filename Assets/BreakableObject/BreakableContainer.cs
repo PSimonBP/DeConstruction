@@ -84,7 +84,7 @@ public class BreakableContainer : MonoBehaviour
 	{
 		if (m_bIntegrityCheck) {
 			m_fIntegrityTimer += Time.deltaTime;
-			if (m_fIntegrityTimer >= 0.2f)
+			if (m_fIntegrityTimer >= 0.1f)
 				CheckIntegrity();
 		} else {
 			m_fIntegrityTimer = 0;
@@ -95,8 +95,6 @@ public class BreakableContainer : MonoBehaviour
 	{
 		Velocity = Body.velocity;
 		AngVelocity = Body.angularVelocity;
-//		if (m_bIntegrityCheck)
-//			CheckIntegrity();
 	}
 
 	public void Deactivate()
@@ -140,6 +138,5 @@ public class BreakableContainer : MonoBehaviour
 		}
 		tNewContr.Init();
 		UpdateMass();
-//		m_bIntegrityCheck = true;
 	}
 }
