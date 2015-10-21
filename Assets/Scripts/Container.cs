@@ -15,18 +15,21 @@ public class Container : MonoBehaviour
 		var tExistingObjList = FindObjectsOfType(tType);
 		m_iObjectCount = tExistingObjList.Length;
 		m_iUsedObjectCount = tExistingObjList.Length;
-		IncreaseBufferSize();
 	}
 	
 	bool IncreaseBufferSize()
 	{
-		while (m_iObjectCount < ObjectLimit) {
+		int iIncreaseCount = 0;
+		while (m_iObjectCount < ObjectLimit && iIncreaseCount <= 50) {
 			++m_iObjectCount;
+			++m_iUsedObjectCount;
+			++iIncreaseCount;
 			GameObject tObj = Instantiate(Prefab);
+			tObj.SetActive(false);
 			tObj.transform.SetParent(transform);
 			PoolObject(tObj);
 		}
-		return true;
+		return iIncreaseCount > 0;
 	}
 	
 	public int GetFreePoolSize()
@@ -36,7 +39,7 @@ public class Container : MonoBehaviour
 
 	public GameObject GetObject()
 	{
-		if (m_tPooledObjects.Count == 0)
+		if (m_tPooledObjects.Count == 0 && !IncreaseBufferSize())
 			return null;
 		
 		GameObject pooledObject = m_tPooledObjects [0];

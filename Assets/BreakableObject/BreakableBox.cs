@@ -4,41 +4,47 @@ using UnityEngine;
 public class BreakableBox : MonoBehaviour
 {
 	public BreakableContainer Container { get; set; }
-	public float Mass { get; set; }
 	protected BoxCollider2D Collider;
 	List<BreakableBox> neighbours = new List<BreakableBox>();
 	public List<BreakableBox> Neighbours { get { return neighbours; } set { neighbours = value; } }
 	public bool NeedRefreshNeighbours { get; set; }
 	public float Damage { get; set; }
 	public float Temperature;
+	public int Size;
+
 	float fTempChange;
 	public bool Kinematic { get; set; }
 
 	DebrisController m_tDebris;
 	public bool Debris { get { return m_tDebris != null; } }
-	SpriteRenderer Sprite;
+//	SpriteRenderer Sprite;
 
 	public void Update()
 	{
 		if (Container == null)
 			return;
+
+		if (m_tDebris == null && transform.localScale.x <= BoxPool.DebrisSize && transform.localScale.y <= BoxPool.DebrisSize)
+			m_tDebris = gameObject.AddComponent<DebrisController>();
+
 //		if (Debris)
 //			Sprite.color = Color.red;
 /*		if (Container.DebugDraw) {
 			Sprite.color = Color.green;
 		} else {
 */
-		float fColor = 1 - (Temperature / Container.MaxHeat);
-		Sprite.color = new Color(1, fColor, fColor, 1);
+//		float fColor = 1 - (Temperature / Container.MaxHeat);
+//		Sprite.color = new Color(1, fColor, fColor, 1);
 //		}
 
 		Temperature *= 0.99f;
 		int iSize = GetSize();
+		Size = iSize;
 		if (Temperature >= Container.MaxHeat / iSize) {
 			Temperature = Container.MaxHeat / iSize;
 			if (Container.MaxHeat > 0) {
 				if (iSize == 1) {
-					SetDebris();
+					Detach();
 				} else {
 					Break();
 				}
@@ -48,35 +54,36 @@ public class BreakableBox : MonoBehaviour
 		if (Temperature < 0) {
 			Temperature = 0;
 		} else if (Temperature > 0 && neighbours.Count > 0) {
-			float fSumSize = 0;
+/*			float fSumSize = 0;
 			for (int i=0; i<neighbours.Count; ++i)
 				fSumSize += neighbours [i].GetSize();
 			for (int i=0; i<neighbours.Count; ++i)
 				neighbours [i].Temperature += (Temperature * Container.HeatTransfer) * (neighbours [i].GetSize() / fSumSize);
 			Temperature *= 1 - Container.HeatTransfer;
+*/
 		}
 	}
 
 	int BreakCount(float a, float b)
 	{
+		if (b >= a)
+			return 1;
 		return (int)((a - (a % b)) / b) + 1;
 	}
 
 	public int GetSize()
 	{
-		return BreakCount(transform.localScale.x, Container.FractureSize) * BreakCount(transform.localScale.y, Container.FractureSize);
+		return BreakCount(transform.localScale.x, BoxPool.DebrisSize) * BreakCount(transform.localScale.y, BoxPool.DebrisSize);
 	}
 
 	public void Init(BreakableContainer tContr, Transform tTransform = null, Vector3 tTranslate = new Vector3())
 	{
-		Sprite = GetComponent<SpriteRenderer>();
+//		Sprite = GetComponent<SpriteRenderer>();
 		ResetNeighbours();
 		Kinematic = false;
 		Collider = gameObject.GetComponent<BoxCollider2D>();
 		Container = tContr;
 		Container.AddChild(this);
-		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
-
 		if (tTransform != null) {
 			transform.localPosition = tTransform.localPosition;
 			transform.localRotation = tTransform.localRotation;
@@ -84,24 +91,23 @@ public class BreakableBox : MonoBehaviour
 			transform.localScale = tTransform.localScale;
 
 			if (Damage > Container.FractureForce) {
-				if (transform.localScale.x <= Container.FractureSize && transform.localScale.y <= Container.FractureSize) {
+				if (transform.localScale.x <= BoxPool.DebrisSize && transform.localScale.y <= BoxPool.DebrisSize) {
 					Damage -= Container.FractureForce;
 					if (Damage < 0)
 						Damage = 0;
-					SetDebris();
+					Detach();
 					Damage = 0;
 				} else {
 					Break();
 				}
 			}
 		}
-		Mass = transform.localScale.x * transform.localScale.y * Container.Density;
 	}
 	
 	public void Break()
 	{
-		int iBreakX = (transform.localScale.x > Container.FractureSize) ? 2 : 1;
-		int iBreakY = (transform.localScale.y > Container.FractureSize) ? 2 : 1;
+		int iBreakX = (transform.localScale.x > BoxPool.DebrisSize) ? 2 : 1;
+		int iBreakY = (transform.localScale.y > BoxPool.DebrisSize) ? 2 : 1;
 
 		if ((iBreakX * iBreakY - 1) <= BoxPool.Instance.GetFreePoolSize()) {
 			ResetNeighbours();
@@ -139,7 +145,7 @@ public class BreakableBox : MonoBehaviour
 
 	int GetFractureCount()
 	{
-		return (int)(((transform.localScale.x / Container.FractureSize)) * (transform.localScale.y / Container.FractureSize));
+		return (int)(((transform.localScale.x / BoxPool.DebrisSize)) * (transform.localScale.y / BoxPool.DebrisSize));
 	}
 
 	public void AddDamage(float fDamage, List<BreakableBox> tAdded = null)
@@ -196,7 +202,7 @@ public class BreakableBox : MonoBehaviour
 			return;
 		var tWater = col.gameObject.GetComponent<WaterController>();
 		if (tWater) {
-			Temperature += 5;
+			Temperature += 5 / transform.localScale.magnitude;
 			return;
 		}
 
@@ -215,42 +221,40 @@ public class BreakableBox : MonoBehaviour
 
 		var tWater = col.gameObject.GetComponent<WaterController>();
 		if (tWater) {
-			Temperature += 5;
-		}
-
-		var tBox = col.gameObject.GetComponent<BreakableBox>();
-		if (tBox) {
-			tBox.Temperature += (Temperature * Container.HeatTransfer);
-			Temperature *= 1 - Container.HeatTransfer;
+			Temperature += 5 / transform.localScale.magnitude;
 		}
 	}
 
-
-	public void SetDebris()
+	void Detach()
 	{
-		if (m_tDebris == null) {
-			m_tDebris = gameObject.AddComponent<DebrisController>();
-			for (int i = 0; i < neighbours.Count; i++)
-				neighbours [i].Neighbours.Remove(this);
-			ResetNeighbours();
-			Container.DetachBox(this);
-		}
+		for (int i = 0; i < neighbours.Count; i++)
+			neighbours [i].Neighbours.Remove(this);
+		ResetNeighbours();
+		Container.DetachBox(this);
 	}
 	
 	public void Deactivate()
 	{
 		ResetNeighbours();
+		if (Temperature >= Container.MaxHeat * 0.5f) {
+			GameObject tDrop = WaterPool.Instance.GetObject();
+			if (tDrop != null) {
+				tDrop.transform.position = transform.position;
+				tDrop.GetComponent<WaterController>().MaxLife = 0.5f;
+				tDrop.transform.SetParent(WaterPool.Instance.transform);
+			}		
+		}
 		Damage = 0;
 		Temperature = 0;
 		m_tDebris = null;
 		Container.RemoveChild(this);
-		BoxPool.Instance.PoolObject(gameObject);
+		BoxPool.PoolBox(gameObject);
 	}
 	
 	List<BreakableBox> CheckRay(Vector2 tStart, Vector2 tDir, List<BreakableBox> tBoxes)
 	{
-		tDir = new Vector2((Container.FractureSize / 4) * tDir.x,
-		                   (Container.FractureSize / 4) * tDir.y);
+		tDir = new Vector2((BoxPool.DebrisSize / 4) * tDir.x,
+		                   (BoxPool.DebrisSize / 4) * tDir.y);
 		tDir = transform.TransformDirection(tDir);
 //		Debug.DrawRay(tStart, tDir, Color.yellow);
 //		Debug.Break();
@@ -282,7 +286,7 @@ public class BreakableBox : MonoBehaviour
 
 	void FindNeighbours(List<BreakableBox> tBoxes)
 	{
-		float fGap = Container.FractureSize / 8;
+		float fGap = BoxPool.DebrisSize / 8;
 		var tStart = new Vector2(transform.position.x, transform.position.y);
 		Vector2 tDir = transform.TransformDirection(new Vector3(0, (transform.localScale.y / 2) + fGap, 0));
 		CheckRay(tStart + tDir, Vector2.up, tBoxes);

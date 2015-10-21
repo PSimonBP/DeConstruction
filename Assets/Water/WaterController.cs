@@ -4,7 +4,7 @@ public class WaterController : MonoBehaviour
 {
 //	Rigidbody2D tRigidBody;
 	float Life;
-	float MaxLife;
+	public float MaxLife { get; set; }
 	void Start()
 	{
 //		tRigidBody = gameObject.GetComponent<Rigidbody2D>();

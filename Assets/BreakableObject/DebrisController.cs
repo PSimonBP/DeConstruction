@@ -7,20 +7,27 @@ public class DebrisController : MonoBehaviour
 	float			fEndTime;
 	int				iOriginalLayer;
 
-	void Start ()
+	void Start()
 	{
 		iOriginalLayer = gameObject.layer;
 		gameObject.layer = 8;
-		tBreakableBox = gameObject.GetComponent<BreakableBox> ();
-		fEndTime = Time.time + Random.Range (0.1f, 0.5f);
+		tBreakableBox = gameObject.GetComponent<BreakableBox>();
+		fEndTime = Time.time + Random.Range(0.1f, 0.5f);
+		BoxPool.DebrisList.Add(this);
 	}
 
-	void Update ()
+	void Update()
 	{
 		if (fEndTime < Time.time) {
-			gameObject.layer = iOriginalLayer;
-			tBreakableBox.Deactivate ();
-			Destroy (this);
+			BoxPool.DebrisList.Remove(this);
+			Kill();
 		}
+	}
+
+	public void Kill()
+	{
+		gameObject.layer = iOriginalLayer;
+		tBreakableBox.Deactivate();
+		Destroy(this);
 	}
 }

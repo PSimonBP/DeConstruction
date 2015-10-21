@@ -38,7 +38,7 @@ public class GameLogic : MonoBehaviour
 					Vector3 tPosition = Camera.main.ScreenToWorldPoint(tTouches [i].position) + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
 					tPosition.z = 0;
 					tDrop.transform.position = tPosition;
-//					tDrop.transform.SetParent(WaterPool.Instance.transform);
+					tDrop.transform.SetParent(WaterPool.Instance.transform);
 				}
 
 /*				RaycastHit2D tHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(tTouches [i].position), Vector2.zero);
@@ -49,21 +49,24 @@ public class GameLogic : MonoBehaviour
 				}
 */
 			}
-		} else if (Input.GetMouseButton(0)) {
-			GameObject tDrop = WaterPool.Instance.GetObject();
-			if (tDrop != null) {
-				Vector3 tPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
-				tPosition.z = 0;
-				tDrop.transform.position = tPosition;
-//				tDrop.transform.SetParent(WaterPool.Instance.transform);
+		} else {
+			if (Input.GetMouseButton(0)) {
+				GameObject tDrop = WaterPool.Instance.GetObject();
+				if (tDrop != null) {
+					Vector3 tPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
+					tPosition.z = 0;
+					tDrop.transform.position = tPosition;
+					tDrop.transform.SetParent(WaterPool.Instance.transform);
+				}
 			}
-/*			RaycastHit2D tHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-			if (tHit.collider != null) {
-				BreakableBox tBox = tHit.collider.GetComponent<BreakableBox>();
-				if (tBox)
-					tBox.AddDamage(tBox.Container.FractureForce * 4);
+			if (Input.GetMouseButton(1)) {
+				RaycastHit2D tHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+				if (tHit.collider != null) {
+					BreakableBox tBox = tHit.collider.GetComponent<BreakableBox>();
+					if (tBox)
+						tBox.Break();
+				}
 			}
-*/
 		}
 
 /*		if (Input.gyro.enabled) {

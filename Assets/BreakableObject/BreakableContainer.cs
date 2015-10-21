@@ -5,7 +5,6 @@ using UnityEngine;
 public class BreakableContainer : MonoBehaviour
 {
 	public float Density = 1.0f;
-	public float FractureSize = 0.2f;
 	public float FractureForce = 2.0f;
 	public float MaxHeat = 1000;
 	public float HeatTransfer = 0.2f;
@@ -44,13 +43,23 @@ public class BreakableContainer : MonoBehaviour
 	{
 		m_bIntegrityCheck = false;
 		WaitForUpdate();
+		for (int i = 0; i < childs.Count; i++)
+			childs [i].RefreshNeighbours();
 		var tConn = new List<BreakableBox>();
 		do {
 			tConn.Clear();
 			childs [0].GetConnectedBoxes(tConn);
 			if (tConn.Count < childs.Count) {
+				for (int i=0; i<childs.Count; ++i) {
+					if (!tConn.Contains(childs [i])) {
+						var tDetach = new List<BreakableBox>();
+						childs [i].GetConnectedBoxes(tDetach);
+						DetachBody(tDetach);
+						break;
+					}
+				}
 //				Debug.Log("Detach #" + (childs.Count - tConn.Count));
-				DetachBody(tConn);
+//				DetachBody(tConn);
 			}
 		} while (tConn.Count < childs.Count);
 	}
@@ -58,14 +67,18 @@ public class BreakableContainer : MonoBehaviour
 	void Start()
 	{
 		Init();
+		for (int i = 0; i < childs.Count; i++)
+			childs [i].RefreshNeighbours();
 	}
 
 	void UpdateMass()
 	{
 		float fMass = 0;
-		for (int i = 0; i < childs.Count; i++)
-			fMass += childs [i].Mass;
-		Body.mass = fMass;
+		for (int i = 0; i < childs.Count; i++) {
+			Vector3 tScale = childs [i].transform.localScale;
+			fMass += tScale.x * tScale.y;
+		}
+		Body.mass = fMass * Density;
 	}
 
 	public void Init()
@@ -84,8 +97,8 @@ public class BreakableContainer : MonoBehaviour
 	{
 		if (m_bIntegrityCheck) {
 			m_fIntegrityTimer += Time.deltaTime;
-			if (m_fIntegrityTimer >= 0.1f)
-				CheckIntegrity();
+//			if (m_fIntegrityTimer >= 0.1f)
+			CheckIntegrity();
 		} else {
 			m_fIntegrityTimer = 0;
 		}
@@ -120,7 +133,6 @@ public class BreakableContainer : MonoBehaviour
 			return;
 		BreakableContainer tNewContr = ContainerPool.GetContainer();
 		tNewContr.FractureForce = FractureForce;
-		tNewContr.FractureSize = FractureSize;
 		tNewContr.Density = Density;
 		tNewContr.MaxHeat = MaxHeat;
 		tNewContr.DebugDraw = false;
