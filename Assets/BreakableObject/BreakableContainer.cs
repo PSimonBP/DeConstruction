@@ -108,6 +108,28 @@ public class BreakableContainer : MonoBehaviour
 		} else {
 			m_fIntegrityTimer = 0;
 		}
+
+		if (Body.IsSleeping ()) {
+			for (int i=0; i<childs.Count; ++i) {
+				for (int j=0; j<childs[i].Neighbours.Count; ++j) {
+					if (childs [i].transform.localScale == childs [i].Neighbours [j].transform.localScale) {
+						if (Mathf.Abs (childs [i].transform.position.x - childs [i].Neighbours [j].transform.position.x) < 0.1f) {
+							childs [i].transform.localScale = new Vector3 (childs [i].transform.localScale.x, childs [i].transform.localScale.y * 2, 1);
+							childs [i].transform.position = (childs [i].transform.position + childs [i].Neighbours [j].transform.position) / 2;
+							childs [i].Neighbours [j].Deactivate ();
+							childs [i].ResetNeighbours ();
+							return;
+						} else if (Mathf.Abs (childs [i].transform.position.y - childs [i].Neighbours [j].transform.position.y) < 0.1f) {
+							childs [i].transform.localScale = new Vector3 (childs [i].transform.localScale.x * 2, childs [i].transform.localScale.y, 1);
+							childs [i].transform.position = (childs [i].transform.position + childs [i].Neighbours [j].transform.position) / 2;
+							childs [i].Neighbours [j].Deactivate ();
+							childs [i].ResetNeighbours ();
+							return;
+						}
+					}
+				}
+			}
+		}
 	}
 
 	void FixedUpdate ()

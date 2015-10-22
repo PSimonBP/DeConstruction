@@ -223,11 +223,12 @@ public class BreakableBox : MonoBehaviour
 	{
 		if (!col.enabled)
 			return;
-
-		var tWater = col.gameObject.GetComponent<WaterController> ();
-		if (tWater) {
-			Temperature += 5 / transform.localScale.magnitude;
-		}
+		if (col.collider.GetType () != typeof(CircleCollider2D))
+			return;
+//		var tWater = col.gameObject.GetComponent<WaterController> ();
+//		if (tWater) {
+		Temperature += 5 / transform.localScale.magnitude;
+//		}
 	}
 
 	void Detach ()
