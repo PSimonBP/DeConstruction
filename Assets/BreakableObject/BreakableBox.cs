@@ -25,8 +25,12 @@ public class BreakableBox : MonoBehaviour
 		if (Container == null)
 			return;
 
-		if (m_tDebris == null && transform.localScale.x <= BoxPool.DebrisSize && transform.localScale.y <= BoxPool.DebrisSize)
+		if (m_tDebris == null && transform.localScale.x <= BoxPool.DebrisSize && transform.localScale.y <= BoxPool.DebrisSize) {
 			m_tDebris = gameObject.AddComponent<DebrisController>();
+//			Container.Body.isKinematic = false;
+		} else {
+//			Container.Body.isKinematic = true;
+		}
 
 		if (Container.Body.IsSleeping())
 			Sprite.color = Color.gray;
@@ -210,7 +214,7 @@ public class BreakableBox : MonoBehaviour
 		var tWater = col.gameObject.GetComponent<WaterController>();
 		if (tWater) {
 			Temperature += 5 / transform.localScale.magnitude;
-			return;
+//			return;
 		}
 
 		float fForce = 0;
@@ -250,17 +254,19 @@ public class BreakableBox : MonoBehaviour
 	{
 		WaitForUpdate();
 		ResetNeighbours();
-		if (Temperature >= Container.MaxHeat * 0.25f) {
+/*		if (Temperature >= Container.MaxHeat * 0.25f) {
 			for (int i=0; i<Container.FlameSpread; ++i) {
 				GameObject tDrop = WaterPool.Instance.GetObject();
 				if (tDrop != null) {
 					tDrop.transform.position = transform.position + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0);
-					tDrop.GetComponent<WaterController>().MaxLife = Random.Range(1.5f, 5);
+					tDrop.GetComponent<WaterController>().MaxLife = Random.Range(0.5f, 2.5f);
 					tDrop.transform.SetParent(WaterPool.Instance.transform);
-					tDrop.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(Random.Range(-0.25f, 0.25f), Random.Range(0, 0.25f)), ForceMode2D.Impulse);
+					Rigidbody2D tRB = tDrop.GetComponent<Rigidbody2D>();
+					tRB.AddRelativeForce(new Vector2(Random.Range(-10 * tRB.mass, 10 * tRB.mass), Random.Range(-10 * tRB.mass, 10 * tRB.mass)), ForceMode2D.Impulse);
 				}		
 			}
 		}
+*/
 		Sprite.color = Color.white;
 		Damage = 0;
 		Temperature = 0;

@@ -33,31 +33,11 @@ public class GameLogic : MonoBehaviour
 		if (Input.touchCount > 0) {
 			var tTouches = Input.touches;
 			for (int i = 0; i < Input.touchCount; i++) {
-				GameObject tDrop = WaterPool.Instance.GetObject();
-				if (tDrop != null) {
-					Vector3 tPosition = Camera.main.ScreenToWorldPoint(tTouches [i].position) + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
-					tPosition.z = 0;
-					tDrop.transform.position = tPosition;
-					tDrop.transform.SetParent(WaterPool.Instance.transform);
-				}
-
-/*				RaycastHit2D tHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(tTouches [i].position), Vector2.zero);
-				if (tHit.collider != null) {
-					BreakableBox tBox = tHit.collider.GetComponent<BreakableBox>();
-					if (tBox)
-						tBox.AddDamage(tBox.Container.FractureForce * 4);
-				}
-*/
+//				Fire(Camera.main.ScreenToWorldPoint(tTouches [i].position));
 			}
 		} else {
 			if (Input.GetMouseButton(0)) {
-				GameObject tDrop = WaterPool.Instance.GetObject();
-				if (tDrop != null) {
-					Vector3 tPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
-					tPosition.z = 0;
-					tDrop.transform.position = tPosition;
-					tDrop.transform.SetParent(WaterPool.Instance.transform);
-				}
+//				Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 			}
 			if (Input.GetMouseButton(1)) {
 				RaycastHit2D tHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -74,18 +54,23 @@ public class GameLogic : MonoBehaviour
 			Physics2D.gravity = InitialGravity.magnitude * new Vector2(tGrav.x, tGrav.y);
 		}
 */
-		var tContainers = FindObjectsOfType<BreakableContainer>();
-		foreach (BreakableContainer tCont in tContainers) {
-			tCont.DebugDraw = false;
-		}
-		RaycastHit2D tRayHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-		if (tRayHit.collider != null) {
-			BreakableBox tBox = tRayHit.collider.GetComponent<BreakableBox>();
-			if (tBox)
-				tBox.Container.DebugDraw = true;
-		}
 	}
 
+	void Fire(Vector3 tStart)
+	{
+/*		for (int i=0; i<10; ++i) {
+			GameObject tDrop = WaterPool.Instance.GetObject();
+			if (tDrop != null) {
+				Vector3 tPosition = tStart + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
+				tPosition.z = 0;
+				tDrop.transform.position = tPosition;
+				tDrop.transform.SetParent(WaterPool.Instance.transform);
+				tDrop.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(10, 20), Random.Range(-0.1f, 0.1f));
+			}
+		}
+*/
+	}
+	
 	void FixedUpdate()
 	{
 		if (++m_iUpdateSteps % 12 == 0) {

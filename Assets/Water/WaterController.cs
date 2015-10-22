@@ -25,6 +25,22 @@ public class WaterController : MonoBehaviour
 			tRigidBody.AddForce(new Vector2(Random.Range(-tRigidBody.mass, tRigidBody.mass), 0), ForceMode2D.Impulse);
 */
 		Life += Time.deltaTime;
+		if (Life >= MaxLife * 0.25f && Life < MaxLife * 0.75f) {
+			if (Random.Range(0, 100) > 98) {
+				for (int i=0; i<3; ++i) {
+					var tNewObj = WaterPool.Instance.GetObject();
+					if (tNewObj) {
+						tNewObj.transform.SetParent(transform.parent);
+						tNewObj.transform.localPosition = transform.localPosition;
+						tNewObj.transform.localRotation = transform.localRotation;
+						Vector2 tVel = GetComponent<Rigidbody2D>().velocity;
+						tVel.x *= Random.Range(0.8f, 1.2f);
+						tVel.y *= Random.Range(0.8f, 1.2f);
+						tNewObj.GetComponent<Rigidbody2D>().velocity = tVel;
+					}
+				}
+			}
+		} else
 		if (Life >= MaxLife) {
 /*			BreakableBox tBox = BoxPool.GetBox();
 			BreakableContainer tCont = ContainerPool.GetContainer();

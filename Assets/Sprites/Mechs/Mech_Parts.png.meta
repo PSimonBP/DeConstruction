@@ -1,0 +1,2991 @@
+fileFormatVersion: 2
+guid: 8c15066aacd06be419fe98d6d48d8e4c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Mech_Parts
+    21300002: 'W: Quad Turret'
+    21300004: 'W: Double Cannon'
+    21300006: 'W: Triple Cannon'
+    21300008: 'W: Double Turret'
+    21300010: 'W: Triple Turret'
+    21300012: 'W: Cannon'
+    21300014: 'W: Cannon'
+    21300016: Rocket 1
+    21300018: Turret 2
+    21300020: Rocket 2
+    21300022: Light 5
+    21300024: Mech_Parts_11
+    21300026: Mech_Parts_12
+    21300028: Mech_Parts_13
+    21300030: Mech_Parts_14
+    21300032: Mech_Parts_15
+    21300034: Mech_Parts_16
+    21300036: Mech_Parts_17
+    21300038: 'W: Triple Turret'
+    21300040: 'W: Double Turret'
+    21300042: 'W: Triple Cannon'
+    21300044: 'W: Triple Turret'
+    21300046: 'W: Turret'
+    21300048: Turret 3
+    21300050: Turret 1
+    21300052: Mech_Parts_25
+    21300054: Mech_Parts_26
+    21300056: Mech_Parts_27
+    21300058: Mech_Parts_28
+    21300060: 'W: Laser'
+    21300062: 'W: Turret'
+    21300064: Turret 4
+    21300066: Mech_Parts_32
+    21300068: Mech_Parts_33
+    21300070: 'W: Cannon'
+    21300072: 'W: BFTurret'
+    21300074: Rocket 3
+    21300076: 'W: Double Turret'
+    21300078: 'W: Cannon'
+    21300080: 'W: Turret'
+    21300082: Turret 6
+    21300084: Mech_Parts_41
+    21300086: Mech_Parts_42
+    21300088: 'W: Double Turret'
+    21300090: 'W: Cannon'
+    21300092: 'W: Cannon'
+    21300094: Mech_Parts_46
+    21300096: Mech_Parts_47
+    21300098: Mech_Parts_48
+    21300100: Mech_Parts_49
+    21300102: Mech_Parts_50
+    21300104: 'W: Cannon'
+    21300106: 'W: Double Turret'
+    21300108: Cannon 2
+    21300110: Mech_Parts_54
+    21300112: 'W: Cannon'
+    21300114: 'W: Double Turret'
+    21300116: 'W: Cannon'
+    21300118: Mech_Parts_58
+    21300120: Mech_Parts_59
+    21300122: Mech_Parts_60
+    21300124: Mech_Parts_61
+    21300126: Mech_Parts_62
+    21300128: Mech_Parts_63
+    21300130: Mech_Parts_64
+    21300132: Mech_Parts_65
+    21300134: Light 4
+    21300136: Fire 2
+    21300138: Fire 1
+    21300140: Mech_Parts_69
+    21300142: Launcher
+    21300144: Mech_Parts_71
+    21300146: Mech_Parts_72
+    21300148: Mech_Parts_73
+    21300150: Mech_Parts_74
+    21300152: Mech_Parts_75
+    21300154: Mech_Parts_76
+    21300156: Mech_Parts_77
+    21300158: Mech_Parts_78
+    21300160: Light 4
+    21300162: Light 3
+    21300164: Mech_Parts_81
+    21300166: Mech_Parts_82
+    21300168: Mech_Parts_83
+    21300170: Light 2
+    21300172: Light 1
+    21300174: Mech_Parts_86
+    21300176: Mech_Parts_87
+    21300178: Mech_Parts_88
+    21300180: Mech_Parts_89
+    21300182: Mech_Parts_90
+    21300184: Mech_Parts_91
+    21300186: Mech_Parts_92
+    21300188: Mech_Parts_93
+    21300190: Mech_Parts_94
+    21300192: Mech_Parts_95
+    21300194: Mech_Parts_96
+    21300196: Mech_Parts_97
+    21300198: Mech_Parts_98
+    21300200: Mech_Parts_99
+    21300202: Mech_Parts_100
+    21300204: Mech_Parts_101
+    21300206: Mech_Parts_102
+    21300208: Mech_Parts_103
+    21300210: Mech_Parts_104
+    21300212: Launcher_B
+    21300214: Mech_Parts_106
+    21300216: Mech_Parts_107
+    21300218: Mech_Parts_108
+    21300220: Mech_Parts_109
+    21300222: Mech_Parts_110
+    21300224: Mech_Parts_111
+    21300226: Mech_Parts_112
+    21300228: Mech_Parts_113
+    21300230: Mech_Parts_114
+    21300232: Mech_Parts_115
+    21300234: Mech_Parts_116
+    21300236: Mech_Parts_117
+    21300238: Mech_Parts_118
+    21300240: Light 6
+    21300242: Mech_Parts_120
+    21300244: Mech_Parts_121
+    21300246: Mech_Parts_122
+    21300248: Mech_Parts_123
+    21300250: Mech_Parts_124
+    21300252: Mech_Parts_125
+    21300254: Mech_Parts_126
+    21300256: Mech_Parts_127
+    21300258: Mech_Parts_128
+    21300260: Mech_Parts_129
+    21300262: Mech_Parts_130
+    21300264: Mech_Parts_131
+    21300266: Mech_Parts_132
+    21300268: Mech_Parts_133
+    21300270: Mech_Parts_134
+    21300272: Mech_Parts_135
+    21300274: Mech_Parts_136
+    21300276: Mech_Parts_137
+    21300278: Mech_Parts_138
+    21300280: Mech_Parts_139
+    21300282: Mech_Parts_140
+    21300284: Mech_Parts_141
+    21300286: Mech_Parts_142
+    21300288: Mech_Parts_143
+    21300290: Mech_Parts_144
+    21300292: Mech_Parts_145
+    21300294: Mech_Parts_146
+    21300296: Mech_Parts_147
+    21300298: Mech_Parts_148
+    21300300: Mech_Parts_149
+    21300302: Mech_Parts_150
+    21300304: Mech_Parts_151
+    21300306: Mech_Parts_152
+    21300308: Mech_Parts_153
+    21300310: Mech_Parts_154
+    21300312: Mech_Parts_155
+    21300314: Mech_Parts_156
+    21300316: Mech_Parts_157
+    21300318: Mech_Parts_158
+    21300320: Mech_Parts_159
+    21300322: Mech_Parts_160
+    21300324: Mech_Parts_161
+    21300326: Mech_Parts_162
+    21300328: Mech_Parts_163
+    21300330: Mech_Parts_164
+    21300332: Mech_Parts_165
+    21300334: Mech_Parts_166
+    21300336: Mech_Parts_167
+    21300338: Mech_Parts_168
+    21300340: Mech_Parts_169
+    21300342: Mech_Parts_170
+    21300344: Mech_Parts_171
+    21300346: Mech_Parts_172
+    21300348: Mech_Parts_173
+    21300350: Mech_Parts_174
+    21300352: Mech_Parts_175
+    21300354: Mech_Parts_176
+    21300356: Mech_Parts_177
+    21300358: Mech_Parts_178
+    21300360: Mech_Parts_179
+    21300362: Mech_Parts_180
+    21300364: Mech_Parts_181
+    21300366: Mech_Parts_182
+    21300368: Mech_Parts_183
+    21300370: Mech_Parts_184
+    21300372: Mech_Parts_185
+    21300374: Mech_Parts_186
+    21300376: Mech_Parts_187
+    21300378: Mech_Parts_188
+    21300380: Mech_Parts_189
+    21300382: Mech_Parts_190
+    21300384: Mech_Parts_191
+    21300386: Light 2
+    21300388: Mech_Parts_193
+    21300390: Turret 3
+    21300392: Mech_Parts_195
+    21300394: Mech_Parts_196
+    21300396: Mech_Parts_197
+    21300398: Mech_Parts_198
+    21300400: Mech_Parts_199
+    21300402: Mech_Parts_200
+    21300404: Mech_Parts_201
+    21300406: Mech_Parts_202
+    21300408: Mech_Parts_203
+    21300410: Mech_Parts_204
+    21300412: Mech_Parts_205
+    21300414: Mech_Parts_206
+    21300416: Mech_Parts_207
+    21300418: 'W: Turret'
+    21300420: Mech_Parts_209
+    21300422: Mech_Parts_210
+    21300424: Mech_Parts_211
+    21300426: Mech_Parts_212
+    21300428: Mech_Parts_213
+    21300430: Mech_Parts_214
+    21300432: Mech_Parts_215
+    21300434: Light 3
+    21300436: Mech_Parts_217
+    21300438: Mech_Parts_218
+    21300440: Mech_Parts_219
+    21300442: Mech_Parts_220
+    21300444: Mech_Parts_221
+    21300446: Mech_Parts_222
+    21300448: Mech_Parts_223
+    21300450: Mech_Parts_224
+    21300452: Mech_Parts_225
+    21300454: Mech_Parts_226
+    21300456: Mech_Parts_227
+    21300458: Mech_Parts_228
+    21300460: Mech_Parts_229
+    21300462: Mech_Parts_230
+    21300464: Mech_Parts_231
+    21300466: Mech_Parts_232
+    21300468: Mech_Parts_233
+    21300470: Mech_Parts_234
+    21300472: Mech_Parts_235
+    21300474: Mech_Parts_236
+    21300476: Mech_Parts_237
+    21300478: Mech_Parts_238
+    21300480: Mech_Parts_239
+    21300482: Mech_Parts_240
+    21300484: Light
+    21300486: Mech_Parts_242
+    21300488: Mech_Parts_243
+    21300490: Mech_Parts_244
+    21300492: Mech_Parts_245
+    21300494: Mech_Parts_246
+    21300496: Mech_Parts_247
+    21300498: Mech_Parts_248
+    21300500: Mech_Parts_249
+    21300502: Mech_Parts_250
+    21300504: Mech_Parts_251
+    21300506: Mech_Parts_252
+    21300508: Mech_Parts_253
+    21300510: Mech_Parts_254
+    21300512: Mech_Parts_255
+    21300514: Mech_Parts_256
+    21300516: Mech_Parts_257
+    21300518: Turret 2
+    21300520: Mech_Parts_259
+    21300522: Mech_Parts_260
+    21300524: Mech_Parts_261
+    21300526: Mech_Parts_262
+    21300528: Mech_Parts_263
+    21300530: Mech_Parts_264
+    21300532: Mech_Parts_10
+    21300534: 'W: Turret'
+    21300536: 'W: Turret'
+    21300538: 'W: Turret'
+    21300540: 'W: Turret'
+    21300542: 'W: Cannon'
+    21300544: Mech_Parts_70
+    21300546: Mech_Parts_79
+    21300548: Mech_Parts_105
+    21300550: Mech_Parts_119
+    21300552: Mech_Parts_192
+    21300554: Mech_Parts_194
+    21300556: Mech_Parts_208
+    21300558: Mech_Parts_216
+    21300560: Mech_Parts_241
+    21300562: Mech_Parts_258
+    21300564: 'W: Cannon'
+    21300566: Bullet
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: 'W: Quad Turret'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 857
+        width: 44
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Double Cannon'
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 826
+        width: 30
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Triple Cannon'
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 845
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Double Turret'
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 857
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Triple Turret'
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 854
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 860
+        width: 10
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 841
+        width: 9
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rocket 1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 858
+        width: 8
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Turret'
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 866
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rocket 2
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 838
+        width: 7
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_10
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 845
+        width: 68
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_11
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 717
+        width: 48
+        height: 171
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_12
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 765
+        width: 48
+        height: 123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_13
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 826
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_14
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 837
+        width: 48
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_15
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 847
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_16
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 857
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_17
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 864
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Triple Turret'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 790
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Double Turret'
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 791
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Triple Cannon'
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 803
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Triple Turret'
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 800
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Turret'
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 806
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 822
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Turret'
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 823
+        width: 7
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_25
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 788
+        width: 62
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_26
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 787
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_27
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 780
+        width: 42
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_28
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 797
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Laser'
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 769
+        width: 18
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Turret'
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 772
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Turret'
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 805
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_32
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 761
+        width: 48
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_33
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 766
+        width: 46
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 721
+        width: 19
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: BFTurret'
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 706
+        width: 15
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Rocket 3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 718
+        width: 12
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Double Turret'
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 757
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 734
+        width: 11
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Turret'
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 762
+        width: 7
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Turret'
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 744
+        width: 6
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_41
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 707
+        width: 58
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_42
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 743
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Double Turret'
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 717
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 725
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 692
+        width: 11
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_46
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 698
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_47
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 697
+        width: 46
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_48
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 703
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_49
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 713
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_50
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 695
+        width: 37
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 654
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Double Turret'
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 668
+        width: 13
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 652
+        width: 10
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_54
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 697
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 673
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Double Turret'
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 663
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 'W: Cannon'
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 667
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_58
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 645
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_59
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 636
+        width: 48
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_60
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 634
+        width: 46
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_61
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 634
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_62
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 628
+        width: 40
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_63
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 638
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_64
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 649
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_65
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 516
+        width: 35
+        height: 159
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Light 4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 594
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire 2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 571
+        width: 35
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire 1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 573
+        width: 14
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_69
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 617
+        width: 66
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_70
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 587
+        width: 59
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_71
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 580
+        width: 56
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_72
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 527
+        width: 52
+        height: 98
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_73
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 613
+        width: 36
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_74
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 511
+        width: 62
+        height: 86
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_75
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 550
+        width: 46
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_76
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 557
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_77
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 562
+        width: 40
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_78
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 595
+        width: 38
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_79
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 535
+        width: 36
+        height: 73
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Light 3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 554
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_81
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 533
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_82
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 562
+        width: 38
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_83
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 546
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Light 2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 538
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Light 1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 538
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_86
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 509
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_87
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 515
+        width: 38
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_88
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 518
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 474
+        width: 82
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_90
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 489
+        width: 42
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_91
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 462
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_92
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 510
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_93
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 492
+        width: 40
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_94
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 470
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_95
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 485
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_96
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 447
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_97
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 444
+        width: 51
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_98
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 465
+        width: 50
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_99
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 466
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_100
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 438
+        width: 37
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_101
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 475
+        width: 36
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_102
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 474
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_103
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 477
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_104
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 464
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_105
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 437
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_106
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 439
+        width: 66
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_107
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 407
+        width: 58
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_108
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 406
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_109
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 419
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_110
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 417
+        width: 39
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_111
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 398
+        width: 34
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_112
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 403
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_113
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 432
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_114
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 435
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_115
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 419
+        width: 52
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_116
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 407
+        width: 50
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_117
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 411
+        width: 44
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_118
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 411
+        width: 60
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_119
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 396
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_120
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 408
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_121
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 389
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_122
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 368
+        width: 18
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_123
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 348
+        width: 17
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_124
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 344
+        width: 16
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_125
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 339
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_126
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 348
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_127
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 326
+        width: 30
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_128
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 366
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_129
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 367
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_130
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 294
+        width: 27
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_131
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 341
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_132
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 365
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_133
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 350
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_134
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 372
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_135
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 266
+        width: 23
+        height: 131
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_136
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 331
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_137
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 356
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_138
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 337
+        width: 21
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_139
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 339
+        width: 20
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_140
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 346
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_141
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 355
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_142
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 281
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_143
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 294
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_144
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 309
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_145
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 303
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_146
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 293
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_147
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 324
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_148
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 242
+        width: 21
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_149
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 302
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_150
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 316
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_151
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 256
+        width: 18
+        height: 113
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_152
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 320
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_153
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 294
+        width: 15
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_154
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 274
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_155
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 281
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_156
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 270
+        width: 25
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_157
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 253
+        width: 23
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_158
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 269
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_159
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 278
+        width: 20
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_160
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 287
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_161
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 250
+        width: 15
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_162
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 296
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_163
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 238
+        width: 26
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_164
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 255
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_165
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 235
+        width: 18
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_166
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 281
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_167
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 210
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_168
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 232
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_169
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 240
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_170
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 240
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_171
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 227
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_172
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 209
+        width: 23
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_173
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 228
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_174
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 243
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_175
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 235
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_176
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 251
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_177
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 236
+        width: 13
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_178
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 195
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_179
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 198
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_180
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 162
+        width: 25
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_181
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 213
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_182
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 159
+        width: 23
+        height: 76
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_183
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 176
+        width: 22
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_184
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 195
+        width: 21
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_185
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 197
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_186
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 182
+        width: 19
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_187
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 184
+        width: 18
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_188
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 172
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_189
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 191
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_190
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 193
+        width: 14
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_191
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 208
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_192
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 183
+        width: 13
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_193
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 165
+        width: 10
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_194
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 191
+        width: 9
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_195
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 161
+        width: 29
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_196
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 170
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_197
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 195
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_198
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_199
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 173
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_200
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 127
+        width: 22
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_201
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 178
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_202
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 130
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_203
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 113
+        width: 25
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_204
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 128
+        width: 19
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_205
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 143
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_206
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 112
+        width: 18
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_207
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 123
+        width: 17
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_208
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 131
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_209
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 142
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_210
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 149
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_211
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 158
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_212
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 93
+        width: 28
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_213
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 116
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_214
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 98
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_215
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 122
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_216
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 94
+        width: 23
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_217
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 98
+        width: 23
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_218
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 113
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_219
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 121
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_220
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 107
+        width: 14
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_221
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 136
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_222
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 108
+        width: 10
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_223
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 132
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_224
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 50
+        width: 18
+        height: 73
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_225
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 70
+        width: 13
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_226
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 115
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_227
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 88
+        width: 10
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_228
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 74
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_229
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 65
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_230
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 33
+        width: 24
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_231
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 45
+        width: 23
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_232
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 32
+        width: 20
+        height: 75
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_233
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 62
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_234
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 58
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_235
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 84
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_236
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 52
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_237
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 77
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_238
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 60
+        width: 14
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_239
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 66
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_240
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 64
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_241
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 39
+        width: 6
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_242
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_243
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 11
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_244
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 34
+        width: 25
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_245
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 2
+        width: 23
+        height: 76
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_246
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 22
+        width: 22
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_247
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 17
+        width: 21
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_248
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 14
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_249
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 38
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_250
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 19
+        width: 14
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_251
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 12
+        width: 13
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_252
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 7
+        width: 12
+        height: 33
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_253
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 12
+        width: 10
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_254
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 0
+        width: 8
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_255
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 24
+        width: 7
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_256
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_257
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 16
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_258
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 4
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_259
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 5
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_260
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 0
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_261
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 9
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_262
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_263
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 3
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mech_Parts_264
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 5
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bullet
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 798
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
