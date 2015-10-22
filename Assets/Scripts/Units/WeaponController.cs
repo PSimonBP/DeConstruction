@@ -38,7 +38,7 @@ public class WeaponController : MonoBehaviour
 	void Update ()
 	{
 		if (m_tController.IsAttacking ()) {
-			if (m_fTimeToReady <= 0) {
+			if (m_fTimeToReady <= 0 && WaterPool.Instance.GetFreePoolSize () > 0) {
 				for (int i=0; i<Strength; ++i) {
 					GameObject tDrop = WaterPool.Instance.GetObject ();
 					if (tDrop != null) {
@@ -51,8 +51,6 @@ public class WeaponController : MonoBehaviour
 						Quaternion tNewRot = Quaternion.AngleAxis (fAngle, Vector3.up);
 						tDrop.transform.rotation = Quaternion.RotateTowards (m_tBody.transform.rotation, tNewRot, fAngle);
 						tDrop.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (0, 1000));
-
-//						tDrop.GetComponent<Rigidbody2D>().velocity = new Vector2(m_tBody.transform.rotation.eulerAngles.normalized.z, m_tBody.transform.rotation.eulerAngles.normalized.x) * 20;
 					}
 				}
 

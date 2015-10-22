@@ -32,11 +32,11 @@ public class BreakableBox : MonoBehaviour
 //			Container.Body.isKinematic = true;
 		}
 
-		if (Container.Body.IsSleeping ())
+/*		if (Container.Body.IsSleeping ())
 			Sprite.color = Color.gray;
 		else
 			Sprite.color = Color.white;
-
+*/
 		Temperature *= 0.99f;
 		int iSize = GetSize ();
 		Size = iSize;
