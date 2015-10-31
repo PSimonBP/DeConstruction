@@ -12,6 +12,7 @@ public class WeaponController : MonoBehaviour
 */
 	public float		RateOfFire = 1;
 	public int			Strength = 1;
+	public int          Precision = 20;
 //	public EWeaponType	WeaponType = EWeaponType.WT_BULLET;
 
 	UnitController		m_tController;
@@ -49,10 +50,10 @@ public class WeaponController : MonoBehaviour
 						tDrop.transform.position = tPosition;
 						tDrop.transform.SetParent (WaterPool.Instance.transform);
 
-						float fAngle = Random.Range (-20, 20);
+						float fAngle = Random.Range (-Precision, Precision);
 						Quaternion tNewRot = Quaternion.AngleAxis (fAngle, Vector3.up);
 						tDrop.transform.rotation = Quaternion.RotateTowards (m_tBody.transform.rotation, tNewRot, fAngle);
-						tDrop.RigidBody.AddRelativeForce (new Vector2 (0, 1000));
+						tDrop.RigidBody.AddRelativeForce (new Vector2 (0, 1000 * tDrop.RigidBody.mass));
 					}
 				}
 

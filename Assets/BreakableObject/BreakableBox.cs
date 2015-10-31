@@ -118,7 +118,8 @@ public class BreakableBox : MonoBehaviour
 				} else {
 					Break ();
 				}
-			}
+			} else 
+				Damage = 0;
 		}
 	}
 	
@@ -207,8 +208,10 @@ public class BreakableBox : MonoBehaviour
 
 	public void ApplyDamage ()
 	{
-		if (Damage < Container.FractureForce / GetSize ())
+		if (Damage < Container.FractureForce / GetSize ()) {
+			Damage = 0;
 			return;
+		}
 		Break ();
 	}
 
