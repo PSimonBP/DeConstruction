@@ -32,18 +32,17 @@ public class WaterController : MonoBehaviour
 		Life += Time.deltaTime;
 		if (Split && SplitCount > 0 && Life >= MaxLife / (SplitCount + 1)) {
 			SplitCount--;
-			var tObj = WaterPool.Instance.GetObject ();
+			var tObj = WaterPool.GetWater ();
 			if (tObj) {
-				var tNewObj = tObj.GetComponent<WaterController> ();
-				tNewObj.transform.SetParent (transform.parent);
-				tNewObj.transform.localPosition = transform.localPosition;
-				tNewObj.transform.localRotation = transform.localRotation;
-				tNewObj.Init ();
+				tObj.transform.SetParent (transform.parent);
+				tObj.transform.localPosition = transform.localPosition;
+				tObj.transform.localRotation = transform.localRotation;
+				tObj.Init ();
 				Vector2 tVel = RigidBody.velocity;
 				tVel.x += Random.Range (-3, 3);
 				tVel.y += Random.Range (-3, 3);
-				tNewObj.RigidBody.velocity = tVel;
-				tNewObj.Split = false;
+				tObj.RigidBody.velocity = tVel;
+				tObj.Split = false;
 			}
 		} else if (Life >= MaxLife) {
 			WaterPool.Instance.PoolObject (gameObject);
