@@ -9,7 +9,7 @@ public class GameLogic : MonoBehaviour
 //	int m_iDepaultVelIter;
 //	Vector2 InitialGravity = Vector2.zero;
 
-	void Start ()
+	void Start()
 	{
 //		m_iDefaultPosIter = Physics2D.positionIterations;
 //		m_iDepaultVelIter = Physics2D.velocityIterations;
@@ -18,26 +18,26 @@ public class GameLogic : MonoBehaviour
 	}
 
 	
-	void Update ()
+	void Update()
 	{
-		if (Input.GetKeyDown (KeyCode.T) || (CrossPlatformInputManager.ButtonExists ("SlowMotion") && CrossPlatformInputManager.GetButtonDown ("SlowMotion"))) {
-			if (System.Math.Abs (Time.timeScale - 1) < Mathf.Epsilon)
+		if (Input.GetKeyDown(KeyCode.T) || (CrossPlatformInputManager.ButtonExists("SlowMotion") && CrossPlatformInputManager.GetButtonDown("SlowMotion"))) {
+			if (System.Math.Abs(Time.timeScale - 1) < Mathf.Epsilon)
 				Time.timeScale = 0.2f;
 			else
 				Time.timeScale = 1;
 			return;
 		}
-		if (Input.GetKeyDown (KeyCode.R) || (CrossPlatformInputManager.ButtonExists ("Reset") && CrossPlatformInputManager.GetButtonDown ("Reset"))) {
-			Application.LoadLevel ("MainScene");
+		if (Input.GetKeyDown(KeyCode.R) || (CrossPlatformInputManager.ButtonExists("Reset") && CrossPlatformInputManager.GetButtonDown("Reset"))) {
+			Application.LoadLevel("MainScene");
 			return;
 		}
 
-		if (Input.touchCount > 0) {
-			var tTouches = Input.touches;
-			for (int i = 0; i < Input.touchCount; i++) {
+//		if (Input.touchCount > 0) {
+//			var tTouches = Input.touches;
+//			for (int i = 0; i < Input.touchCount; i++) {
 //				Fire(Camera.main.ScreenToWorldPoint(tTouches [i].position));
-			}
-		}
+//			}
+//		}
 	}
 
 /*	void FixedUpdate()

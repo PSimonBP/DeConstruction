@@ -19,7 +19,6 @@ public class DebrisController : MonoBehaviour
 	void Update()
 	{
 		if (fEndTime < Time.time) {
-			BoxPool.DebrisList.Remove(this);
 			Kill();
 		}
 	}
@@ -28,6 +27,7 @@ public class DebrisController : MonoBehaviour
 	{
 		gameObject.layer = iOriginalLayer;
 		tBreakableBox.Deactivate();
+		BoxPool.DebrisList.Remove(this);
 		Destroy(this);
 	}
 }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BreakableContainer : MonoBehaviour
 {
-	public float Density = 1.0f;
-	public float FractureForce = 2.0f;
-	public float MaxHeat = 1000;
+	public float Density = 10.0f;
+	public float FractureForce = 20.0f;
+	public float MaxHeat = 100;
+	public float HeatSpread = 0.05f;
 	public int FlameSpread = 1;
 	public Rigidbody2D Body { get; set; }
 	public Vector2 Velocity { get; set; }
@@ -16,6 +17,8 @@ public class BreakableContainer : MonoBehaviour
 	public List<BreakableBox> Childs { get { return childs; } }
 
 	bool m_bIntegrityCheck;
+	bool m_bSimplifyCheck;
+	float m_fSimplifyTimer;
 	float m_fIntegrityTimer;
 
 /*	Vector3 m_tPosition = new Vector3();
@@ -27,6 +30,7 @@ public class BreakableContainer : MonoBehaviour
 		if (!Childs.Contains(tBox)) {
 			Childs.Add(tBox);
 			tBox.transform.SetParent(transform);
+			m_bSimplifyCheck = true;
 		}
 	}
 	public void RemoveChild(BreakableBox tBox)
@@ -34,8 +38,10 @@ public class BreakableContainer : MonoBehaviour
 		childs.Remove(tBox);
 		if (childs.Count == 0)
 			Deactivate();
-		else if (childs.Count > 1)
+		else if (childs.Count > 1) {
 			m_bIntegrityCheck = true;
+			m_bSimplifyCheck = true;
+		}
 	}
 
 	IEnumerator WaitForUpdate()
@@ -106,79 +112,71 @@ public class BreakableContainer : MonoBehaviour
 	void Update()
 	{
 		if (m_bIntegrityCheck) {
-			m_fIntegrityTimer += Time.deltaTime;
-//			if (m_fIntegrityTimer >= 0.1f)
 			CheckIntegrity();
 		} else {
 			m_fIntegrityTimer = 0;
-		}
-
-		if (Body.IsSleeping()) {
-			bool bChanged;
-			do {
-				bChanged = false;
-				for (int i=0; i<childs.Count; ++i) {
-					if (childs [i].NeedRefreshNeighbours)
-						childs [i].RefreshNeighbours();
-					for (int j=0; j<childs[i].Neighbours.Count; ++j) {
-						BreakableBox tBox = childs [i];
-						BreakableBox tNeighbour = tBox.Neighbours [j];
-						Vector3 tP1 = tBox.transform.localPosition;
-						Vector3 tP2 = tNeighbour.transform.localPosition;
-						Vector3 tS1 = tBox.transform.localScale;
-						Vector3 tS2 = tNeighbour.transform.localScale;
-						if (tS1 == tS2) {
-							if (Mathf.Abs(tP1.x - tP2.x) <= 0.05f) {
-								tBox.transform.localScale = new Vector3(tS1.x, tS1.y + tS2.y, 1);
-								tBox.transform.localPosition = (tP1 + tP2) / 2;
-								tNeighbour.Deactivate();
-								tBox.ResetNeighbours();
-								tBox.Temperature /= 2;
-								bChanged = true;
-								break;
-							} else if (Mathf.Abs(tP1.y - tP2.y) <= 0.05f) {
-								tBox.transform.localScale = new Vector3(tS1.x + tS2.x, tS1.y, 1);
-								tBox.transform.localPosition = (tP1 + tP2) / 2;
-								tNeighbour.Deactivate();
-								tBox.ResetNeighbours();
-								tBox.Temperature /= 2;
-								bChanged = true;
-								break;
-							}
-						} else if (Mathf.Abs(tS1.x - tS2.x) <= 0.05f && Mathf.Abs(tP1.x - tP2.x) <= 0.05f) {
-							tBox.transform.localScale = new Vector3(tS1.x, tS1.y + tS2.y, 1);
-							tBox.transform.localPosition = new Vector3((tP1.x + tP2.x) / 2, ((tP1.y * tS1.y) + (tP2.y * tS2.y)) / (tS1.y + tS2.y), (tP1.z + tP2.z) / 2);
-							tBox.ResetNeighbours();
-							tNeighbour.Deactivate();
-							tBox.Temperature /= 2;
-							bChanged = true;
-							break;
-						} else if (Mathf.Abs(tS1.y - tS2.y) <= 0.05f && Mathf.Abs(tP1.y - tP2.y) <= 0.05f) {
-							tBox.transform.localScale = new Vector3(tS1.x + tS2.x, tS1.y, 1);
-							tBox.transform.localPosition = new Vector3(((tP1.x * tS1.x) + (tP2.x * tS2.x)) / (tS1.x + tS2.x), (tP1.y + tP2.y) / 2, (tP1.z + tP2.z) / 2);
-							tBox.ResetNeighbours();
-							tBox.Temperature /= 2;
-							tNeighbour.Deactivate();
-							bChanged = true;
-							break;
-						}
-					}
-				}
-				if (bChanged)
+			if (Time.frameCount % 60 == 0)
+				m_bSimplifyCheck = true;
+			if (m_bSimplifyCheck) {
+				m_fSimplifyTimer += Time.deltaTime;
+				if (m_fSimplifyTimer > 0.25f && Body.IsSleeping()) {
+					SimplifyObject();
 					Body.Sleep();
-			} while (bChanged);
-		}/* else {
-			if (Vec3Cmp(transform.position, m_tPosition) && Vec3Cmp(transform.rotation.eulerAngles, m_tRotation)) {
-				m_iStayCounter++;
-				if (m_iStayCounter > 3) {
-					Body.Sleep();
+					m_fSimplifyTimer = 0;
+					m_bSimplifyCheck = false;
 				}
-			} else {
-				m_tPosition = transform.position;
-				m_tRotation = transform.rotation.eulerAngles;
-				m_iStayCounter = 0;
 			}
-		}*/
+		}
+	}
+
+	bool SimplifyChild(BreakableBox tBox)
+	{
+		for (int j=0; j<tBox.Neighbours.Count; ++j) {
+			BreakableBox tNeighbour = tBox.Neighbours [j];
+			if (tBox.Temperature + tNeighbour.Temperature >= 0.05f)
+				continue;
+			Vector3 tP1 = tBox.transform.localPosition;
+			Vector3 tP2 = tNeighbour.transform.localPosition;
+			Vector3 tS1 = tBox.transform.localScale;
+			Vector3 tS2 = tNeighbour.transform.localScale;
+			if (Mathf.Abs(tS1.x - tS2.x) <= 0.05f && Mathf.Abs(tP1.x - tP2.x) <= 0.05f) {
+				tBox.transform.localScale = new Vector3(tS1.x, tS1.y + tS2.y, 1);
+				tBox.transform.localPosition = new Vector3((tP1.x + tP2.x) / 2, ((tP1.y * tS1.y) + (tP2.y * tS2.y)) / (tS1.y + tS2.y), (tP1.z + tP2.z) / 2);
+				tBox.ResetNeighbours();
+				tNeighbour.Deactivate();
+				tBox.RefreshNeighbours();
+//				tBox.Temperature /= 2;
+				return true;
+			}
+			if (Mathf.Abs(tS1.y - tS2.y) <= 0.05f && Mathf.Abs(tP1.y - tP2.y) <= 0.05f) {
+				tBox.transform.localScale = new Vector3(tS1.x + tS2.x, tS1.y, 1);
+				tBox.transform.localPosition = new Vector3(((tP1.x * tS1.x) + (tP2.x * tS2.x)) / (tS1.x + tS2.x), (tP1.y + tP2.y) / 2, (tP1.z + tP2.z) / 2);
+				tBox.ResetNeighbours();
+				tNeighbour.Deactivate();
+				tBox.RefreshNeighbours();
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void SimplifyObject()
+	{
+		bool bChanged;
+		int iStartIndex = 0;
+		do {
+			bChanged = false;
+			for (int i=iStartIndex; i<childs.Count; ++i) {
+				if (childs [i].NeedRefreshNeighbours)
+					childs [i].RefreshNeighbours();
+				if (SimplifyChild(childs [i])) {
+					bChanged = true;
+					break;
+				}
+//				iStartIndex = i;
+			}
+		} while (bChanged);
+		WaitForUpdate();
 	}
 
 	bool Vec3Cmp(Vector3 v1, Vector3 v2)
