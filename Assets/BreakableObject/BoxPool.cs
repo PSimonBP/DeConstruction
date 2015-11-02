@@ -31,14 +31,14 @@ public class BoxPool : Container
 		GameObject tObj = Instance.GetObject ();
 		if (tObj == null)
 			return null;
-		_instance.CalcDebrisSize ();
+//		_instance.CalcDebrisSize ();
 		return tObj.GetComponent<BreakableBox> ();
 	}
 
 	public static void PoolBox (GameObject tBox)
 	{
 		_instance.PoolObject (tBox);
-		_instance.CalcDebrisSize ();
+//		_instance.CalcDebrisSize ();
 	}
 
 /*	void Update ()
@@ -49,7 +49,7 @@ public class BoxPool : Container
 			CalcDebrisSize ();
 	}
 */
-	void CalcDebrisSize ()
+/*	void CalcDebrisSize ()
 	{
 		float fFillRatio = (float)_instance.GetFreePoolSize () / ObjectLimit;
 		if (fFillRatio <= 0.05f || bLowFrameRate) {
@@ -64,4 +64,5 @@ public class BoxPool : Container
 			m_fDebrisSize = 0.2f;
 		}
 	}
+*/
 }
