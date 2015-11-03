@@ -73,11 +73,14 @@ public class BreakableContainer : MonoBehaviour
 			}
 		} while (tConn.Count < childs.Count);
 		if (Body.isKinematic) {
-			bool bKinematic = false;
-			for (int i=0; i<childs.Count; ++i)
-				bKinematic |= childs [i].Kinematic;
-			Body.isKinematic = bKinematic;
+			if (Body.mass < 100)
+				Body.isKinematic = false;
+//			bool bKinematic = false;
+//			for (int i=0; i<childs.Count; ++i)
+//				bKinematic |= childs [i].Kinematic;
+//			Body.isKinematic = bKinematic;
 		}
+
 	}
 
 	void Start()
