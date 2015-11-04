@@ -17,7 +17,7 @@ public class BreakableBox : MonoBehaviour
 
 	DebrisController m_tDebris;
 	public bool Debris { get { return m_tDebris != null; } }
-	SpriteRenderer Sprite;
+	public SpriteRenderer Sprite { get; set; }
 	Color OriginalColor;
 
 	public void Update()
@@ -25,17 +25,17 @@ public class BreakableBox : MonoBehaviour
 		if (Container == null)
 			return;
 
-		if (m_tDebris == null && transform.localScale.x <= BoxPool.DebrisSize && transform.localScale.y <= BoxPool.DebrisSize) {
+		if (!Debris && GetSize() == 1 && Container.Childs.Count <= 4) {
 			m_tDebris = gameObject.AddComponent<DebrisController>();
-//			Container.Body.isKinematic = false;
-		} else {
-//			Container.Body.isKinematic = true;
+/*			Detach();
+			return;
+*/
 		}
-
+		
 		/*		if (Container.Body.IsSleeping ())
 			Sprite.color = Color.gray;
 		else
-			Sprite.color = Color.white;
+			Sprite.color = OriginalColor;
 */
 		var tNewColor = (Temperature < 0.05f) ? OriginalColor : Color.Lerp(OriginalColor, Color.red, Temperature / Container.MaxHeat);
 		if (Sprite.color != tNewColor)
@@ -136,7 +136,7 @@ public class BreakableBox : MonoBehaviour
 							tContr.Init(Container, transform, -(new Vector3(x * transform.localScale.x, y * transform.localScale.y, 0)));
 							tContr.Sprite.color = Sprite.color;
 							tContr.OriginalColor = OriginalColor;
-							if (bRecursive && tContr.GetSize() > 1 && tContr.Collider == Physics2D.OverlapPoint(tCollisionPoint))
+							if (bRecursive && GetSize() > 1 && tContr.Collider == Physics2D.OverlapPoint(tCollisionPoint))
 								tContr.Break(tCollisionPoint, bRecursive);
 						}
 					}

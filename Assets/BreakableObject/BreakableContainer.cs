@@ -19,7 +19,7 @@ public class BreakableContainer : MonoBehaviour
 	bool m_bIntegrityCheck;
 	bool m_bSimplifyCheck;
 	float m_fSimplifyTimer;
-	float m_fIntegrityTimer;
+//	float m_fIntegrityTimer;
 
 /*	Vector3 m_tPosition = new Vector3();
 	Vector3 m_tRotation = new Vector3();
@@ -88,6 +88,7 @@ public class BreakableContainer : MonoBehaviour
 		Init();
 		for (int i = 0; i < childs.Count; i++)
 			childs [i].RefreshNeighbours();
+		SimplifyObject();
 	}
 
 	void UpdateMass()
@@ -117,7 +118,7 @@ public class BreakableContainer : MonoBehaviour
 		if (m_bIntegrityCheck) {
 			CheckIntegrity();
 		} else {
-			m_fIntegrityTimer = 0;
+//			m_fIntegrityTimer = 0;
 			if (Time.frameCount % 60 == 0)
 				m_bSimplifyCheck = true;
 			if (m_bSimplifyCheck) {
@@ -136,7 +137,7 @@ public class BreakableContainer : MonoBehaviour
 	{
 		for (int j=0; j<tBox.Neighbours.Count; ++j) {
 			BreakableBox tNeighbour = tBox.Neighbours [j];
-			if (tBox.Temperature + tNeighbour.Temperature >= 0.05f)
+			if ((tBox.Temperature + tNeighbour.Temperature >= 0.05f) || tBox.Sprite.color != tNeighbour.Sprite.color)
 				continue;
 			Vector3 tP1 = tBox.transform.localPosition;
 			Vector3 tP2 = tNeighbour.transform.localPosition;
