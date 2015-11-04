@@ -19,10 +19,11 @@ public class BreakableBox : MonoBehaviour
 	public bool Debris { get { return m_tDebris != null; } }
 	public SpriteRenderer Sprite { get; set; }
 	Color OriginalColor;
+	bool Pooled { get; set; }
 
 	public void Update()
 	{
-		if (Container == null)
+		if (Pooled || Container == null)
 			return;
 
 		if (!Debris && GetSize() == 1 && Container.Childs.Count <= 4) {
@@ -95,6 +96,7 @@ public class BreakableBox : MonoBehaviour
 
 	public void Init(BreakableContainer tContr, Transform tTransform = null, Vector3 tTranslate = new Vector3())
 	{
+		Pooled = false;
 		Sprite = GetComponent<SpriteRenderer>();
 		OriginalColor = Sprite.color;
 		ResetNeighbours();
@@ -154,6 +156,8 @@ public class BreakableBox : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
+		if (Pooled)
+			return;
 		if (m_tDebris != null)
 			return;
 		if (!col.enabled)
@@ -177,6 +181,8 @@ public class BreakableBox : MonoBehaviour
 
 	void OnCollisionStay2D(Collision2D col)
 	{
+		if (Pooled)
+			return;
 		if (!col.enabled)
 			return;
 		if (col.collider.GetType() != typeof(CircleCollider2D))
@@ -202,15 +208,17 @@ public class BreakableBox : MonoBehaviour
 
 	public void Deactivate()
 	{
+		Pooled = true;
 		WaitForUpdate();
 		ResetNeighbours();
 		if (Temperature >= Container.MaxHeat/* * 0.25f*/) {
 			for (int i=0; i<Container.FlameSpread; ++i) {
-				var tDrop = FirePool.GetWater();
+				var tDrop = FirePool.GetFire();
 				if (tDrop != null) {
 					tDrop.transform.position = transform.position + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0);
 					tDrop.MaxLife = Random.Range(0.5f, 2.5f);
 					tDrop.transform.SetParent(FirePool.Instance.transform);
+					tDrop.Init();
 					Rigidbody2D tRB = tDrop.RigidBody;
 					tRB.AddRelativeForce(new Vector2(Random.Range(-1 * tRB.mass, 1 * tRB.mass), Random.Range(-1 * tRB.mass, 1 * tRB.mass)), ForceMode2D.Impulse);
 				}		

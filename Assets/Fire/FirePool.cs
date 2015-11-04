@@ -12,7 +12,7 @@ public class FirePool : Container
 		Setup(typeof(FireController));
 	}
 
-	public static FireController GetWater()
+	public static FireController GetFire()
 	{
 		GameObject tObj = _instance.GetObject();
 		if (tObj == null) {

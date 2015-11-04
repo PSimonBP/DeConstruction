@@ -15,6 +15,7 @@ public class BreakableContainer : MonoBehaviour
 	public bool DebugDraw { get; set; }
 	List<BreakableBox> childs = new List<BreakableBox>();
 	public List<BreakableBox> Childs { get { return childs; } }
+	bool Pooled { get; set; }
 
 	bool m_bIntegrityCheck;
 	bool m_bSimplifyCheck;
@@ -53,6 +54,10 @@ public class BreakableContainer : MonoBehaviour
 	{
 		m_bIntegrityCheck = false;
 		WaitForUpdate();
+		if (childs.Count == 0) {
+			Deactivate();
+			return;
+		}
 		for (int i = 0; i < childs.Count; i++)
 			childs [i].RefreshNeighbours();
 		var tConn = new List<BreakableBox>();
@@ -64,7 +69,8 @@ public class BreakableContainer : MonoBehaviour
 					if (!tConn.Contains(childs [i])) {
 						var tDetach = new List<BreakableBox>();
 						childs [i].GetConnectedBoxes(tDetach);
-						DetachBody(tDetach);
+						if (!DetachBody(tDetach))
+							return;
 						break;
 					}
 				}
@@ -103,6 +109,7 @@ public class BreakableContainer : MonoBehaviour
 
 	public void Init()
 	{
+		Pooled = false;
 		childs = new List<BreakableBox>(GetComponentsInChildren<BreakableBox>());
 		Body = gameObject.GetComponent<Rigidbody2D>();
 		Body.velocity = Velocity;
@@ -115,6 +122,8 @@ public class BreakableContainer : MonoBehaviour
 
 	void Update()
 	{
+		if (Pooled)
+			return;
 		if (m_bIntegrityCheck) {
 			CheckIntegrity();
 		} else {
@@ -201,17 +210,22 @@ public class BreakableContainer : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		if (Pooled)
+			return;
 		Velocity = Body.velocity;
 		AngVelocity = Body.angularVelocity;
 	}
 
 	public void Deactivate()
 	{
+		Pooled = true;
 		if (Body && !Body.isKinematic)
 			Body.velocity = Vector3.zero;
 		for (int i = 0; i < Childs.Count; i++)
 			Childs [i].Deactivate();
 		Body.isKinematic = false;
+		Body.velocity = Vector2.zero;
+		Body.angularVelocity = 0;
 		ContainerPool.Instance.PoolObject(gameObject);
 	}
 
@@ -223,11 +237,13 @@ public class BreakableContainer : MonoBehaviour
 		DetachBody(tList);
 	}
 
-	public void DetachBody(List<BreakableBox> tBoxes)
+	public bool DetachBody(List<BreakableBox> tBoxes)
 	{
 		if (tBoxes.Count == 0)
-			return;
+			return true;
 		BreakableContainer tNewContr = ContainerPool.GetContainer();
+		if (tNewContr == null)
+			return false;
 		tNewContr.FractureForce = FractureForce;
 		tNewContr.Density = Density;
 		tNewContr.MaxHeat = MaxHeat;
@@ -248,5 +264,6 @@ public class BreakableContainer : MonoBehaviour
 		tNewContr.Init();
 		tNewContr.Body.isKinematic = Body.isKinematic;
 		UpdateMass();
+		return true;
 	}
 }
