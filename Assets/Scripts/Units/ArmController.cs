@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BodyController : MonoBehaviour
+public class ArmController : MonoBehaviour
 {
 	public float	RotationSpeed = 1.5f;
-	public float	RotationLimit = 80;
-
+	public float	RotationLimit = 40;
+	
 	bool			m_bLock = false;
 	Vector3			m_tTarget = Vector3.zero;
 
@@ -14,7 +14,7 @@ public class BodyController : MonoBehaviour
 		if (m_bLock) {
 			Quaternion tTargetRotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, m_tTarget - transform.position), Time.deltaTime * RotationSpeed);
 			transform.rotation = tTargetRotation;
-
+			
 			Vector3 tTargetAngle = transform.localRotation.eulerAngles;
 			bool bCorrect = true;
 			if (tTargetAngle.z > RotationLimit && tTargetAngle.z < 360 - RotationLimit) {
@@ -39,18 +39,10 @@ public class BodyController : MonoBehaviour
 		m_bLock = true;
 		m_tTarget = tTarget;
 		m_tTarget.z = 0;
-		var tChildren = GetComponentsInChildren<ArmController>();
-		foreach (var tChild in tChildren) {
-			tChild.LockTo(tTarget);
-		}
 	}
-
+	
 	public void LockRelease()
 	{
 		m_bLock = false;
-		var tChildren = GetComponentsInChildren<ArmController>();
-		foreach (var tChild in tChildren) {
-			tChild.LockRelease();
-		}
 	}
 }

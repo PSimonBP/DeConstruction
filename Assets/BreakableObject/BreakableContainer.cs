@@ -166,6 +166,7 @@ public class BreakableContainer : MonoBehaviour
 	
 	public void SimplifyObject()
 	{
+//		int iBefore = childs.Count;
 		bool bChanged;
 		int iStartIndex = 0;
 		do {
@@ -181,6 +182,10 @@ public class BreakableContainer : MonoBehaviour
 			}
 		} while (bChanged);
 		WaitForUpdate();
+/*		int iAfter = childs.Count;
+		if (iBefore > iAfter)
+			Debug.Log("Simplified from " + iBefore + " to " + iAfter + ".");
+*/
 	}
 
 	bool Vec3Cmp(Vector3 v1, Vector3 v2)

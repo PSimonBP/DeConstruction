@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
@@ -41,14 +41,14 @@ public class WeaponController : MonoBehaviour
 		if (m_tController.IsAttacking ()) {
 			if (m_fTimeToReady <= 0) {
 				for (int i=0; i<Strength; ++i) {
-					var tDrop = WaterPool.GetWater ();
+					var tDrop = FirePool.GetWater ();
 					if (tDrop != null) {
 						tDrop.MaxLife = Random.Range (0.8f, 1.2f);
 
 						Vector3 tPosition = transform.position + new Vector3 (Random.Range (-0.1f, 0.1f), Random.Range (-0.1f, 0.1f), 0);
 						tPosition.z = 0;
 						tDrop.transform.position = tPosition;
-						tDrop.transform.SetParent (WaterPool.Instance.transform);
+						tDrop.transform.SetParent (FirePool.Instance.transform);
 
 						float fAngle = Random.Range (-Precision, Precision);
 						Quaternion tNewRot = Quaternion.AngleAxis (fAngle, Vector3.up);

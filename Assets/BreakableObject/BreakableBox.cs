@@ -160,7 +160,7 @@ public class BreakableBox : MonoBehaviour
 			return;
 		if (col.transform.parent == transform.parent)
 			return;
-		var tWater = col.gameObject.GetComponent<WaterController>();
+		var tWater = col.gameObject.GetComponent<FireController>();
 		if (tWater) {
 			Temperature += 5 / transform.localScale.magnitude;
 //			return;
@@ -206,11 +206,11 @@ public class BreakableBox : MonoBehaviour
 		ResetNeighbours();
 		if (Temperature >= Container.MaxHeat/* * 0.25f*/) {
 			for (int i=0; i<Container.FlameSpread; ++i) {
-				var tDrop = WaterPool.GetWater();
+				var tDrop = FirePool.GetWater();
 				if (tDrop != null) {
 					tDrop.transform.position = transform.position + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), 0);
 					tDrop.MaxLife = Random.Range(0.5f, 2.5f);
-					tDrop.transform.SetParent(WaterPool.Instance.transform);
+					tDrop.transform.SetParent(FirePool.Instance.transform);
 					Rigidbody2D tRB = tDrop.RigidBody;
 					tRB.AddRelativeForce(new Vector2(Random.Range(-1 * tRB.mass, 1 * tRB.mass), Random.Range(-1 * tRB.mass, 1 * tRB.mass)), ForceMode2D.Impulse);
 				}		
