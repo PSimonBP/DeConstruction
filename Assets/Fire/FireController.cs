@@ -7,7 +7,6 @@ public class FireController : MonoBehaviour
 	int SplitCount;
 	public float MaxLife { get; set; }
 	public bool Split { get; set; }
-	bool Pooled { get; set; }
 
 	void Start()
 	{
@@ -28,13 +27,10 @@ public class FireController : MonoBehaviour
 		RigidBody = GetComponent<Rigidbody2D>();
 		RigidBody.velocity = Vector2.zero;
 		RigidBody.angularVelocity = 0;
-		Pooled = false;
 	}
 
 	void Update()
 	{
-		if (Pooled)
-			return;
 		Life += Time.deltaTime;
 		if (Split && SplitCount > 0 && Life >= MaxLife / (SplitCount + 1)) {
 			SplitCount--;
@@ -53,7 +49,6 @@ public class FireController : MonoBehaviour
 		} else if (Life >= MaxLife) {
 			RigidBody.velocity = Vector2.zero;
 			RigidBody.angularVelocity = 0;
-			Pooled = true;
 			FirePool.Instance.PoolObject(gameObject);
 		}
 	}

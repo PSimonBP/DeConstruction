@@ -29,7 +29,7 @@ public class Container : MonoBehaviour
 			++iIncreaseCount;
 			GameObject tObj = Instantiate(Prefab);
 			tObj.layer = 10;
-//			tObj.SetActive(false);
+			tObj.SetActive(false);
 			tObj.transform.SetParent(transform);
 			PoolObject(tObj);
 		}
@@ -50,7 +50,7 @@ public class Container : MonoBehaviour
 		m_tPooledObjects.RemoveAt(0);
 		pooledObject.transform.SetParent(null);
 		pooledObject.layer = 0;
-//		pooledObject.SetActive(true);
+		pooledObject.SetActive(true);
 		++m_iUsedObjectCount;
 		m_tActiveObjects.Add(pooledObject);
 		return pooledObject;
@@ -62,7 +62,7 @@ public class Container : MonoBehaviour
 		--m_iUsedObjectCount;
 		tObject.transform.SetParent(transform);
 		tObject.layer = 10;
-//		tObject.SetActive(false);
+		tObject.SetActive(false);
 		m_tPooledObjects.Add(tObject);
 	}
 

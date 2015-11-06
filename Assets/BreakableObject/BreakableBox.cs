@@ -19,18 +19,15 @@ public class BreakableBox : MonoBehaviour
 	public bool Debris { get { return m_tDebris != null; } }
 	public SpriteRenderer Sprite { get; set; }
 	Color OriginalColor;
-	bool Pooled { get; set; }
 
 	public void Update()
 	{
-		if (Pooled || Container == null)
+		if (Debris || Container == null)
 			return;
 
-		if (!Debris && GetSize() == 1 && Container.Childs.Count <= 4) {
-			m_tDebris = gameObject.AddComponent<DebrisController>();
-/*			Detach();
+		if (GetSize() == 1) {
+			Detach();
 			return;
-*/
 		}
 		
 		/*		if (Container.Body.IsSleeping ())
@@ -50,14 +47,7 @@ public class BreakableBox : MonoBehaviour
 			int iSize = GetSize();
 			Size = iSize;
 			if (Temperature >= Container.MaxHeat / iSize) {
-				Temperature = Container.MaxHeat / iSize;
-				if (Container.MaxHeat > 0) {
-					if (iSize == 1) {
-						Detach();
-					} else {
-						Break();
-					}
-				}
+				Break();
 				return;
 			}
 			if (neighbours.Count > 0) {
@@ -79,6 +69,7 @@ public class BreakableBox : MonoBehaviour
 				if (iColderNeighbourCount != 0)
 					Temperature *= 1 - Container.HeatSpread;
 			}
+
 		}
 	}
 
@@ -96,7 +87,6 @@ public class BreakableBox : MonoBehaviour
 
 	public void Init(BreakableContainer tContr, Transform tTransform = null, Vector3 tTranslate = new Vector3())
 	{
-		Pooled = false;
 		Sprite = GetComponent<SpriteRenderer>();
 		OriginalColor = Sprite.color;
 		ResetNeighbours();
@@ -156,19 +146,11 @@ public class BreakableBox : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (Pooled)
+		if (m_tDebris != null || !col.enabled || col.transform.parent == transform.parent)
 			return;
-		if (m_tDebris != null)
-			return;
-		if (!col.enabled)
-			return;
-		if (col.transform.parent == transform.parent)
-			return;
-		var tWater = col.gameObject.GetComponent<FireController>();
-		if (tWater) {
+		var tFire = col.gameObject.GetComponent<FireController>();
+		if (tFire && Container.MaxHeat > 0)
 			Temperature += 5 / transform.localScale.magnitude;
-//			return;
-		}
 
 		float fForce = 0;
 		if (!Container.Body.isKinematic)
@@ -181,20 +163,18 @@ public class BreakableBox : MonoBehaviour
 
 	void OnCollisionStay2D(Collision2D col)
 	{
-		if (Pooled)
+		if (!col.enabled || col.collider.GetType() != typeof(CircleCollider2D))
 			return;
-		if (!col.enabled)
-			return;
-		if (col.collider.GetType() != typeof(CircleCollider2D))
-			return;
-//		var tWater = col.gameObject.GetComponent<WaterController> ();
-//		if (tWater) {
-		Temperature += 5 / transform.localScale.magnitude;
-//		}
+		if (Container.MaxHeat > 0)
+			Temperature += 5 / transform.localScale.magnitude;
 	}
 
 	void Detach()
 	{
+		if (!Debris)
+			m_tDebris = gameObject.AddComponent<DebrisController>();
+		if (Container.Childs.Count == 1)
+			return;
 		for (int i = 0; i < neighbours.Count; i++)
 			neighbours [i].Neighbours.Remove(this);
 		ResetNeighbours();
@@ -208,7 +188,6 @@ public class BreakableBox : MonoBehaviour
 
 	public void Deactivate()
 	{
-		Pooled = true;
 		WaitForUpdate();
 		ResetNeighbours();
 		if (Temperature >= Container.MaxHeat/* * 0.25f*/) {

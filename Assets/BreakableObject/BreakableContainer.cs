@@ -15,7 +15,6 @@ public class BreakableContainer : MonoBehaviour
 	public bool DebugDraw { get; set; }
 	List<BreakableBox> childs = new List<BreakableBox>();
 	public List<BreakableBox> Childs { get { return childs; } }
-	bool Pooled { get; set; }
 
 	bool m_bIntegrityCheck;
 	bool m_bSimplifyCheck;
@@ -109,7 +108,6 @@ public class BreakableContainer : MonoBehaviour
 
 	public void Init()
 	{
-		Pooled = false;
 		childs = new List<BreakableBox>(GetComponentsInChildren<BreakableBox>());
 		Body = gameObject.GetComponent<Rigidbody2D>();
 		Body.velocity = Velocity;
@@ -122,8 +120,6 @@ public class BreakableContainer : MonoBehaviour
 
 	void Update()
 	{
-		if (Pooled)
-			return;
 		if (m_bIntegrityCheck) {
 			CheckIntegrity();
 		} else {
@@ -210,15 +206,12 @@ public class BreakableContainer : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (Pooled)
-			return;
 		Velocity = Body.velocity;
 		AngVelocity = Body.angularVelocity;
 	}
 
 	public void Deactivate()
 	{
-		Pooled = true;
 		if (Body && !Body.isKinematic)
 			Body.velocity = Vector3.zero;
 		for (int i = 0; i < Childs.Count; i++)
