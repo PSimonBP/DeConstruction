@@ -30,7 +30,7 @@ public class BreakableBox : MonoBehaviour
 			return;
 		}
 		
-		/*		if (Container.Body.IsSleeping ())
+/*		if (Container.Body.IsSleeping ())
 			Sprite.color = Color.gray;
 		else
 			Sprite.color = OriginalColor;
@@ -271,15 +271,5 @@ public class BreakableBox : MonoBehaviour
 				tBox.Neighbours.Add(this);
 			}
 		}
-	}
-
-	public void GetConnectedBoxes(List<BreakableBox> tBoxes)
-	{
-		if (tBoxes.Contains(this))
-			return;
-		tBoxes.Add(this);
-		RefreshNeighbours();
-		for (int i = 0; i < Neighbours.Count; i++)
-			Neighbours [i].GetConnectedBoxes(tBoxes);
 	}
 }

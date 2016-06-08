@@ -19,12 +19,7 @@ public class BreakableContainer : MonoBehaviour
 	bool m_bIntegrityCheck;
 	bool m_bSimplifyCheck;
 	float m_fSimplifyTimer;
-//	float m_fIntegrityTimer;
 
-/*	Vector3 m_tPosition = new Vector3();
-	Vector3 m_tRotation = new Vector3();
-	int m_iStayCounter;
-*/
 	public void AddChild(BreakableBox tBox)
 	{
 		if (!Childs.Contains(tBox)) {
@@ -49,6 +44,16 @@ public class BreakableContainer : MonoBehaviour
 		yield return new WaitForFixedUpdate();
 	}
 
+	public void GetConnectedBoxes( BreakableBox tBox, List<BreakableBox> tBoxes)
+	{
+		if (tBoxes.Contains(tBox))
+			return;
+		tBoxes.Add(tBox);
+		tBox.RefreshNeighbours();
+		for (int i = 0; i < tBox.Neighbours.Count; i++)
+			GetConnectedBoxes(tBox.Neighbours [i], tBoxes);
+	}
+
 	public void CheckIntegrity()
 	{
 		m_bIntegrityCheck = false;
@@ -62,28 +67,22 @@ public class BreakableContainer : MonoBehaviour
 		var tConn = new List<BreakableBox>();
 		do {
 			tConn.Clear();
-			childs [0].GetConnectedBoxes(tConn);
+			GetConnectedBoxes(childs [0], tConn);
 			if (tConn.Count < childs.Count) {
 				for (int i=0; i<childs.Count; ++i) {
 					if (!tConn.Contains(childs [i])) {
 						var tDetach = new List<BreakableBox>();
-						childs [i].GetConnectedBoxes(tDetach);
+						GetConnectedBoxes(childs [i], tDetach);
 						if (!DetachBody(tDetach))
 							return;
 						break;
 					}
 				}
-//				Debug.Log("Detach #" + (childs.Count - tConn.Count));
-//				DetachBody(tConn);
 			}
 		} while (tConn.Count < childs.Count);
 		if (Body.isKinematic) {
 			if (Body.mass < 100)
 				Body.isKinematic = false;
-//			bool bKinematic = false;
-//			for (int i=0; i<childs.Count; ++i)
-//				bKinematic |= childs [i].Kinematic;
-//			Body.isKinematic = bKinematic;
 		}
 
 	}
@@ -123,7 +122,6 @@ public class BreakableContainer : MonoBehaviour
 		if (m_bIntegrityCheck) {
 			CheckIntegrity();
 		} else {
-//			m_fIntegrityTimer = 0;
 			if (Time.frameCount % 60 == 0)
 				m_bSimplifyCheck = true;
 			if (m_bSimplifyCheck) {
@@ -154,7 +152,6 @@ public class BreakableContainer : MonoBehaviour
 				tBox.ResetNeighbours();
 				tNeighbour.Deactivate();
 				tBox.RefreshNeighbours();
-//				tBox.Temperature /= 2;
 				return true;
 			}
 			if (Mathf.Abs(tS1.y - tS2.y) <= 0.05f && Mathf.Abs(tP1.y - tP2.y) <= 0.05f) {
@@ -171,7 +168,6 @@ public class BreakableContainer : MonoBehaviour
 	
 	public void SimplifyObject()
 	{
-//		int iBefore = childs.Count;
 		bool bChanged;
 		int iStartIndex = 0;
 		do {
@@ -183,14 +179,9 @@ public class BreakableContainer : MonoBehaviour
 					bChanged = true;
 					break;
 				}
-//				iStartIndex = i;
 			}
 		} while (bChanged);
 		WaitForUpdate();
-/*		int iAfter = childs.Count;
-		if (iBefore > iAfter)
-			Debug.Log("Simplified from " + iBefore + " to " + iAfter + ".");
-*/
 	}
 
 	bool Vec3Cmp(Vector3 v1, Vector3 v2)
