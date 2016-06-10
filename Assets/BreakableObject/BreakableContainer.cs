@@ -16,7 +16,14 @@ public class BreakableContainer : MonoBehaviour
 	List<BreakableBox> childs = new List<BreakableBox>();
 	public List<BreakableBox> Childs { get { return childs; } }
 
-//	public int[,] structure;
+	public struct SBox
+	{
+		public BreakableBox	Box;
+		public float Temperature;
+	};
+	
+	public SBox[,] StructGrid;
+	Bounds bounds = new Bounds();
 
 	bool m_bIntegrityCheck;
 	bool m_bSimplifyCheck;
@@ -107,22 +114,57 @@ public class BreakableContainer : MonoBehaviour
 		Body.mass = fMass * Density;
 	}
 
+	public int BreakCount(float a, float b)
+	{
+		if (b >= a)
+			return 1;
+		return (int)((a - (a % b)) / b) + 1;
+	}
+
 	public void Init()
 	{
 		childs = new List<BreakableBox>(GetComponentsInChildren<BreakableBox>());
-//		Vector2 tBounds = new Vector2 ();
-//		foreach (BreakableBox tBox in childs) {
-//			tBox.transform.localScale.x
-//		}
 		Body = gameObject.GetComponent<Rigidbody2D>();
 		Body.velocity = Velocity;
 		Body.angularVelocity = AngVelocity;
 		m_bIntegrityCheck = true;
 		for (int i = 0; i < childs.Count; i++)
 			childs [i].Init(this);
+		RefreshStructureGrid();
 		UpdateMass();
 	}
 
+	public void RefreshStructureGrid()
+	{
+		bool bFirst = true;
+		foreach (BreakableBox tBox in childs) {
+			if (!bFirst) {
+				bounds.Encapsulate (tBox.Collider.bounds);
+			} else {
+				bounds = tBox.Collider.bounds;
+				bFirst = false;
+			}
+		}
+		int iWidth = BreakCount (bounds.size.x, BoxPool.DebrisSize);
+		int iHeight = BreakCount (bounds.size.y, BoxPool.DebrisSize);
+		StructGrid = new SBox[iWidth, iHeight];
+		Vector3 tTopLeft = bounds.center - bounds.extents;
+		tTopLeft.x += BoxPool.DebrisSize / 2;
+		tTopLeft.y += BoxPool.DebrisSize / 2;
+		for (int x=0; x<iWidth; ++x)
+			for (int y=0; y<iHeight; ++y) {
+				StructGrid[x, y].Box = null;
+				StructGrid[x, y].Temperature = 0;
+				foreach (BreakableBox tBox in childs) {
+					if (tBox.Collider.bounds.Contains(new Vector3(tTopLeft.x + (x * BoxPool.DebrisSize), tTopLeft.y + (y * BoxPool.DebrisSize)))) {
+						StructGrid[x, y].Box = tBox;
+						Debug.Log(tBox);
+						break;
+					}
+				}
+			}
+	}
+	
 	void Update()
 	{
 		if (m_bIntegrityCheck) {

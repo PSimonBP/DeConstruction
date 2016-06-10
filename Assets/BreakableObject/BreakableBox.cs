@@ -5,12 +5,11 @@ using UnityEngine;
 public class BreakableBox : MonoBehaviour
 {
 	public BreakableContainer Container { get; set; }
-	protected BoxCollider2D Collider;
+	public BoxCollider2D Collider;
 	List<BreakableBox> neighbours = new List<BreakableBox>();
 	public List<BreakableBox> Neighbours { get { return neighbours; } set { neighbours = value; } }
 	public bool NeedRefreshNeighbours { get; set; }
 	public float Temperature;
-	public int Size;
 
 	float fTempChange;
 	public bool Kinematic { get; set; }
@@ -19,13 +18,18 @@ public class BreakableBox : MonoBehaviour
 	public bool Debris { get { return m_tDebris != null; } }
 	public SpriteRenderer Sprite { get; set; }
 	Color OriginalColor;
+	
+	public int Width { get { return Container.BreakCount(transform.localScale.x, BoxPool.DebrisSize); } }
+	public int Height { get { return Container.BreakCount(transform.localScale.y, BoxPool.DebrisSize); } }
+	public int Size	{ get { return Width * Height; } }
+
 
 	public void Update()
 	{
 		if (Debris || Container == null)
 			return;
 
-		if (GetSize() == 1) {
+		if (Size == 1) {
 			Detach();
 			return;
 		}
@@ -44,8 +48,7 @@ public class BreakableBox : MonoBehaviour
 		else {
 			Temperature *= 0.99999f;
 
-			int iSize = GetSize();
-			Size = iSize;
+			int iSize = Size;
 			if (Temperature >= Container.MaxHeat / iSize) {
 				Break();
 				return;
@@ -55,13 +58,13 @@ public class BreakableBox : MonoBehaviour
 				int iColderNeighbourCount = 0;
 				for (int i=0; i<neighbours.Count; ++i) {
 					if (neighbours [i].Temperature < Temperature) {
-						fSumSize += neighbours [i].GetSize();
+						fSumSize += neighbours [i].Size;
 						iColderNeighbourCount++;
 					}
 				}
 				for (int i=0; i<neighbours.Count; ++i) {
 					if (neighbours [i].Temperature < Temperature) {
-						float fNewTemp = neighbours [i].Temperature + (Temperature - neighbours [i].Temperature) * (neighbours [i].GetSize() / fSumSize) * Container.HeatSpread;
+						float fNewTemp = neighbours [i].Temperature + (Temperature - neighbours [i].Temperature) * (neighbours [i].Size / fSumSize) * Container.HeatSpread;
 						if (fNewTemp < Container.MaxHeat * 0.5f)
 							neighbours [i].Temperature = fNewTemp;
 					}
@@ -71,18 +74,6 @@ public class BreakableBox : MonoBehaviour
 			}
 
 		}
-	}
-
-	int BreakCount(float a, float b)
-	{
-		if (b >= a)
-			return 1;
-		return (int)((a - (a % b)) / b) + 1;
-	}
-
-	public int GetSize()
-	{
-		return BreakCount(transform.localScale.x, BoxPool.DebrisSize) * BreakCount(transform.localScale.y, BoxPool.DebrisSize);
 	}
 
 	public void Init(BreakableContainer tContr, Transform tTransform = null, Vector3 tTranslate = new Vector3())
@@ -128,13 +119,13 @@ public class BreakableBox : MonoBehaviour
 							tContr.Init(Container, transform, -(new Vector3(x * transform.localScale.x, y * transform.localScale.y, 0)));
 							tContr.Sprite.color = Sprite.color;
 							tContr.OriginalColor = OriginalColor;
-							if (bRecursive && GetSize() > 1 && tContr.Collider == Physics2D.OverlapPoint(tCollisionPoint))
+							if (bRecursive && Size > 1 && tContr.Collider == Physics2D.OverlapPoint(tCollisionPoint))
 								tContr.Break(tCollisionPoint, bRecursive);
 						}
 					}
 				}
 			}
-			if (bRecursive && GetSize() > 1 && Collider == Physics2D.OverlapPoint(tCollisionPoint))
+			if (bRecursive && Size > 1 && Collider == Physics2D.OverlapPoint(tCollisionPoint))
 				Break(tCollisionPoint, bRecursive);
 		}
 	}
@@ -240,6 +231,7 @@ public class BreakableBox : MonoBehaviour
 
 	void FindNeighbours(List<BreakableBox> tBoxes)
 	{
+		return;
 		float fGap = BoxPool.DebrisSize / 8;
 		var tStart = new Vector2(transform.position.x, transform.position.y);
 		Vector2 tDir = transform.TransformDirection(new Vector3(0, (transform.localScale.y / 2) + fGap, 0));
