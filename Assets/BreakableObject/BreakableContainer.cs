@@ -16,6 +16,8 @@ public class BreakableContainer : MonoBehaviour
 	List<BreakableBox> childs = new List<BreakableBox>();
 	public List<BreakableBox> Childs { get { return childs; } }
 
+//	public int[,] structure;
+
 	bool m_bIntegrityCheck;
 	bool m_bSimplifyCheck;
 	float m_fSimplifyTimer;
@@ -108,6 +110,10 @@ public class BreakableContainer : MonoBehaviour
 	public void Init()
 	{
 		childs = new List<BreakableBox>(GetComponentsInChildren<BreakableBox>());
+//		Vector2 tBounds = new Vector2 ();
+//		foreach (BreakableBox tBox in childs) {
+//			tBox.transform.localScale.x
+//		}
 		Body = gameObject.GetComponent<Rigidbody2D>();
 		Body.velocity = Velocity;
 		Body.angularVelocity = AngVelocity;

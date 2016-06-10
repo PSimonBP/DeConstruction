@@ -138,12 +138,7 @@ public class BreakableBox : MonoBehaviour
 				Break(tCollisionPoint, bRecursive);
 		}
 	}
-
-	int GetFractureCount()
-	{
-		return (int)(((transform.localScale.x / BoxPool.DebrisSize)) * (transform.localScale.y / BoxPool.DebrisSize));
-	}
-
+		
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if (m_tDebris != null || !col.enabled || col.transform.parent == transform.parent)
