@@ -158,7 +158,7 @@ public class BreakableContainer : MonoBehaviour
 				foreach (BreakableBox tBox in childs) {
 					if (tBox.Collider.bounds.Contains(new Vector3(tTopLeft.x + (x * BoxPool.DebrisSize), tTopLeft.y + (y * BoxPool.DebrisSize)))) {
 						StructGrid[x, y].Box = tBox;
-						Debug.Log(tBox);
+//						Debug.Log(tBox);
 						break;
 					}
 				}
