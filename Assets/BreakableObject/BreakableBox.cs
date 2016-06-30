@@ -196,27 +196,6 @@ public class BreakableBox : MonoBehaviour
 		Container.RemoveChild(this);
 		BoxPool.PoolBox(gameObject);
 	}
-	
-	List<BreakableBox> CheckRay(Vector2 tStart, Vector2 tDir, List<BreakableBox> tBoxes)
-	{
-		tDir = new Vector2((BoxPool.DebrisSize / 4) * tDir.x,
-		                   (BoxPool.DebrisSize / 4) * tDir.y);
-		tDir = transform.TransformDirection(tDir);
-//		Debug.DrawRay(tStart, tDir, Color.yellow);
-//		Debug.Break();
-		LayerMask tMask = ~0;
-		RaycastHit2D tHit = Physics2D.Raycast(tStart, tDir, Mathf.Epsilon, tMask);
-		if (tHit.collider != null && tHit.collider != Collider) {
-			BreakableBox tBox = tHit.collider.gameObject.GetComponent<BreakableBox>();
-			if (tBox) {
-				if (tBox.Container == Container && !tBoxes.Contains(tBox))
-					tBoxes.Add(tBox);
-			} else if (tHit.rigidbody == null || tHit.rigidbody.isKinematic) {
-				Kinematic = true;
-			}
-		}
-		return tBoxes;
-	}
 
 	public void ResetNeighbours()
 	{
@@ -231,17 +210,26 @@ public class BreakableBox : MonoBehaviour
 
 	void FindNeighbours(List<BreakableBox> tBoxes)
 	{
-		return;
-		float fGap = BoxPool.DebrisSize / 8;
-		var tStart = new Vector2(transform.position.x, transform.position.y);
-		Vector2 tDir = transform.TransformDirection(new Vector3(0, (transform.localScale.y / 2) + fGap, 0));
-		CheckRay(tStart + tDir, Vector2.up, tBoxes);
-		tDir = transform.TransformDirection(new Vector3(0, (-transform.localScale.y / 2) - fGap, 0));
-		CheckRay(tStart + tDir, Vector2.down, tBoxes);
-		tDir = transform.TransformDirection(new Vector3((-transform.localScale.x / 2) - fGap, 0, 0));
-		CheckRay(tStart + tDir, Vector2.left, tBoxes);
-		tDir = transform.TransformDirection(new Vector3((transform.localScale.x / 2) + fGap, 0, 0));
-		CheckRay(tStart + tDir, Vector2.right, tBoxes);
+		int iWidth = Container.BreakCount (Container.bounds.size.x, BoxPool.DebrisSize);
+		int iHeight = Container.BreakCount (Container.bounds.size.y, BoxPool.DebrisSize);
+		for (int x = 0; x < iWidth; ++x)
+			for (int y = 0; y < iHeight; ++y) {
+				if (Container.StructGrid [x, y].Box == this) {
+					if(y>0) {
+						if (x > 0 && Container.StructGrid [x-1, y-1].Box != this && !tBoxes.Contains(Container.StructGrid[x-1, y-1].Box))	tBoxes.Add(Container.StructGrid[x-1, y-1].Box);
+						if (Container.StructGrid [x, y-1].Box != this && !tBoxes.Contains(Container.StructGrid[x, y-1].Box))	tBoxes.Add(Container.StructGrid[x, y-1].Box);
+						if (x < iWidth-1 && Container.StructGrid [x+1, y-1].Box != this && !tBoxes.Contains(Container.StructGrid[x+1, y-1].Box))	tBoxes.Add(Container.StructGrid[x+1, y-1].Box);
+					}
+					if (x > 0 && Container.StructGrid [x-1, y].Box != this && !tBoxes.Contains(Container.StructGrid[x-1, y].Box))	tBoxes.Add(Container.StructGrid[x-1, y].Box);
+					if (Container.StructGrid [x, y].Box != this && !tBoxes.Contains(Container.StructGrid[x, y].Box))	tBoxes.Add(Container.StructGrid[x, y].Box);
+					if (x < iWidth-1 && Container.StructGrid [x+1, y].Box != this && !tBoxes.Contains(Container.StructGrid[x+1, y].Box))	tBoxes.Add(Container.StructGrid[x+1, y].Box);
+					if(y<iHeight - 1) {
+						if (x > 0 && Container.StructGrid [x-1, y+1].Box != this && !tBoxes.Contains(Container.StructGrid[x-1, y+1].Box))	tBoxes.Add(Container.StructGrid[x-1, y+1].Box);
+						if (Container.StructGrid [x, y+1].Box != this && !tBoxes.Contains(Container.StructGrid[x, y+1].Box))	tBoxes.Add(Container.StructGrid[x, y+1].Box);
+						if (x < iWidth-1 && Container.StructGrid [x+1, y+1].Box != this && !tBoxes.Contains(Container.StructGrid[x+1, y+1].Box))	tBoxes.Add(Container.StructGrid[x+1, y+1].Box);
+					}
+				}
+			}			
 	}
 
 	public void RefreshNeighbours()

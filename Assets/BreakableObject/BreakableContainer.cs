@@ -23,7 +23,7 @@ public class BreakableContainer : MonoBehaviour
 	};
 	
 	public SBox[,] StructGrid;
-	Bounds bounds = new Bounds();
+	public Bounds bounds = new Bounds();
 
 	bool m_bIntegrityCheck;
 	bool m_bSimplifyCheck;
@@ -35,11 +35,30 @@ public class BreakableContainer : MonoBehaviour
 			Childs.Add(tBox);
 			tBox.transform.SetParent(transform);
 			m_bSimplifyCheck = true;
+
+			int iWidth = BreakCount (bounds.size.x, BoxPool.DebrisSize);
+			int iHeight = BreakCount (bounds.size.y, BoxPool.DebrisSize);
+			Vector3 tTopLeft = bounds.center - bounds.extents;
+			tTopLeft.x += BoxPool.DebrisSize / 2;
+			tTopLeft.y += BoxPool.DebrisSize / 2;
+			for (int x = 0; x < iWidth; ++x)
+				for (int y = 0; y < iHeight; ++y) {
+					if (tBox.Collider.bounds.Contains (new Vector3 (tTopLeft.x + (x * BoxPool.DebrisSize), tTopLeft.y + (y * BoxPool.DebrisSize)))) {
+						StructGrid [x, y].Box = tBox;
+					}
+				}		
 		}
 	}
 	public void RemoveChild(BreakableBox tBox)
 	{
 		childs.Remove(tBox);
+		int iWidth = BreakCount (bounds.size.x, BoxPool.DebrisSize);
+		int iHeight = BreakCount (bounds.size.y, BoxPool.DebrisSize);
+		for (int x = 0; x < iWidth; ++x)
+			for (int y = 0; y < iHeight; ++y) {
+				if (StructGrid [x, y].Box == tBox)
+					StructGrid [x, y].Box = null;
+			}		
 		if (childs.Count == 0)
 			Deactivate();
 		else if (childs.Count > 1) {
@@ -89,11 +108,8 @@ public class BreakableContainer : MonoBehaviour
 				}
 			}
 		} while (tConn.Count < childs.Count);
-		if (Body.isKinematic) {
-			if (Body.mass < 100)
-				Body.isKinematic = false;
-		}
-
+		if (Body.isKinematic && Body.mass < 100)
+			Body.isKinematic = false;
 	}
 
 	void Start()
@@ -130,11 +146,11 @@ public class BreakableContainer : MonoBehaviour
 		m_bIntegrityCheck = true;
 		for (int i = 0; i < childs.Count; i++)
 			childs [i].Init(this);
-		RefreshStructureGrid();
+		InitStructureGrid();
 		UpdateMass();
 	}
 
-	public void RefreshStructureGrid()
+	public void InitStructureGrid()
 	{
 		bool bFirst = true;
 		foreach (BreakableBox tBox in childs) {
@@ -158,7 +174,6 @@ public class BreakableContainer : MonoBehaviour
 				foreach (BreakableBox tBox in childs) {
 					if (tBox.Collider.bounds.Contains(new Vector3(tTopLeft.x + (x * BoxPool.DebrisSize), tTopLeft.y + (y * BoxPool.DebrisSize)))) {
 						StructGrid[x, y].Box = tBox;
-//						Debug.Log(tBox);
 						break;
 					}
 				}
