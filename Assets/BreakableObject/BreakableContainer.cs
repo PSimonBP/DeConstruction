@@ -43,7 +43,8 @@ public class BreakableContainer : MonoBehaviour
 			tTopLeft.y += BoxPool.DebrisSize / 2;
 			for (int x = 0; x < iWidth; ++x)
 				for (int y = 0; y < iHeight; ++y) {
-					if (tBox.Collider.bounds.Contains (new Vector3 (tTopLeft.x + (x * BoxPool.DebrisSize), tTopLeft.y + (y * BoxPool.DebrisSize)))) {
+					if (tBox.Collider.bounds.Contains (transform.localToWorldMatrix.MultiplyPoint(new Vector3 (tTopLeft.x + (x * BoxPool.DebrisSize), tTopLeft.y + (y * BoxPool.DebrisSize))))) {
+						Debug.Log (x + ", " + y);
 						StructGrid [x, y].Box = tBox;
 					}
 				}		

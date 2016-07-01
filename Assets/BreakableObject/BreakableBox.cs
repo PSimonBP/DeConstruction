@@ -208,6 +208,14 @@ public class BreakableBox : MonoBehaviour
 		NeedRefreshNeighbours = true;
 	}
 
+	void AddNeighbor(List<BreakableBox> tBoxes, BreakableBox tBox)
+	{
+		if (tBox != null && tBox != this && !tBoxes.Contains (tBox)) {
+			Debug.Log (tBox);
+			tBoxes.Add (tBox);
+		}
+	}
+
 	void FindNeighbours(List<BreakableBox> tBoxes)
 	{
 		int iWidth = Container.BreakCount (Container.bounds.size.x, BoxPool.DebrisSize);
@@ -216,20 +224,20 @@ public class BreakableBox : MonoBehaviour
 			for (int y = 0; y < iHeight; ++y) {
 				if (Container.StructGrid [x, y].Box == this) {
 					if(y>0) {
-						if (x > 0 && Container.StructGrid [x-1, y-1].Box != this && !tBoxes.Contains(Container.StructGrid[x-1, y-1].Box))	tBoxes.Add(Container.StructGrid[x-1, y-1].Box);
-						if (Container.StructGrid [x, y-1].Box != this && !tBoxes.Contains(Container.StructGrid[x, y-1].Box))	tBoxes.Add(Container.StructGrid[x, y-1].Box);
-						if (x < iWidth-1 && Container.StructGrid [x+1, y-1].Box != this && !tBoxes.Contains(Container.StructGrid[x+1, y-1].Box))	tBoxes.Add(Container.StructGrid[x+1, y-1].Box);
+						if (x > 0)			AddNeighbor(tBoxes, Container.StructGrid [x-1, y-1].Box);
+						AddNeighbor (tBoxes, Container.StructGrid [x, y - 1].Box);
+						if (x < iWidth - 1)	AddNeighbor (tBoxes, Container.StructGrid [x + 1, y - 1].Box);
 					}
-					if (x > 0 && Container.StructGrid [x-1, y].Box != this && !tBoxes.Contains(Container.StructGrid[x-1, y].Box))	tBoxes.Add(Container.StructGrid[x-1, y].Box);
-					if (Container.StructGrid [x, y].Box != this && !tBoxes.Contains(Container.StructGrid[x, y].Box))	tBoxes.Add(Container.StructGrid[x, y].Box);
-					if (x < iWidth-1 && Container.StructGrid [x+1, y].Box != this && !tBoxes.Contains(Container.StructGrid[x+1, y].Box))	tBoxes.Add(Container.StructGrid[x+1, y].Box);
+					if (x > 0)				AddNeighbor (tBoxes, Container.StructGrid [x - 1, y].Box);
+					AddNeighbor (tBoxes, Container.StructGrid [x, y].Box);
+					if (x < iWidth - 1)		AddNeighbor (tBoxes, Container.StructGrid [x + 1, y].Box);
 					if(y<iHeight - 1) {
-						if (x > 0 && Container.StructGrid [x-1, y+1].Box != this && !tBoxes.Contains(Container.StructGrid[x-1, y+1].Box))	tBoxes.Add(Container.StructGrid[x-1, y+1].Box);
-						if (Container.StructGrid [x, y+1].Box != this && !tBoxes.Contains(Container.StructGrid[x, y+1].Box))	tBoxes.Add(Container.StructGrid[x, y+1].Box);
-						if (x < iWidth-1 && Container.StructGrid [x+1, y+1].Box != this && !tBoxes.Contains(Container.StructGrid[x+1, y+1].Box))	tBoxes.Add(Container.StructGrid[x+1, y+1].Box);
+						if (x > 0)			AddNeighbor (tBoxes, Container.StructGrid [x - 1, y + 1].Box);
+						AddNeighbor (tBoxes, Container.StructGrid [x, y + 1].Box);
+						if (x < iWidth - 1)	AddNeighbor (tBoxes, Container.StructGrid [x + 1, y + 1].Box);
 					}
 				}
-			}			
+			}
 	}
 
 	public void RefreshNeighbours()
