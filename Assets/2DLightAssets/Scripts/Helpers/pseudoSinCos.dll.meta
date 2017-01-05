@@ -5,6 +5,10 @@ PluginImporter:
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
+<<<<<<< Updated upstream
+=======
+  isOverridable: 0
+>>>>>>> Stashed changes
   platformData:
     Any:
       enabled: 1
